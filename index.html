@@ -104,82 +104,6 @@
         </div>
     </section>
 
-    <!-- حاسبة السعرات الحرارية التفاعلية (Calorie Calculator) -->
-    <section class="border-t border-zinc-900 bg-zinc-900/30 py-24">
-        <div class="max-w-2xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <span class="text-whatsapp text-xs font-bold uppercase tracking-wider mb-2 block" data-i18n="calc_badge">أداة مجانية</span>
-                <h2 class="text-3xl font-black mb-3" data-i18n="calc_title">حاسبة السعرات الحرارية (TDEE)</h2>
-                <p class="text-zinc-400 text-sm" data-i18n="calc_sub">احسب سعراتك اليومية واعرف كم تحتاج لتخسيس الوزن أو بناء العضلات</p>
-            </div>
-
-            <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-8 rounded-3xl shadow-xl">
-                <form id="calorieForm" onsubmit="calculateCalories(event)" class="space-y-5">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_gender">الجنس</label>
-                            <select id="gender" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
-                                <option value="male" data-i18n="calc_male">ذكر</option>
-                                <option value="female" data-i18n="calc_female">أنثى</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_age">العمر (سنوات)</label>
-                            <input type="number" id="age" required placeholder="25" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_weight">الوزن (كغ)</label>
-                            <input type="number" id="weight" required placeholder="75" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_height">الطول (سم)</label>
-                            <input type="number" id="height" required placeholder="175" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_activity">مستوى النشاط البدني</label>
-                        <select id="activity" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
-                            <option value="1.2" data-i18n="act_1">قليل الحركة (لا توجد تمارين تقريباً)</option>
-                            <option value="1.375" data-i18n="act_2">خفيف الحركة (تمرين خفيف 1-3 أيام بالأسبوع)</option>
-                            <option value="1.55" data-i18n="act_3">متوسط الحركة (تمرين متوسط 3-5 أيام بالأسبوع)</option>
-                            <option value="1.725" data-i18n="act_4">نشيط جداً (تمرين مكثف 6-7 أيام بالأسبوع)</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="w-full bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-extrabold py-3.5 rounded-xl transition duration-300 text-sm shadow-lg shadow-whatsapp/15 cursor-pointer" data-i18n="calc_btn">
-                        احسب سعراتي الآن
-                    </button>
-                </form>
-
-                <!-- نتيجة الحاسبة (مخفية بالبداية) -->
-                <div id="calcResult" class="hidden mt-8 pt-6 border-t border-zinc-800 text-center">
-                    <h3 class="font-bold text-lg mb-4 text-whatsapp" data-i18n="res_title">نتيجتك التقديرية اليومية:</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-                        <div class="bg-zinc-950/60 p-3 rounded-xl border border-zinc-800">
-                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_maintain">سعرات الثبات</div>
-                            <div id="resMaintain" class="text-lg font-black text-zinc-100">0</div>
-                        </div>
-                        <div class="bg-zinc-950/60 p-3 rounded-xl border border-zinc-800">
-                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_cut">التنشيف (خسارة وزن)</div>
-                            <div id="resCut" class="text-lg font-black text-whatsapp">0</div>
-                        </div>
-                        <div class="bg-zinc-950/60 p-3 rounded-xl border border-zinc-800">
-                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_bulk">الضخامة (بناء عضلات)</div>
-                            <div id="resBulk" class="text-lg font-black text-whatsapp">0</div>
-                        </div>
-                    </div>
-                    <a id="waResultBtn" href="#" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-xs sm:text-sm block border border-zinc-700 text-center" data-i18n="res_wa">
-                        أرسل نتيجتي للكابتن أنس وابدأ خطتك 🟢
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- لماذا تختار الكابتن أنس؟ -->
     <section class="border-t border-zinc-900 bg-zinc-900/40 py-24">
         <div class="max-w-6xl mx-auto px-4">
@@ -315,6 +239,82 @@
                 <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
                     <h3 class="font-bold text-lg mb-2" data-i18n="faq3_q">هل النظام الغذائي يحرمنا من الأكل المعتاد؟</h3>
                     <p class="text-zinc-400 text-sm leading-relaxed" data-i18n="faq3_a">أبداً، نعتمد على نظام مرن (Flexible Diet) يناسب يومك ويهدف للاستمرارية بدون قيود معقدة أو حرمان قاسي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- حاسبة السعرات الحرارية التفاعلية (Calorie Calculator) - تحت الأسئلة الشائعة -->
+    <section class="border-t border-zinc-900 bg-zinc-900/30 py-24">
+        <div class="max-w-2xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-whatsapp text-xs font-bold uppercase tracking-wider mb-2 block" data-i18n="calc_badge">أداة مجانية</span>
+                <h2 class="text-3xl font-black mb-3" data-i18n="calc_title">حاسبة السعرات الحرارية (TDEE)</h2>
+                <p class="text-zinc-400 text-sm" data-i18n="calc_sub">احسب سعراتك اليومية واعرف كم تحتاج لتخسيس الوزن أو بناء العضلات</p>
+            </div>
+
+            <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-8 rounded-3xl shadow-xl">
+                <form id="calorieForm" onsubmit="calculateCalories(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_gender">الجنس</label>
+                            <select id="gender" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
+                                <option value="male" data-i18n="calc_male">ذكر</option>
+                                <option value="female" data-i18n="calc_female">أنثى</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_age">العمر (سنوات)</label>
+                            <input type="number" id="age" required placeholder="25" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_weight">الوزن (كغ)</label>
+                            <input type="number" id="weight" required placeholder="75" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_height">الطول (سم)</label>
+                            <input type="number" id="height" required placeholder="175" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_activity">مستوى النشاط البدني</label>
+                        <select id="activity" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
+                            <option value="1.2" data-i18n="act_1">قليل الحركة (لا توجد تمارين تقريباً)</option>
+                            <option value="1.375" data-i18n="act_2">خفيف الحركة (تمرين خفيف 1-3 أيام بالأسبوع)</option>
+                            <option value="1.55" data-i18n="act_3">متوسط الحركة (تمرين متوسط 3-5 أيام بالأسبوع)</option>
+                            <option value="1.725" data-i18n="act_4">نشيط جداً (تمرين مكثف 6-7 أيام بالأسبوع)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-extrabold py-3.5 rounded-xl transition duration-300 text-sm shadow-lg shadow-whatsapp/15 cursor-pointer" data-i18n="calc_btn">
+                        احسب سعراتي الآن
+                    </button>
+                </form>
+
+                <!-- نتيجة الحاسبة (مخفية بالبداية) -->
+                <div id="calcResult" class="hidden mt-8 pt-6 border-t border-zinc-800 text-center">
+                    <h3 class="font-bold text-lg mb-4 text-whatsapp" data-i18n="res_title">نتيجتك التقديرية اليومية:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                        <div class="bg-zinc-950/60 p-3 rounded-xl border border-zinc-800">
+                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_maintain">سعرات الثبات</div>
+                            <div id="resMaintain" class="text-lg font-black text-zinc-100">0</div>
+                        </div>
+                        <div class="bg-zinc-950/60 p-3 rounded-xl border border-zinc-800">
+                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_cut">التنشيف (خسارة وزن)</div>
+                            <div id="resCut" class="text-lg font-black text-whatsapp">0</div>
+                        </div>
+                        <div class="bg-zinc-950/60 p-3 rounded-xl border border-zinc-800">
+                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_bulk">الضخامة (بناء عضلات)</div>
+                            <div id="resBulk" class="text-lg font-black text-whatsapp">0</div>
+                        </div>
+                    </div>
+                    <a id="waResultBtn" href="#" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-xs sm:text-sm block border border-zinc-700 text-center" data-i18n="res_wa">
+                        أرسل نتيجتي للكابتن أنس وابدأ خطتك 🟢
+                    </a>
                 </div>
             </div>
         </div>
@@ -601,7 +601,7 @@
                 p3_desc: "Gerçek fiziksel dönüşümü garanti eden eksiksiz koçluk.",
                 p3_li1: "%100 Özel Antrenman ve Beslenme",
                 p3_li2: "Haftalık takip ve güncellemeler",
-                p3_li3: "Doğrudan ve kesintisiz WhatsApp desteği",
+                p3_li3: "Doğrudان ve kesintisiz WhatsApp desteği",
                 p3_btn: "Kapsamlı Paketi Seç",
 
                 p4_badge: "Dönüşüm Meydan Okuması",
