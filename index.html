@@ -22,6 +22,20 @@
         body {
             font-family: 'Tajawal', sans-serif;
         }
+        .packages-slider::-webkit-scrollbar {
+            display: none;
+        }
+        .packages-slider {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes bounce-horizontal {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-6px); }
+        }
+        .animate-swipe-hint {
+            animation: bounce-horizontal 1.5s infinite;
+        }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-whatsapp selection:text-zinc-950 overflow-x-hidden">
@@ -97,7 +111,6 @@
         </div>
     </section>
 
-    <!-- قسم لماذا تختارنا: شبكة متناسقة وصغيرة تشبه الكمبيوتر تماماً (2 أعمدة للموبايل و4 للكمبيوتر) -->
     <section class="border-t border-zinc-900 bg-zinc-900/40 py-16 sm:py-24">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-12 sm:mb-16">
@@ -105,113 +118,113 @@
                 <p class="text-zinc-400 text-sm sm:text-base" data-i18n="features_sub">منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة</p>
             </div>
             
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-4 sm:p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-base sm:text-xl mb-3">🎯</div>
-                        <h3 class="font-bold text-sm sm:text-lg mb-1 sm:mb-2" data-i18n="f1_title">خطط مخصصة 100%</h3>
-                    </div>
-                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f1_desc">لا توجد برامج جاهزة؛ كل خطوة تُبنى بناءً على وزنك، طولك، وهدفك الشخصي.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">🎯</div>
+                    <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f1_title">خطط مخصصة 100%</h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f1_desc">لا توجد برامج جاهزة؛ كل خطوة تُبنى بناءً على وزنك، طولك، وهدفك الشخصي.</p>
                 </div>
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-4 sm:p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-base sm:text-xl mb-3">🥗</div>
-                        <h3 class="font-bold text-sm sm:text-lg mb-1 sm:mb-2" data-i18n="f2_title">مرونة في التغذية</h3>
-                    </div>
-                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f2_desc">استمتع بأكل تحبه مع حساب السعرات والميكروز بدقة، وبدون حرمان قاسي.</p>
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">🥗</div>
+                    <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f2_title">مرونة في التغذية</h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f2_desc">استمتع بأكل تحبه مع حساب السعرات والميكروز بدقة، وبدون حرمان قاسي.</p>
                 </div>
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-4 sm:p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-base sm:text-xl mb-3">📈</div>
-                        <h3 class="font-bold text-sm sm:text-lg mb-1 sm:mb-2" data-i18n="f3_title">متابعة مستمرة</h3>
-                    </div>
-                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f3_desc">تعديلات دورية على الجداول بناءً على استجابة جسمك وتقاريرك الأسبوعية.</p>
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">📈</div>
+                    <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f3_title">متابعة مستمرة</h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f3_desc">تعديلات دورية على الجداول بناءً على استجابة جسمك وتقاريرك الأسبوعية.</p>
                 </div>
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-4 sm:p-6 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-base sm:text-xl mb-3">⏱️</div>
-                        <h3 class="font-bold text-sm sm:text-lg mb-1 sm:mb-2" data-i18n="f4_title">توفير الوقت والجهد</h3>
-                    </div>
-                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f4_desc">تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.</p>
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">⏱️</div>
+                    <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f4_title">توفير الوقت والجهد</h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f4_desc">تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم الباقات: شبكة متناسقة (2 أعمدة للموبايل و4 للكمبيوتر) مطابقة تماماً لشكل الكمبيوتر -->
+    <!-- قسم الباقات: سلايدر أفقي احترافي للموبايل يظهر حافة الباقة التالية مع أسهم إرشادية -->
     <section class="py-16 sm:py-24 border-t border-zinc-900">
         <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-12 sm:mb-16">
+            <div class="text-center mb-10 sm:mb-16">
                 <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="packages_heading">الباقات والخدمات</h2>
-                <p class="text-zinc-400 text-sm sm:text-base" data-i18n="packages_sub">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
+                <p class="text-zinc-400 text-sm sm:text-base mb-4" data-i18n="packages_sub">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
+                
+                <!-- مؤشر السحب للموبايل (يظهر فقط على الموبايل لتوجيه المستخدم) -->
+                <div class="flex sm:hidden items-center justify-center gap-2 text-whatsapp text-xs font-bold bg-whatsapp/10 border border-whatsapp/20 py-2 px-4 rounded-full max-w-[200px] mx-auto">
+                    <span class="animate-swipe-hint">←</span>
+                    <span data-i18n="swipe_hint">اسحب لرؤية باقي الباقات</span>
+                    <span class="animate-swipe-hint">→</span>
+                </div>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
+            <!-- حاوية الباقات: سلايدر أفقي للموبايل يظهر البطاقة الحالية وجزء من البطاقة التالية، وشبكة كاملة للكمبيوتر -->
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible packages-slider pb-6 sm:pb-0 px-4 sm:px-0 snap-x snap-mandatory">
                 
                 <!-- باقة 1 -->
-                <div class="bg-zinc-900 border border-zinc-800 p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col justify-between">
+                <div class="min-w-[82%] sm:min-w-0 bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0">
                     <div>
-                        <span class="text-zinc-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider" data-i18n="p1_badge">تغذية فقط</span>
-                        <h3 class="text-sm sm:text-xl font-black mt-1 sm:mt-2 mb-2 sm:mb-3" data-i18n="p1_title">باقة النظام الغذائي</h3>
-                        <p class="text-zinc-400 text-[11px] sm:text-xs mb-4 sm:mb-6" data-i18n="p1_desc">مخصصة لمن يمتلكون جدول تمرين ويحتاجون لتنظيم السعرات والأكل.</p>
-                        <ul class="space-y-2 text-[11px] sm:text-xs text-zinc-300 mb-4 sm:mb-6">
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p1_li1">خطة غذائية محسوبة بدقة</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p1_li2">قائمة بدائل الأطعمة المفضلة</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p1_li3">تعديلات أسبوعية مستمرة</span></li>
+                        <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p1_badge">تغذية فقط</span>
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p1_title">باقة النظام الغذائي</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p1_desc">مخصصة لمن يمتلكون جدول تمرين ويحتاجون لتنظيم السعرات والأكل.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p1_li1">خطة غذائية محسوبة بدقة</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p1_li2">قائمة بدائل الأطعمة المفضلة</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p1_li3">تعديلات أسبوعية مستمرة</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20النظام%20الغذائي" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-2.5 sm:py-3 rounded-xl transition duration-300 text-center block border border-zinc-700 text-xs sm:text-sm" data-i18n="p1_btn">
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20النظام%20الغذائي" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-center block border border-zinc-700 text-sm" data-i18n="p1_btn">
                         اختر التغذية
                     </a>
                 </div>
 
                 <!-- باقة 2 -->
-                <div class="bg-zinc-900 border border-zinc-800 p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col justify-between">
+                <div class="min-w-[82%] sm:min-w-0 bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0">
                     <div>
-                        <span class="text-zinc-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider" data-i18n="p2_badge">تمرين فقط</span>
-                        <h3 class="text-sm sm:text-xl font-black mt-1 sm:mt-2 mb-2 sm:mb-3" data-i18n="p2_title">باقة الجدول التدريبي</h3>
-                        <p class="text-zinc-400 text-[11px] sm:text-xs mb-4 sm:mb-6" data-i18n="p2_desc">مصممة لمن يتابعون نظامهم الغذائي ويحتاجون لجدول تمرين احترافي.</p>
-                        <ul class="space-y-2 text-[11px] sm:text-xs text-zinc-300 mb-4 sm:mb-6">
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p2_li1">جدول تمرين (جيم أو منزل)</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p2_li2">تحديد الأوزان والتكرارات بدقة</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p2_li3">تطوير الأداء وكسر الثبات</span></li>
+                        <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p2_badge">تمرين فقط</span>
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p2_title">باقة الجدول التدريبي</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p2_desc">مصممة لمن يتابعون نظامهم الغذائي ويحتاجون لجدول تمرين احترافي.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p2_li1">جدول تمرين (جيم أو منزل)</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p2_li2">تحديد الأوزان والتكرارات بدقة</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p2_li3">تطوير الأداء وكسر الثبات</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20الجدول%20التدريبي" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-2.5 sm:py-3 rounded-xl transition duration-300 text-center block border border-zinc-700 text-xs sm:text-sm" data-i18n="p2_btn">
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20الجدول%20التدريبي" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-center block border border-zinc-700 text-sm" data-i18n="p2_btn">
                         اختر التمرين
                     </a>
                 </div>
 
                 <!-- باقة 3 (VIP) -->
-                <div class="bg-zinc-900 border-2 border-whatsapp/50 p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col justify-between relative shadow-xl shadow-whatsapp/5">
+                <div class="min-w-[82%] sm:min-w-0 bg-zinc-900 border-2 border-whatsapp/50 p-6 rounded-3xl flex flex-col justify-between relative shadow-xl shadow-whatsapp/5 snap-center shrink-0">
                     <div>
-                        <span class="text-whatsapp text-[10px] sm:text-xs font-bold uppercase tracking-wider" data-i18n="p3_badge">الأكثر طلباً</span>
-                        <h3 class="text-sm sm:text-xl font-black mt-1 sm:mt-2 mb-2 sm:mb-3" data-i18n="p3_title">الباقة الشاملة (VIP)</h3>
-                        <p class="text-zinc-400 text-[11px] sm:text-xs mb-4 sm:mb-6" data-i18n="p3_desc">متابعة متكاملة تضمن لك تحولاً حقيقياً وشاملاً في بنيتك الجسمية.</p>
-                        <ul class="space-y-2 text-[11px] sm:text-xs text-zinc-300 mb-4 sm:mb-6">
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p3_li1">تمرين + تغذية مخصصة 100%</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p3_li2">متابعة وتعديلات أسبوعية</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p3_li3">دعم مباشر ومستمر عبر واتساب</span></li>
+                        <span class="text-whatsapp text-xs font-bold uppercase tracking-wider" data-i18n="p3_badge">الأكثر طلباً</span>
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p3_title">الباقة الشاملة (VIP)</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p3_desc">متابعة متكاملة تضمن لك تحولاً حقيقياً وشاملاً في بنيتك الجسمية.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p3_li1">تمرين + تغذية مخصصة 100%</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p3_li2">متابعة وتعديلات أسبوعية</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p3_li3">دعم مباشر ومستمر عبر واتساب</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20الباقة%20الشاملة%20VIP" target="_blank" class="w-full bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-bold py-2.5 sm:py-3 rounded-xl transition duration-300 text-center block shadow-lg shadow-whatsapp/10 text-xs sm:text-sm" data-i18n="p3_btn">
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20الباقة%20الشاملة%20VIP" target="_blank" class="w-full bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-bold py-3 rounded-xl transition duration-300 text-center block shadow-lg shadow-whatsapp/10 text-sm" data-i18n="p3_btn">
                         احجز الباقة الشاملة
                     </a>
                 </div>
 
                 <!-- باقة 4 -->
-                <div class="bg-zinc-900 border border-zinc-800 p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col justify-between">
+                <div class="min-w-[82%] sm:min-w-0 bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0">
                     <div>
-                        <span class="text-whatsapp text-[10px] sm:text-xs font-bold uppercase tracking-wider" data-i18n="p4_badge">تحدي التحول</span>
-                        <h3 class="text-sm sm:text-xl font-black mt-1 sm:mt-2 mb-2 sm:mb-3" data-i18n="p4_title">باقة 3 أشهر مكثفة</h3>
-                        <p class="text-zinc-400 text-[11px] sm:text-xs mb-4 sm:mb-6" data-i18n="p4_desc">لتحقيق تغيير جذري وعميق في الجسم بأفضل سعر وتخطيط طويل المدى.</p>
-                        <ul class="space-y-2 text-[11px] sm:text-xs text-zinc-300 mb-4 sm:mb-6">
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p4_li1">كل مميزات الباقة الشاملة</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p4_li2">أولوية مطلقة في الرد والدعم</span></li>
-                            <li class="flex items-center gap-1.5">✓ <span data-i18n="p4_li3">تخفيض خاص للالتزام الطويل</span></li>
+                        <span class="text-whatsapp text-xs font-bold uppercase tracking-wider" data-i18n="p4_badge">تحدي التحول</span>
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p4_title">باقة 3 أشهر مكثفة</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p4_desc">لتحقيق تغيير جذري وعميق في الجسم بأفضل سعر وتخطيط طويل المدى.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p4_li1">كل مميزات الباقة الشاملة</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p4_li2">أولوية مطلقة في الرد والدعم</span></li>
+                            <li class="flex items-center gap-2">✓ <span data-i18n="p4_li3">تخفيض خاص للالتزام الطويل</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20التحول%20لمدة%203%20أشهر" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-2.5 sm:py-3 rounded-xl transition duration-300 text-center block border border-zinc-700 text-xs sm:text-sm" data-i18n="p4_btn">
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20التحول%20لمدة%203%20أشهر" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-center block border border-zinc-700 text-sm" data-i18n="p4_btn">
                         ابدأ تحدي التحول
                     </a>
                 </div>
@@ -382,6 +395,7 @@
                 f4_desc: "تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.",
                 packages_heading: "الباقات والخدمات",
                 packages_sub: "اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم",
+                swipe_hint: "اسحب لرؤية باقي الباقات",
                 p1_badge: "تغذية فقط",
                 p1_title: "باقة النظام الغذائي",
                 p1_desc: "مخصصة لمن يمتلكون جدول تمرين ويحتاجون لتنظيم السعرات والأكل.",
@@ -467,6 +481,7 @@
                 f4_desc: "Smart, well-designed workouts giving you maximum results in minimal time.",
                 packages_heading: "Packages & Services",
                 packages_sub: "Choose the program that fits your ambition and start today",
+                swipe_hint: "Swipe to see more packages",
                 p1_badge: "Nutrition Only",
                 p1_title: "Diet Plan Package",
                 p1_desc: "Designed for those who have a workout routine and need proper nutrition & macro control.",
@@ -552,6 +567,7 @@
                 f4_desc: "En kısa sürede maksimum sonuç almanızı sağlayan akıllı ve etkili antrenmanlar.",
                 packages_heading: "Paketler ve Hizmetler",
                 packages_sub: "Hedefinize uygun programı seçin ve yolculuğa bugün başlayın",
+                swipe_hint: "Diğer paketler için kaydırın",
                 p1_badge: "Sadece Beslenme",
                 p1_title: "Diyet Planı Paketi",
                 p1_desc: "Antrenman rutini olan ve kalori/beslenme takibine ihtiyaç duyanlar için.",
@@ -588,7 +604,7 @@
                 faq2_a: "Kayıt olur olmaz doğrudan WhatsApp üzerinden iletişim kurulur, programlarınızı alır ve raporlarınızı kolayca gönderirsiniz.",
                 faq3_q: "Diyet normal yemeklerden mahrum bırakır mı?",
                 faq3_a: "Asla, karmaşık kısıtlamalar olmadan sürdürülebilir esnek bir diyet yaklaşımı (Flexible Diet) uyguluyoruz.",
-                cta_title: "Yarına ertelemeyin, kararınızı bugün verین!",
+                cta_title: "Yarına ertelemeyin, kararınızı bugün verin!",
                 cta_desc: "Şimdi bizimle iletişime geçin ve vücut gelişim planınıza adım adım başlayalım.",
                 cta_btn: "Koç Anas ile İletişime Geç",
                 footer_text: "© 2026 Anas Osman. Tüm hakları saklıdır."
