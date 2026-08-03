@@ -74,30 +74,32 @@
         </div>
     </section>
 
+    <!-- قسم من أنا: تم تعديل مربعات الإحصائيات لتصبح جنب بعضها حتى على الموبايل -->
     <section class="border-t border-zinc-900 bg-zinc-900/20 py-14 sm:py-20">
         <div class="max-w-4xl mx-auto px-4">
-            <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-12 rounded-3xl relative overflow-hidden text-center">
+            <div class="bg-zinc-900 border border-zinc-800 p-5 sm:p-12 rounded-3xl relative overflow-hidden text-center">
                 <div class="absolute left-1/2 -translate-x-1/2 -bottom-6 text-zinc-800/10 font-black text-8xl sm:text-9xl select-none pointer-events-none">20</div>
                 
                 <span class="text-whatsapp text-xs font-bold uppercase tracking-wider mb-2 inline-block" data-i18n="about_badge">خبرة واحترافية</span>
                 <h2 class="text-2xl sm:text-3xl font-black mb-4 sm:mb-6" data-i18n="about_title">الكابتن أنس عثمان</h2>
                 
-                <p class="text-zinc-300 text-sm sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto" data-i18n="about_desc">
+                <p class="text-zinc-300 text-xs sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto" data-i18n="about_desc">
                     مدير نادي غراند فيتنس في مرسين بخبرة تمتد لأكثر من 20 عاماً في مجال التدريب وإدارة المنشآت الرياضية. مدرب معتمد وحاصل على شهادات عالمية متخصصة في بناء العضلات، التغذية الرياضية، وتطوير الأداء البدني.
                 </p>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-zinc-800/80">
-                    <div class="bg-zinc-950/40 p-4 rounded-2xl border border-zinc-800/50">
-                        <div class="text-2xl sm:text-3xl font-black text-whatsapp mb-1">20+</div>
-                        <div class="text-zinc-400 text-xs font-medium" data-i18n="stat_1">سنوات خبرة طويلة</div>
+                <!-- الإحصائيات: 3 أعمدة بجانب بعضها حتى على الشاشات الصغيرة مع تصغير الحواشي والأخطاء -->
+                <div class="grid grid-cols-3 gap-2 sm:gap-6 pt-6 border-t border-zinc-800/80">
+                    <div class="bg-zinc-950/40 p-2.5 sm:p-4 rounded-2xl border border-zinc-800/50 flex flex-col justify-center">
+                        <div class="text-xl sm:text-3xl font-black text-whatsapp mb-1">20+</div>
+                        <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_1">سنوات خبرة طويلة</div>
                     </div>
-                    <div class="bg-zinc-950/40 p-4 rounded-2xl border border-zinc-800/50">
-                        <div class="text-xl sm:text-2xl font-black text-whatsapp mb-1 pt-1">Grand Fitness</div>
-                        <div class="text-zinc-400 text-xs font-medium" data-i18n="stat_2">مدير النادي في مرسين</div>
+                    <div class="bg-zinc-950/40 p-2.5 sm:p-4 rounded-2xl border border-zinc-800/50 flex flex-col justify-center">
+                        <div class="text-sm sm:text-2xl font-black text-whatsapp mb-1 pt-0.5 sm:pt-1">Grand Fitness</div>
+                        <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_2">مدير النادي في مرسين</div>
                     </div>
-                    <div class="bg-zinc-950/40 p-4 rounded-2xl border border-zinc-800/50">
-                        <div class="text-2xl sm:text-3xl font-black text-whatsapp mb-1">100%</div>
-                        <div class="text-zinc-400 text-xs font-medium" data-i18n="stat_3">شهادات واعتمادات دولية</div>
+                    <div class="bg-zinc-950/40 p-2.5 sm:p-4 rounded-2xl border border-zinc-800/50 flex flex-col justify-center">
+                        <div class="text-xl sm:text-3xl font-black text-whatsapp mb-1">100%</div>
+                        <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_3">شهادات واعتمادات دولية</div>
                     </div>
                 </div>
             </div>
@@ -136,7 +138,7 @@
         </div>
     </section>
 
-    <!-- قسم الباقات مع نقاط تفاعلية تتحرك مع السحب -->
+    <!-- قسم الباقات مع سحب أفقي ونقاط تفاعلية -->
     <section class="py-16 sm:py-24 border-t border-zinc-900">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-16">
@@ -217,7 +219,7 @@
 
             </div>
 
-            <!-- مؤشر النقاط المتحرك تلقائياً -->
+            <!-- مؤشر النقاط التفاعلي -->
             <div class="flex sm:hidden justify-center items-center gap-2 mt-6" id="sliderDots">
                 <span class="w-5 h-2 rounded-full bg-whatsapp transition-all duration-300 dot" data-index="0"></span>
                 <span class="w-2 h-2 rounded-full bg-zinc-800 transition-all duration-300 dot" data-index="1"></span>
@@ -578,13 +580,13 @@
                 p3_desc: "Gerçek fiziksel dönüşümü garanti eden eksiksiz koçluk.",
                 p3_li1: "%100 Özel Antrenman ve Beslenme",
                 p3_li2: "Haftalık takip ve güncellemeler",
-                p3_li3: "Doğrudان ve kesintisiz WhatsApp desteği",
+                p3_li3: "Doğrudan ve kesintisiz WhatsApp desteği",
                 p3_btn: "Kapsamlı Paketi Seç",
                 p4_badge: "Dönüşüm Meydan Okuması",
                 p4_title: "3 Aylık Yoğun Paket",
                 p4_desc: "Uzun vadeli strateji ve en iyi fiyatla köklü bir fiziksel değişim için.",
                 p4_li1: "Kapsamlı Paketin tüm özellikleri",
-                p4_li2: "Destek ve yanıtta mutlak öncelق",
+                p4_li2: "Destek ve yanıtta mutlak öncelik",
                 p4_li3: "Uzun vadeli taahhüt için özel indirim",
                 p4_btn: "Meydan Okumaya Başla",
                 faq_heading: "Sıkça Sorulan Sorular",
@@ -627,14 +629,13 @@
             });
         }
 
-        // كود برمجي لتحريك وتحديث النقاط بناءً على السحب الأفقي للباقات
         const slider = document.getElementById('packagesSlider');
         const dots = document.querySelectorAll('#sliderDots .dot');
 
         if (slider) {
             slider.addEventListener('scroll', () => {
                 const scrollLeft = slider.scrollLeft;
-                const cardWidth = slider.querySelector('div').offsetWidth + 16; // عرض الباقة + المسافة بينهم
+                const cardWidth = slider.querySelector('div').offsetWidth + 16;
                 let activeIndex = Math.round(Math.abs(scrollLeft) / cardWidth);
                 
                 if (activeIndex >= dots.length) activeIndex = dots.length - 1;
