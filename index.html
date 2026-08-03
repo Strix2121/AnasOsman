@@ -136,7 +136,7 @@
         </div>
     </section>
 
-    <!-- قسم الباقات: سلايدر أفقي احترافي مع إظهار حافة البطاقة التالية ونقاط إرشادية تلقائية -->
+    <!-- قسم الباقات مع نقاط تفاعلية تتحرك مع السحب -->
     <section class="py-16 sm:py-24 border-t border-zinc-900">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-16">
@@ -145,7 +145,7 @@
             </div>
 
             <!-- حاوية الباقات -->
-            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible packages-slider pb-4 sm:pb-0 px-4 sm:px-0 snap-x snap-mandatory">
+            <div id="packagesSlider" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible packages-slider pb-4 sm:pb-0 px-4 sm:px-0 snap-x snap-mandatory">
                 
                 <!-- باقة 1 -->
                 <div class="min-w-[82%] sm:min-w-0 bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0">
@@ -217,12 +217,12 @@
 
             </div>
 
-            <!-- مؤشر النقاط التفاعلي للموبايل (Dots Indicator) -->
-            <div class="flex sm:hidden justify-center items-center gap-2 mt-6">
-                <span class="w-2.5 h-2.5 rounded-full bg-whatsapp"></span>
-                <span class="w-2 h-2 rounded-full bg-zinc-800"></span>
-                <span class="w-2 h-2 rounded-full bg-zinc-800"></span>
-                <span class="w-2 h-2 rounded-full bg-zinc-800"></span>
+            <!-- مؤشر النقاط المتحرك تلقائياً -->
+            <div class="flex sm:hidden justify-center items-center gap-2 mt-6" id="sliderDots">
+                <span class="w-5 h-2 rounded-full bg-whatsapp transition-all duration-300 dot" data-index="0"></span>
+                <span class="w-2 h-2 rounded-full bg-zinc-800 transition-all duration-300 dot" data-index="1"></span>
+                <span class="w-2 h-2 rounded-full bg-zinc-800 transition-all duration-300 dot" data-index="2"></span>
+                <span class="w-2 h-2 rounded-full bg-zinc-800 transition-all duration-300 dot" data-index="3"></span>
             </div>
         </div>
     </section>
@@ -578,13 +578,13 @@
                 p3_desc: "Gerçek fiziksel dönüşümü garanti eden eksiksiz koçluk.",
                 p3_li1: "%100 Özel Antrenman ve Beslenme",
                 p3_li2: "Haftalık takip ve güncellemeler",
-                p3_li3: "Doğrudan ve kesintisiz WhatsApp desteği",
+                p3_li3: "Doğrudان ve kesintisiz WhatsApp desteği",
                 p3_btn: "Kapsamlı Paketi Seç",
                 p4_badge: "Dönüşüm Meydan Okuması",
                 p4_title: "3 Aylık Yoğun Paket",
                 p4_desc: "Uzun vadeli strateji ve en iyi fiyatla köklü bir fiziksel değişim için.",
                 p4_li1: "Kapsamlı Paketin tüm özellikleri",
-                p4_li2: "Destek ve yanıtta mutlak öncelik",
+                p4_li2: "Destek ve yanıtta mutlak öncelق",
                 p4_li3: "Uzun vadeli taahhüt için özel indirim",
                 p4_btn: "Meydan Okumaya Başla",
                 faq_heading: "Sıkça Sorulan Sorular",
@@ -596,7 +596,7 @@
                 faq3_q: "Diyet normal yemeklerden mahrum bırakır mı?",
                 faq3_a: "Asla, karmaşık kısıtlamalar olmadan sürdürülebilir esnek bir diyet yaklaşımı (Flexible Diet) uyguluyoruz.",
                 cta_title: "Yarına ertelemeyin, kararınızı bugün verin!",
-                cta_desc: "Şimdi bizimle iletişime geçin ve vücut gelişim planınıza adım adım başlayalım.",
+                cta_desc: "Şimdi bizimle iletişime geçin و vücut gelişim planınıza adım adım başlayalım.",
                 cta_btn: "Koç Anas ile İletişime Geç",
                 footer_text: "© 2026 Anas Osman. Tüm hakları saklıdır."
             }
@@ -624,6 +624,29 @@
                 } else {
                     btn.className = "px-2.5 sm:px-3 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100";
                 }
+            });
+        }
+
+        // كود برمجي لتحريك وتحديث النقاط بناءً على السحب الأفقي للباقات
+        const slider = document.getElementById('packagesSlider');
+        const dots = document.querySelectorAll('#sliderDots .dot');
+
+        if (slider) {
+            slider.addEventListener('scroll', () => {
+                const scrollLeft = slider.scrollLeft;
+                const cardWidth = slider.querySelector('div').offsetWidth + 16; // عرض الباقة + المسافة بينهم
+                let activeIndex = Math.round(Math.abs(scrollLeft) / cardWidth);
+                
+                if (activeIndex >= dots.length) activeIndex = dots.length - 1;
+                if (activeIndex < 0) activeIndex = 0;
+
+                dots.forEach((dot, index) => {
+                    if (index === activeIndex) {
+                        dot.className = "w-5 h-2 rounded-full bg-whatsapp transition-all duration-300 dot";
+                    } else {
+                        dot.className = "w-2 h-2 rounded-full bg-zinc-800 transition-all duration-300 dot";
+                    }
+                });
             });
         }
 
