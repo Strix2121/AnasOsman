@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anas Osman - Elite Coach</title>
-    <!-- استدعاء Tailwind CSS من خلال CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -18,7 +17,6 @@
             }
         }
     </script>
-    <!-- استدعاء خط عربي وإنجليزي احترافي (Tajawal) -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -28,21 +26,18 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-whatsapp selection:text-zinc-950">
 
-    <!-- زر واتساب عائم وثابت -->
     <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاستفسار%20عن%20الاشتراك" target="_blank" class="fixed bottom-6 left-6 z-50 bg-whatsapp hover:bg-whatsappDark text-zinc-950 p-4 rounded-full shadow-2xl transition duration-300 flex items-center justify-center hover:scale-110">
         <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
         </svg>
     </a>
 
-    <!-- شريط التنقل العلوي -->
     <header class="sticky top-0 z-40 bg-zinc-950/85 backdrop-blur-md border-b border-zinc-900">
         <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
             <div class="text-xl font-black tracking-wider uppercase">
                 ANAS <span class="text-whatsapp">OSMAN</span>
             </div>
 
-            <!-- أزرار تبديل اللغات -->
             <div class="flex items-center gap-1 bg-zinc-900 border border-zinc-800 p-1 rounded-xl text-xs font-bold">
                 <button onclick="setLanguage('ar')" id="btn-ar" class="px-3 py-1.5 rounded-lg transition duration-300 bg-whatsapp text-zinc-950">العربية</button>
                 <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100">English</button>
@@ -55,7 +50,6 @@
         </div>
     </header>
 
-    <!-- القسم الرئيسي (Hero Section) -->
     <section class="max-w-4xl mx-auto px-4 pt-20 pb-20 text-center">
         <div class="inline-block bg-zinc-900 border border-zinc-800 text-whatsapp px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide" data-i18n="hero_badge">
             تدريب شخصي أونلاين 1 على 1
@@ -73,7 +67,6 @@
         </div>
     </section>
 
-    <!-- قسم عن المدرب (About Coach) -->
     <section class="border-t border-zinc-900 bg-zinc-900/20 py-20">
         <div class="max-w-4xl mx-auto px-4">
             <div class="bg-zinc-900 border border-zinc-800 p-8 sm:p-12 rounded-3xl relative overflow-hidden text-center">
@@ -104,7 +97,6 @@
         </div>
     </section>
 
-    <!-- لماذا تختار الكابتن أنس؟ -->
     <section class="border-t border-zinc-900 bg-zinc-900/40 py-24">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -137,7 +129,6 @@
         </div>
     </section>
 
-    <!-- الخدمات والباقات (4 باقات) -->
     <section class="py-24 border-t border-zinc-900">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -147,7 +138,6 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
-                <!-- باقة 1 -->
                 <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between">
                     <div>
                         <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p1_badge">تغذية فقط</span>
@@ -164,7 +154,6 @@
                     </a>
                 </div>
 
-                <!-- باقة 2 -->
                 <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between">
                     <div>
                         <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p2_badge">تمرين فقط</span>
@@ -181,7 +170,6 @@
                     </a>
                 </div>
 
-                <!-- باقة 3 (VIP) -->
                 <div class="bg-zinc-900 border-2 border-whatsapp/50 p-6 rounded-3xl flex flex-col justify-between relative shadow-xl shadow-whatsapp/5">
                     <div>
                         <span class="text-whatsapp text-xs font-bold uppercase tracking-wider" data-i18n="p3_badge">الأكثر طلباً</span>
@@ -198,7 +186,6 @@
                     </a>
                 </div>
 
-                <!-- باقة 4 -->
                 <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between">
                     <div>
                         <span class="text-whatsapp text-xs font-bold uppercase tracking-wider" data-i18n="p4_badge">تحدي التحول</span>
@@ -219,32 +206,7 @@
         </div>
     </section>
 
-    <!-- الأسئلة الشائعة -->
-    <section class="py-24 border-t border-zinc-900 bg-zinc-900/40">
-        <div class="max-w-3xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-black mb-3" data-i18n="faq_heading">الأسئلة الشائعة</h2>
-                <p class="text-zinc-400" data-i18n="faq_sub">كل ما تحتاج معرفته قبل البدء</p>
-            </div>
-
-            <div class="space-y-4">
-                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
-                    <h3 class="font-bold text-lg mb-2" data-i18n="faq1_q">هل البرامج تناسب المبتدئين؟</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed" data-i18n="faq1_a">نعم، يتم تصميم الجدول بناءً على مستواك الحالي تماماً، سواء كنت مبتدئاً تبدأ خطواتك الأولى أو محترفاً تبحث عن كسر الثبات.</p>
-                </div>
-                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
-                    <h3 class="font-bold text-lg mb-2" data-i18n="faq2_q">كيف يتم التواصل واستلام الجداول؟</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed" data-i18n="faq2_a">يتم التواصل بشكل مباشر بالكامل عبر محادثة الواتساب فور إتمام الاشتراك، حيث تستلم جداولك وتتابع تقاريرك بكل سهولة.</p>
-                </div>
-                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
-                    <h3 class="font-bold text-lg mb-2" data-i18n="faq3_q">هل النظام الغذائي يحرمنا من الأكل المعتاد؟</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed" data-i18n="faq3_a">أبداً، نعتمد على نظام مرن (Flexible Diet) يناسب يومك ويهدف للاستمرارية بدون قيود معقدة أو حرمان قاسي.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- حاسبة السعرات الحرارية التفاعلية (Calorie Calculator) - تحت الأسئلة الشائعة -->
+    <!-- حاسبة السعرات الحرارية (فوق الأسئلة الشائعة) -->
     <section class="border-t border-zinc-900 bg-zinc-900/30 py-24">
         <div class="max-w-2xl mx-auto px-4">
             <div class="text-center mb-12">
@@ -295,7 +257,6 @@
                     </button>
                 </form>
 
-                <!-- نتيجة الحاسبة (مخفية بالبداية) -->
                 <div id="calcResult" class="hidden mt-8 pt-6 border-t border-zinc-800 text-center">
                     <h3 class="font-bold text-lg mb-4 text-whatsapp" data-i18n="res_title">نتيجتك التقديرية اليومية:</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
@@ -320,7 +281,31 @@
         </div>
     </section>
 
-    <!-- القسم الأخير (Footer CTA) -->
+    <!-- الأسئلة الشائعة -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-900/40">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-3" data-i18n="faq_heading">الأسئلة الشائعة</h2>
+                <p class="text-zinc-400" data-i18n="faq_sub">كل ما تحتاج معرفته قبل البدء</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <h3 class="font-bold text-lg mb-2" data-i18n="faq1_q">هل البرامج تناسب المبتدئين؟</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed" data-i18n="faq1_a">نعم، يتم تصميم الجدول بناءً على مستواك الحالي تماماً، سواء كنت مبتدئاً تبدأ خطواتك الأولى أو محترفاً تبحث عن كسر الثبات.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <h3 class="font-bold text-lg mb-2" data-i18n="faq2_q">كيف يتم التواصل واستلام الجداول؟</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed" data-i18n="faq2_a">يتم التواصل بشكل مباشر بالكامل عبر محادثة الواتساب فور إتمام الاشتراك، حيث تستلم جداولك وتتابع تقاريرك بكل سهولة.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <h3 class="font-bold text-lg mb-2" data-i18n="faq3_q">هل النظام الغذائي يحرمنا من الأكل المعتاد؟</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed" data-i18n="faq3_a">أبداً، نعتمد على نظام مرن (Flexible Diet) يناسب يومك ويهدف للاستمرارية بدون قيود معقدة أو حرمان قاسي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="py-24 border-t border-zinc-900 text-center">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-3xl sm:text-4xl font-black mb-4" data-i18n="cta_title">لا تنتظر غداً، القرار يبدأ اليوم!</h2>
@@ -331,14 +316,12 @@
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer class="border-t border-zinc-900 py-8 text-center text-zinc-600 text-sm">
         <div class="max-w-6xl mx-auto px-4">
             <p data-i18n="footer_text">© 2026 Anas Osman. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <!-- سكريبت الترجمة والحاسبة التفاعلية -->
     <script>
         const translations = {
             ar: {
@@ -347,14 +330,12 @@
                 hero_title: 'اصنع نسختك الأفضل وابنِ جسماً <span class="text-whatsapp">قوياً وعضلات صلبة</span>',
                 hero_desc: "برامج تدريبية وتغذية مخصصة بالكامل لأهدافك، مصممة خصيصاً لتتناسب مع جدولك اليومي ونمط حياتك دون تعقيد.",
                 hero_cta: "احجز تدريبك الآن عبر واتساب",
-                
                 about_badge: "خبرة واحترافية",
                 about_title: "الكابتن أنس عثمان",
                 about_desc: "مدير نادي غراند فيتنس في مرسين بخبرة تمتد لأكثر من 20 عاماً في مجال التدريب وإدارة المنشآت الرياضية. مدرب معتمد وحاصل على شهادات عالمية متخصصة في بناء العضلات، التغذية الرياضية، وتطوير الأداء البدني.",
                 stat_1: "سنوات خبرة طويلة",
                 stat_2: "مدير النادي في مرسين",
                 stat_3: "شهادات واعتمادات دولية",
-
                 calc_badge: "أداة مجانية",
                 calc_title: "حاسبة السعرات الحرارية (TDEE)",
                 calc_sub: "احسب سعراتك اليومية واعرف كم تحتاج لتخسيس الوزن أو بناء العضلات",
@@ -375,7 +356,6 @@
                 res_cut: "التنشيف (خسارة وزن)",
                 res_bulk: "الضخامة (بناء عضلات)",
                 res_wa: "أرسل نتيجتي للكابتن أنس وابدأ خطتك 🟢",
-
                 features_heading: "لماذا تختار الكابتن أنس عثمان؟",
                 features_sub: "منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة",
                 f1_title: "خطط مخصصة 100%",
@@ -386,10 +366,8 @@
                 f3_desc: "تعديلات دورية على الجداول بناءً على استجابة جسمك وتقاريرك الأسبوعية.",
                 f4_title: "توفير الوقت والجهد",
                 f4_desc: "تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.",
-                
                 packages_heading: "الباقات والخدمات",
                 packages_sub: "اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم",
-                
                 p1_badge: "تغذية فقط",
                 p1_title: "باقة النظام الغذائي",
                 p1_desc: "مخصصة لمن يمتلكون جدول تمرين ويحتاجون لتنظيم السعرات والأكل.",
@@ -397,7 +375,6 @@
                 p1_li2: "قائمة بدائل الأطعمة المفضلة",
                 p1_li3: "تعديلات أسبوعية مستمرة",
                 p1_btn: "اختر التغذية",
-
                 p2_badge: "تمرين فقط",
                 p2_title: "باقة الجدول التدريبي",
                 p2_desc: "مصممة لمن يتابعون نظامهم الغذائي ويحتاجون لجدول تمرين احترافي.",
@@ -405,7 +382,6 @@
                 p2_li2: "تحديد الأوزان والتكرارات بدقة",
                 p2_li3: "تطوير الأداء وكسر الثبات",
                 p2_btn: "اختر التمرين",
-
                 p3_badge: "الأكثر طلباً",
                 p3_title: "الباقة الشاملة (VIP)",
                 p3_desc: "متابعة متكاملة تضمن لك تحولاً حقيقياً وشاملاً في بنيتك الجسمية.",
@@ -413,7 +389,6 @@
                 p3_li2: "متابعة وتعديلات أسبوعية",
                 p3_li3: "دعم مباشر ومستمر عبر واتساب",
                 p3_btn: "احجز الباقة الشاملة",
-
                 p4_badge: "تحدي التحول",
                 p4_title: "باقة 3 أشهر مكثفة",
                 p4_desc: "لتحقيق تغيير جذري وعميق في الجسم بأفضل سعر وتخطيط طويل المدى.",
@@ -421,7 +396,6 @@
                 p4_li2: "أولوية مطلقة في الرد والدعم",
                 p4_li3: "تخفيض خاص للالتزام الطويل",
                 p4_btn: "ابدأ تحدي التحول",
-
                 faq_heading: "الأسئلة الشائعة",
                 faq_sub: "كل ما تحتاج معرفته قبل البدء",
                 faq1_q: "هل البرامج تناسب المبتدئين؟",
@@ -430,7 +404,6 @@
                 faq2_a: "يتم التواصل بشكل مباشر بالكامل عبر محادثة الواتساب فور إتمام الاشتراك، حيث تستلم جداولك وتتابع تقاريرك بكل سهولة.",
                 faq3_q: "هل النظام الغذائي يحرمنا من الأكل المعتاد؟",
                 faq3_a: "أبداً، نعتمد على نظام مرن (Flexible Diet) يناسب يومك ويهدف للاستمرارية بدون قيود معقدة أو حرمان قاسي.",
-                
                 cta_title: "لا تنتظر غداً، القرار يبدأ اليوم!",
                 cta_desc: "تواصل معنا مباشرة الآن ودعنا نبدأ خطة تطوير جسمك خطوة بخطوة.",
                 cta_btn: "تواصل مع الكابتن أنس الآن",
@@ -442,14 +415,12 @@
                 hero_title: 'Build Your Best Version & <span class="text-whatsapp">Solid Muscle Mass</span>',
                 hero_desc: "Fully customized workout and nutrition programs tailored entirely to your goals, lifestyle, and daily schedule.",
                 hero_cta: "Book Your Training via WhatsApp",
-                
                 about_badge: "Experience & Professionalism",
                 about_title: "Coach Anas Osman",
                 about_desc: "Manager of Grand Fitness in Mersin with over 20 years of experience in fitness coaching and facility management. A certified coach holding international certificates specialized in muscle building, sports nutrition, and physical performance optimization.",
                 stat_1: "Years of Experience",
                 stat_2: "Club Manager in Mersin",
                 stat_3: "International Certificates",
-
                 calc_badge: "Free Tool",
                 calc_title: "Calorie Calculator (TDEE)",
                 calc_sub: "Calculate your daily calories and know what you need for weight loss or muscle building",
@@ -470,7 +441,6 @@
                 res_cut: "Fat Loss (Cut)",
                 res_bulk: "Muscle Building (Bulk)",
                 res_wa: "Send my result to Coach Anas & start plan 🟢",
-
                 features_heading: "Why Choose Coach Anas Osman?",
                 features_sub: "A clear, scientific methodology ensuring efficient results",
                 f1_title: "100% Customized Plans",
@@ -481,10 +451,8 @@
                 f3_desc: "Regular schedule adjustments based on your body's response and weekly progress reports.",
                 f4_title: "Save Time & Effort",
                 f4_desc: "Smart, well-designed workouts giving you maximum results in minimal time.",
-                
                 packages_heading: "Packages & Services",
                 packages_sub: "Choose the program that fits your ambition and start today",
-
                 p1_badge: "Nutrition Only",
                 p1_title: "Diet Plan Package",
                 p1_desc: "Designed for those who have a workout routine and need proper nutrition & macro control.",
@@ -492,7 +460,6 @@
                 p1_li2: "Favorite food alternatives list",
                 p1_li3: "Continuous weekly adjustments",
                 p1_btn: "Choose Nutrition",
-
                 p2_badge: "Workout Only",
                 p2_title: "Workout Plan Package",
                 p2_desc: "Built for those who follow their diet and need a professional training split.",
@@ -500,7 +467,6 @@
                 p2_li2: "Precise weights and reps guidance",
                 p2_li3: "Performance boost & plateau breaking",
                 p2_btn: "Choose Workout",
-
                 p3_badge: "Most Popular",
                 p3_title: "Comprehensive (VIP)",
                 p3_desc: "Complete coaching guaranteeing a true physical transformation.",
@@ -508,7 +474,6 @@
                 p3_li2: "Weekly progress tracking & updates",
                 p3_li3: "Direct & continuous WhatsApp support",
                 p3_btn: "Book Comprehensive",
-
                 p4_badge: "Transformation Challenge",
                 p4_title: "3-Month Intensive",
                 p4_desc: "For a profound physical transformation with long-term strategy and best value.",
@@ -516,7 +481,6 @@
                 p4_li2: "Absolute priority in support & replies",
                 p4_li3: "Special discount for long-term commitment",
                 p4_btn: "Start Challenge",
-
                 faq_heading: "Frequently Asked Questions",
                 faq_sub: "Everything you need to know before starting",
                 faq1_q: "Are the programs suitable for beginners?",
@@ -525,7 +489,6 @@
                 faq2_a: "Communication is handled directly via WhatsApp right after subscription, where you receive plans and report progress easily.",
                 faq3_q: "Does the diet restrict regular foods?",
                 faq3_a: "Never, we use a flexible diet approach matching your day to ensure long-term sustainability without harsh restrictions.",
-                
                 cta_title: "Don't wait for tomorrow, decide today!",
                 cta_desc: "Contact us directly now and let's start your body transformation step by step.",
                 cta_btn: "Contact Coach Anas Now",
@@ -537,14 +500,12 @@
                 hero_title: 'En İyi Versiyonunuzu Yaratın ve <span class="text-whatsapp">Güçlü Kaslar İnşa Edin</span>',
                 hero_desc: "Hedeflerinize, günlük rutininize ve yaşam tarzınıza tamamen uygun, kişiselleştirilmiş antrenman ve beslenme programları.",
                 hero_cta: "WhatsApp Üzerinden Hemen Başvur",
-                
                 about_badge: "Deneyim ve Profesyonellik",
                 about_title: "Koç Anas Osman",
                 about_desc: "Mersin Grand Fitness Kulübü'nün yöneticisi olup, fitness koçluğu ve spor tesisi yönetiminde 20 yılı aşkın deneyime sahiptir. Kas gelişimi, sporcu beslenmesi ve fiziksel performans alanlarında uluslararası sertifikalara sahip sertifikalı bir antrenördür.",
                 stat_1: "Uzun Yıllar Deneyim",
                 stat_2: "Mersin Kulüp Yöneticisi",
                 stat_3: "Uluslararası Sertifikalar",
-
                 calc_badge: "Ücretsiz Araç",
                 calc_title: "Kalori Hesaplama (TDEE)",
                 calc_sub: "Günlük kalori ihtiyacınızı hesaplayın ve kilo vermek veya kas yapmak için ne kadar gerektiğini öğrenin",
@@ -565,7 +526,6 @@
                 res_cut: "Yağ Yakımı (Definisyon)",
                 res_bulk: "Kas Kütlesi (Bulking)",
                 res_wa: "Sonucumu Koç Anas'a gönder ve plana başla 🟢",
-
                 features_heading: "Neden Koç Anas Osman?",
                 features_sub: "Hedefinize güvenle ulaşmanızı sağlayan net bilimsel metodoloji",
                 f1_title: "%100 Kişiselleştirilmiş Planlar",
@@ -576,10 +536,8 @@
                 f3_desc: "Vücudunuzun tepkisine ve haftalık raporlarınıza göre düzenli program güncellemeleri.",
                 f4_title: "Zaman ve Emek Tasarrufu",
                 f4_desc: "En kısa sürede maksimum sonuç almanızı sağlayan akıllı ve etkili antrenmanlar.",
-                
                 packages_heading: "Paketler ve Hizmetler",
                 packages_sub: "Hedefinize uygun programı seçin ve yolculuğa bugün başlayın",
-
                 p1_badge: "Sadece Beslenme",
                 p1_title: "Diyet Planı Paketi",
                 p1_desc: "Antrenman rutini olan ve kalori/beslenme takibine ihtiyaç duyanlar için.",
@@ -587,7 +545,6 @@
                 p1_li2: "Favori besin alternatifleri listesi",
                 p1_li3: "Sürekli haftalık güncellemeler",
                 p1_btn: "Beslenmeyi Seç",
-
                 p2_badge: "Sadece Antrenman",
                 p2_title: "Antrenman Planı Paketi",
                 p2_desc: "Diyetini kendi uygulayan ve profesyonel antrenman programı arayanlar için.",
@@ -595,23 +552,20 @@
                 p2_li2: "Ağırlık ve tekrar yönlendirmesi",
                 p2_li3: "Performans artışı ve gelişim",
                 p2_btn: "Antrenmanı Seç",
-
                 p3_badge: "En Çok Tercih Edilen",
                 p3_title: "Kapsamlı Paket (VIP)",
                 p3_desc: "Gerçek fiziksel dönüşümü garanti eden eksiksiz koçluk.",
                 p3_li1: "%100 Özel Antrenman ve Beslenme",
                 p3_li2: "Haftalık takip ve güncellemeler",
-                p3_li3: "Doğrudان ve kesintisiz WhatsApp desteği",
+                p3_li3: "Doğrudan ve kesintisiz WhatsApp desteği",
                 p3_btn: "Kapsamlı Paketi Seç",
-
                 p4_badge: "Dönüşüm Meydan Okuması",
                 p4_title: "3 Aylık Yoğun Paket",
-                p4_desc: "Uzun vadeli strateji ve en iyi fiyatla köklü bir fiziksel değişim için.",
+                p4_desc: "Uzون vadeli strateji ve en iyi fiyatla köklü bir fiziksel değişim için.",
                 p4_li1: "Kapsamlı Paketin tüm özellikleri",
                 p4_li2: "Destek ve yanıtta mutlak öncelik",
-                p4_li3: "Uzun vadeli taahhüt için özel indirim",
+                p4_li3: "Uzون vadeli taahhüt için özel indirim",
                 p4_btn: "Meydan Okumaya Başla",
-
                 faq_heading: "Sıkça Sorulan Sorular",
                 faq_sub: "Başlamadan önce bilmeniz gereken her şey",
                 faq1_q: "Programlar yeni başlayanlar için uygun mu?",
@@ -620,7 +574,6 @@
                 faq2_a: "Kayıt olur olmaz doğrudan WhatsApp üzerinden iletişim kurulur, programlarınızı alır ve raporlarınızı kolayca gönderirsiniz.",
                 faq3_q: "Diyet normal yemeklerden mahrum bırakır mı?",
                 faq3_a: "Asla, karmaşık kısıtlamalar olmadan sürdürülebilir esnek bir diyet yaklaşımı (Flexible Diet) uyguluyoruz.",
-                
                 cta_title: "Yarına ertelemeyin, kararınızı bugün verin!",
                 cta_desc: "Şimdi bizimle iletişime geçin ve vücut gelişim planınıza adım adım başlayalım.",
                 cta_btn: "Koç Anas ile İletişime Geç",
