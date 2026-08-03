@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anas Osman - Elite Coach</title>
+    <!-- استدعاء Tailwind CSS من خلال CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        whatsapp: '#25D366',
+                        whatsappDark: '#1EBE5D',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- استدعاء خط عربي احترافي (Tajawal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-whatsapp selection:text-zinc-950">
+
+    <!-- شريط التنقل العلوي -->
+    <header class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="text-xl font-black tracking-wider uppercase">
+                ANAS <span class="text-whatsapp">OSMAN</span>
+            </div>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاستفسار%20عن%20الاشتراك" target="_blank" class="bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-bold px-5 py-2.5 rounded-xl transition duration-300 text-sm flex items-center gap-2 shadow-lg shadow-whatsapp/10">
+                ابدأ الآن
+            </a>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي (Hero Section) -->
+    <section class="max-w-4xl mx-auto px-4 pt-20 pb-24 text-center">
+        <div class="inline-block bg-zinc-900 border border-zinc-800 text-whatsapp px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide">
+            تدريب شخصي أونلاين 1 على 1
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight mb-6">
+            اصنع نسختك الأفضل وابنِ جسماً <span class="text-whatsapp">قوياً وعضلات صلبة</span>
+        </h1>
+        <p class="text-zinc-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            برامج تدريبية وتغذية مخصصة بالكامل لأهدافك، مصممة خصيصاً لتتناسب مع جدولك اليومي ونمط حياتك دون تعقيد.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20التدريب%20الشخصي" target="_blank" class="bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-extrabold text-lg px-8 py-4 rounded-2xl transition duration-300 shadow-xl shadow-whatsapp/25 flex items-center justify-center gap-3">
+                <span>احجز تدريبك الآن عبر واتساب</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- لماذا تختار الكابتن أنس؟ -->
+    <section class="border-t border-zinc-900 bg-zinc-900/40 py-24">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-3">لماذا تختار الكابتن أنس عثمان؟</h2>
+                <p class="text-zinc-400">منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- ميزة 1 -->
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-xl mb-4">🎯</div>
+                    <h3 class="font-bold text-lg mb-2">خطط مخصصة 100%</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">لا توجد برامج جاهزة؛ كل خطوة تُبنى بناءً على وزنك، طولك، وهدفك الشخصي.</p>
+                </div>
+                <!-- ميزة 2 -->
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-xl mb-4">🥗</div>
+                    <h3 class="font-bold text-lg mb-2">مرونة في التغذية</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">استمتع بأكل تحبه مع حساب السعرات والميكروز بدقة، وبدون حرمان قاسي.</p>
+                </div>
+                <!-- ميزة 3 -->
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-xl mb-4">📈</div>
+                    <h3 class="font-bold text-lg mb-2">متابعة مستمرة</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">تعديلات دورية على الجداول بناءً على استجابة جسمك وتقاريرك الأسبوعية.</p>
+                </div>
+                <!-- ميزة 4 -->
+                <div class="bg-zinc-900/80 border border-zinc-800/80 p-6 rounded-2xl">
+                    <div class="w-12 h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-xl mb-4">⏱️</div>
+                    <h3 class="font-bold text-lg mb-2">توفير الوقت والجهد</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الخدمات والباقات -->
+    <section class="py-24 border-t border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-3">الباقات والخدمات</h2>
+                <p class="text-zinc-400">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- الباقة الأولى -->
+                <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-whatsapp text-xs font-bold uppercase tracking-wider">الأكثر طلباً</span>
+                        <h3 class="text-2xl font-black mt-2 mb-4">الباقة الشاملة</h3>
+                        <p class="text-zinc-400 text-sm mb-6">متابعة متكاملة تضمن لك تحولاً حقيقياً في بنيتك الجسمية.</p>
+                        <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+                            <li class="flex items-center gap-2">✓ جدول تمرين مخصص (جيم أو منزل)</li>
+                            <li class="flex items-center gap-2">✓ نظام غذائي محسوب السعرات</li>
+                            <li class="flex items-center gap-2">✓ متابعة وتعديلات أسبوعية مستمرة</li>
+                            <li class="flex items-center gap-2">✓ دعم مباشر عبر الواتساب</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20الباقة%20الشاملة" target="_blank" class="w-full bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-bold py-3.5 rounded-xl transition duration-300 text-center block shadow-lg shadow-whatsapp/10">
+                        احجز الباقة الشاملة
+                    </a>
+                </div>
+
+                <!-- الباقة الثانية -->
+                <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider">استشارة سريعة</span>
+                        <h3 class="text-2xl font-black mt-2 mb-4">باقة تقييم الجدول</h3>
+                        <p class="text-zinc-400 text-sm mb-6">مراجعة شاملة لجدولك التدريبي الحالي وتقديم النصائح لتسريع النتائج.</p>
+                        <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+                            <li class="flex items-center gap-2">✓ مراجعة الأداء والتمارين</li>
+                            <li class="flex items-center gap-2">✓ تقييم السعرات ونظام الأكل</li>
+                            <li class="flex items-center gap-2">✓ جلسة استشارية سريعة</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً%20كابتن%20أنس،%20أرغب%20بحجز%20استشارة%20أو%20تقييم" target="_blank" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold py-3.5 rounded-xl transition duration-300 text-center block border border-zinc-700">
+                        احجز الاستشارة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الأسئلة الشائعة -->
+    <section class="py-24 border-t border-zinc-900 bg-zinc-900/40">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-3">الأسئلة الشائعة</h2>
+                <p class="text-zinc-400">كل ما تحتاج معرفته قبل البدء</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <h3 class="font-bold text-lg mb-2">هل البرامج تناسب المبتدئين؟</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">نعم، يتم تصميم الجدول بناءً على مستواك الحالي تماماً، سواء كنت مبتدئاً تبدأ خطواتك الأولى أو محترفاً تبحث عن كسر الثبات.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <h3 class="font-bold text-lg mb-2">كيف يتم التواصل واستلام الجداول؟</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">يتم التواصل بشكل مباشر بالكامل عبر محادثة الواتساب فور إتمام الاشتراك، حيث تستلم جداولك وتتابع تقاريرك بكل سهولة.</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+                    <h3 class="font-bold text-lg mb-2">هل النظام الغذائي يحرمنا من الأكل المعتاد؟</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">أبداً، نعتمد على نظام مرن (Flexible Diet) يناسب يومك ويهدف للاستمرارية بدون قيود معقدة أو حرمان قاسي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- القسم الأخير (Footer CTA) -->
+    <section class="py-24 border-t border-zinc-900 text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-black mb-4">لا تنتظر غداً، القرار يبدأ اليوم!</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">تواصل معنا مباشرة الآن ودعنا نبدأ خطة تطوير جسمك خطوة بخطوة.</p>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً%20كابتن%20أنس،%20أريد%20البدء%20معك%20الآن" target="_blank" class="inline-flex bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-extrabold text-lg px-8 py-4 rounded-2xl transition duration-300 shadow-xl shadow-whatsapp/25 items-center gap-3">
+                <span>تواصل مع الكابتن أنس الآن</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="border-t border-zinc-900 py-8 text-center text-zinc-600 text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© 2026 Anas Osman. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
