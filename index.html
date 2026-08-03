@@ -29,13 +29,6 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        @keyframes bounce-horizontal {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(-6px); }
-        }
-        .animate-swipe-hint {
-            animation: bounce-horizontal 1.5s infinite;
-        }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-whatsapp selection:text-zinc-950 overflow-x-hidden">
@@ -143,23 +136,16 @@
         </div>
     </section>
 
-    <!-- قسم الباقات: سلايدر أفقي احترافي للموبايل يظهر حافة الباقة التالية مع أسهم إرشادية -->
+    <!-- قسم الباقات: سلايدر أفقي احترافي مع إظهار حافة البطاقة التالية ونقاط إرشادية تلقائية -->
     <section class="py-16 sm:py-24 border-t border-zinc-900">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-16">
                 <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="packages_heading">الباقات والخدمات</h2>
-                <p class="text-zinc-400 text-sm sm:text-base mb-4" data-i18n="packages_sub">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
-                
-                <!-- مؤشر السحب للموبايل (يظهر فقط على الموبايل لتوجيه المستخدم) -->
-                <div class="flex sm:hidden items-center justify-center gap-2 text-whatsapp text-xs font-bold bg-whatsapp/10 border border-whatsapp/20 py-2 px-4 rounded-full max-w-[200px] mx-auto">
-                    <span class="animate-swipe-hint">←</span>
-                    <span data-i18n="swipe_hint">اسحب لرؤية باقي الباقات</span>
-                    <span class="animate-swipe-hint">→</span>
-                </div>
+                <p class="text-zinc-400 text-sm sm:text-base" data-i18n="packages_sub">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
             </div>
 
-            <!-- حاوية الباقات: سلايدر أفقي للموبايل يظهر البطاقة الحالية وجزء من البطاقة التالية، وشبكة كاملة للكمبيوتر -->
-            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible packages-slider pb-6 sm:pb-0 px-4 sm:px-0 snap-x snap-mandatory">
+            <!-- حاوية الباقات -->
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible packages-slider pb-4 sm:pb-0 px-4 sm:px-0 snap-x snap-mandatory">
                 
                 <!-- باقة 1 -->
                 <div class="min-w-[82%] sm:min-w-0 bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0">
@@ -229,6 +215,14 @@
                     </a>
                 </div>
 
+            </div>
+
+            <!-- مؤشر النقاط التفاعلي للموبايل (Dots Indicator) -->
+            <div class="flex sm:hidden justify-center items-center gap-2 mt-6">
+                <span class="w-2.5 h-2.5 rounded-full bg-whatsapp"></span>
+                <span class="w-2 h-2 rounded-full bg-zinc-800"></span>
+                <span class="w-2 h-2 rounded-full bg-zinc-800"></span>
+                <span class="w-2 h-2 rounded-full bg-zinc-800"></span>
             </div>
         </div>
     </section>
@@ -395,7 +389,6 @@
                 f4_desc: "تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.",
                 packages_heading: "الباقات والخدمات",
                 packages_sub: "اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم",
-                swipe_hint: "اسحب لرؤية باقي الباقات",
                 p1_badge: "تغذية فقط",
                 p1_title: "باقة النظام الغذائي",
                 p1_desc: "مخصصة لمن يمتلكون جدول تمرين ويحتاجون لتنظيم السعرات والأكل.",
@@ -481,7 +474,6 @@
                 f4_desc: "Smart, well-designed workouts giving you maximum results in minimal time.",
                 packages_heading: "Packages & Services",
                 packages_sub: "Choose the program that fits your ambition and start today",
-                swipe_hint: "Swipe to see more packages",
                 p1_badge: "Nutrition Only",
                 p1_title: "Diet Plan Package",
                 p1_desc: "Designed for those who have a workout routine and need proper nutrition & macro control.",
@@ -567,7 +559,6 @@
                 f4_desc: "En kısa sürede maksimum sonuç almanızı sağlayan akıllı ve etkili antrenmanlar.",
                 packages_heading: "Paketler ve Hizmetler",
                 packages_sub: "Hedefinize uygun programı seçin ve yolculuğa bugün başlayın",
-                swipe_hint: "Diğer paketler için kaydırın",
                 p1_badge: "Sadece Beslenme",
                 p1_title: "Diyet Planı Paketi",
                 p1_desc: "Antrenman rutini olan ve kalori/beslenme takibine ihtiyaç duyanlar için.",
@@ -594,7 +585,7 @@
                 p4_desc: "Uzun vadeli strateji ve en iyi fiyatla köklü bir fiziksel değişim için.",
                 p4_li1: "Kapsamlı Paketin tüm özellikleri",
                 p4_li2: "Destek ve yanıtta mutlak öncelik",
-                p4_li3: "Uzون vadeli taahhüt için özel indirim",
+                p4_li3: "Uzun vadeli taahhüt için özel indirim",
                 p4_btn: "Meydan Okumaya Başla",
                 faq_heading: "Sıkça Sorulan Sorular",
                 faq_sub: "Başlamadan önce bilmeniz gereken her şey",
