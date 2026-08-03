@@ -105,7 +105,7 @@
         </div>
     </section>
 
-    <!-- قسم لماذا تختارنا: تم جعله عمودين بجانب بعضهما على الموبايل لتقليل المسافة الطولية -->
+    <!-- قسم لماذا تختارنا -->
     <section class="border-t border-zinc-900 bg-zinc-900/40 py-16 sm:py-24">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-16">
@@ -146,7 +146,7 @@
         </div>
     </section>
 
-    <!-- قسم الباقات مع سحب أفقي ونقاط تفاعلية -->
+    <!-- قسم الباقات -->
     <section class="py-16 sm:py-24 border-t border-zinc-900">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-16">
@@ -236,7 +236,7 @@
         </div>
     </section>
 
-    <!-- حاسبة السعرات الحرارية: تم ترتيب الحقول بحيث الجنس والعمر بسطر والوزن والطول بسطر -->
+    <!-- حاسبة السعرات الحرارية المعدلة والمضبوطة تماماً -->
     <section class="border-t border-zinc-900 bg-zinc-900/30 py-16 sm:py-24">
         <div class="max-w-2xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-12">
@@ -247,11 +247,12 @@
 
             <div class="bg-zinc-900 border border-zinc-800 p-5 sm:p-8 rounded-3xl shadow-xl">
                 <form id="calorieForm" onsubmit="calculateCalories(event)" class="space-y-4 sm:space-y-5">
-                    <!-- سطر الجنس والعمر معاً -->
-                    <div class="grid grid-cols-2 gap-3">
+                    
+                    <!-- سطر الجنس والعمر (محاذاة متطابقة ومضبوطة) -->
+                    <div class="grid grid-cols-2 gap-3 items-end">
                         <div>
                             <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_gender">الجنس</label>
-                            <select id="gender" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
+                            <select id="gender" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp leading-normal">
                                 <option value="male" data-i18n="calc_male">ذكر</option>
                                 <option value="female" data-i18n="calc_female">أنثى</option>
                             </select>
@@ -262,8 +263,8 @@
                         </div>
                     </div>
 
-                    <!-- سطر الوزن والطول معاً -->
-                    <div class="grid grid-cols-2 gap-3">
+                    <!-- سطر الوزن والطول (محاذاة متطابقة ومضبوطة) -->
+                    <div class="grid grid-cols-2 gap-3 items-end">
                         <div>
                             <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_weight">الوزن (كغ)</label>
                             <input type="number" id="weight" required placeholder="75" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-3 text-sm text-zinc-100 focus:outline-none focus:border-whatsapp">
@@ -607,7 +608,7 @@
                 faq3_q: "Diyet normal yemeklerden mahrum bırakır mı?",
                 faq3_a: "Asla, karmaşık kısıtlamalar olmadan sürdürülebilir esnek bir diyet yaklaşımı (Flexible Diet) uyguluyoruz.",
                 cta_title: "Yarına ertelemeyin, kararınızı bugün verin!",
-                cta_desc: "Şimdi bizimle iletişime geçin ve vücut gelişim planınıza adım adım başlayalım.",
+                cta_desc: "Şimdi bizimle iletişime geçin و vücut gelişim planınıza adım adım başlayalım.",
                 cta_btn: "Koç Anas ile İletişime Geç",
                 footer_text: "© 2026 Anas Osman. Tüm hakları saklıdır."
             }
