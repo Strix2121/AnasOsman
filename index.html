@@ -22,11 +22,11 @@
         body {
             font-family: 'Tajawal', sans-serif;
         }
-        /* إخفاء شريط التمرير للباقات الأفقية على الموبايل مع الحفاظ على سلاسة السحب */
-        .no-scrollbar::-webkit-scrollbar {
+        /* إخفاء شريط التمرير مع السماح بالسحب السلس على الهواتف */
+        .mobile-slider::-webkit-scrollbar {
             display: none;
         }
-        .no-scrollbar {
+        .mobile-slider {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -105,6 +105,7 @@
         </div>
     </section>
 
+    <!-- قسم لماذا تختارنا: سلايدر أفقي واضح على الموبايل وشبكة على الكمبيوتر -->
     <section class="border-t border-zinc-900 bg-zinc-900/40 py-16 sm:py-24">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-12 sm:mb-16">
@@ -112,23 +113,23 @@
                 <p class="text-zinc-400 text-sm sm:text-base" data-i18n="features_sub">منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible mobile-slider pb-4 sm:pb-0 px-2 sm:px-0 snap-x snap-mandatory">
+                <div class="min-w-[260px] sm:min-w-0 bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl snap-center shrink-0">
                     <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">🎯</div>
                     <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f1_title">خطط مخصصة 100%</h3>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f1_desc">لا توجد برامج جاهزة؛ كل خطوة تُبنى بناءً على وزنك، طولك، وهدفك الشخصي.</p>
                 </div>
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+                <div class="min-w-[260px] sm:min-w-0 bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl snap-center shrink-0">
                     <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">🥗</div>
                     <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f2_title">مرونة في التغذية</h3>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f2_desc">استمتع بأكل تحبه مع حساب السعرات والميكروز بدقة، وبدون حرمان قاسي.</p>
                 </div>
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+                <div class="min-w-[260px] sm:min-w-0 bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl snap-center shrink-0">
                     <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">📈</div>
                     <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f3_title">متابعة مستمرة</h3>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f3_desc">تعديلات دورية على الجداول بناءً على استجابة جسمك وتقاريرك الأسبوعية.</p>
                 </div>
-                <div class="bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl">
+                <div class="min-w-[260px] sm:min-w-0 bg-zinc-900/80 border border-zinc-800/80 p-5 sm:p-6 rounded-2xl snap-center shrink-0">
                     <div class="w-10 h-10 sm:w-12 sm:h-12 bg-whatsapp/15 text-whatsapp rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl mb-3 sm:mb-4">⏱️</div>
                     <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="f4_title">توفير الوقت والجهد</h3>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="f4_desc">تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.</p>
@@ -137,7 +138,7 @@
         </div>
     </section>
 
-    <!-- قسم الباقات: سلايدر أفقي على الموبايل وشبكة على الديسكتوب -->
+    <!-- قسم الباقات: سلايدر أفقي واضح على الموبايل وشبكة على الكمبيوتر -->
     <section class="py-16 sm:py-24 border-t border-zinc-900">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-12 sm:mb-16">
@@ -145,8 +146,7 @@
                 <p class="text-zinc-400 text-sm sm:text-base" data-i18n="packages_sub">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
             </div>
 
-            <!-- حاوية الباقات: على الموبايل سحب أفقي، وعلى الشاشات الكبيرة شبكة متناسقة -->
-            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 overflow-x-auto sm:overflow-visible no-scrollbar pb-6 sm:pb-0 px-2 sm:px-0 snap-x snap-mandatory">
+            <div class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 overflow-x-auto sm:overflow-visible mobile-slider pb-6 sm:pb-0 px-2 sm:px-0 snap-x snap-mandatory">
                 
                 <!-- باقة 1 -->
                 <div class="min-w-[280px] sm:min-w-0 bg-zinc-900 border border-zinc-800 p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0">
@@ -578,7 +578,7 @@
                 p4_desc: "Uzun vadeli strateji ve en iyi fiyatla köklü bir fiziksel değişim için.",
                 p4_li1: "Kapsamlı Paketin tüm özellikleri",
                 p4_li2: "Destek ve yanıtta mutlak öncelik",
-                p4_li3: "Uzun vadeli taahhüt için özel indirim",
+                p4_li3: "Uzون vadeli taahhüt için özel indirim",
                 p4_btn: "Meydan Okumaya Başla",
                 faq_heading: "Sıkça Sorulan Sorular",
                 faq_sub: "Başlamadan önce bilmeniz gereken her şey",
