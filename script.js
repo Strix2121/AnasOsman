@@ -42,6 +42,24 @@
                 res_cut: "التنشيف (خسارة وزن)",
                 res_bulk: "الضخامة (بناء عضلات)",
                 res_wa: "أرسل نتيجتي للكابتن أنس وابدأ خطتك 🟢",
+                food_badge: "أداة مجانية",
+                food_title: "دليل السعرات الغذائية",
+                food_sub: "دور عن أي أكلة واعرف سعراتها وبروتينها وكاربها ودهونها لكل 100غ",
+                food_search_ph: "دور عن أكلة... (مثلاً: دجاج، سلمون، حليب)",
+                food_empty: "ما لقينا نتيجة، جرب كلمة تانية",
+                food_per: "لكل 100غ",
+                food_protein: "بروتين",
+                food_carbs: "كارب",
+                food_fat: "دهون",
+                food_cat_all: "الكل",
+                food_cat_poultry: "دواجن",
+                food_cat_redmeat: "لحوم حمراء",
+                food_cat_fish: "أسماك ومأكولات بحرية",
+                food_cat_dairy: "ألبان وبيض",
+                food_cat_grains: "حبوب وبقوليات",
+                food_cat_veg: "خضار",
+                food_cat_fruit: "فواكه",
+                food_cat_nuts: "مكسرات ودهون",
                 features_heading: "لماذا تختار الكابتن أنس عثمان؟",
                 features_sub: "منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة",
                 f1_title: "خطط مخصصة 100%",
@@ -133,6 +151,24 @@
                 res_cut: "Fat Loss (Cut)",
                 res_bulk: "Muscle Building (Bulk)",
                 res_wa: "Send my result to Coach Anas & start plan 🟢",
+                food_badge: "Free Tool",
+                food_title: "Food Calorie Guide",
+                food_sub: "Search any food and see its calories, protein, carbs and fat per 100g",
+                food_search_ph: "Search a food... (e.g. chicken, salmon, milk)",
+                food_empty: "No results found, try another word",
+                food_per: "per 100g",
+                food_protein: "Protein",
+                food_carbs: "Carbs",
+                food_fat: "Fat",
+                food_cat_all: "All",
+                food_cat_poultry: "Poultry",
+                food_cat_redmeat: "Red Meat",
+                food_cat_fish: "Fish & Seafood",
+                food_cat_dairy: "Dairy & Eggs",
+                food_cat_grains: "Grains & Legumes",
+                food_cat_veg: "Vegetables",
+                food_cat_fruit: "Fruits",
+                food_cat_nuts: "Nuts & Fats",
                 features_heading: "Why Choose Coach Anas Osman?",
                 features_sub: "A clear, scientific methodology ensuring efficient results",
                 f1_title: "100% Customized Plans",
@@ -224,6 +260,24 @@
                 res_cut: "Yağ Yakımı (Definisyon)",
                 res_bulk: "Kas Kütlesi (Bulking)",
                 res_wa: "Sonucumu Koç Anas'a gönder ve plana başla 🟢",
+                food_badge: "Ücretsiz Araç",
+                food_title: "Besin Kalori Rehberi",
+                food_sub: "Bir besin arayın ve 100g başına kalori, protein, karbonhidrat ve yağ değerlerini görün",
+                food_search_ph: "Besin ara... (örn. tavuk, somon, süt)",
+                food_empty: "Sonuç bulunamadı, başka bir kelime deneyin",
+                food_per: "100g başına",
+                food_protein: "Protein",
+                food_carbs: "Karbonhidrat",
+                food_fat: "Yağ",
+                food_cat_all: "Tümü",
+                food_cat_poultry: "Kümes Hayvanları",
+                food_cat_redmeat: "Kırmızı Et",
+                food_cat_fish: "Balık ve Deniz Ürünleri",
+                food_cat_dairy: "Süt Ürünleri ve Yumurta",
+                food_cat_grains: "Tahıllar ve Baklagiller",
+                food_cat_veg: "Sebzeler",
+                food_cat_fruit: "Meyveler",
+                food_cat_nuts: "Kuruyemiş ve Yağlar",
                 features_heading: "Neden Koç Anas Osman?",
                 features_sub: "Hedefinize güvenle ulaşmanızı sağlayan net bilimsel metodoloji",
                 f1_title: "%100 Kişiselleştirilmiş Planlar",
@@ -302,6 +356,14 @@
                     btn.className = "px-2.5 sm:px-3 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100";
                 }
             });
+
+            // تحديث دليل السعرات الغذائية (placeholder + الفئات + النتائج) عند تبديل اللغة
+            const foodInput = document.getElementById('foodSearchInput');
+            if (foodInput && translations[lang].food_search_ph) {
+                foodInput.placeholder = translations[lang].food_search_ph;
+            }
+            if (typeof renderFoodCategories === 'function') renderFoodCategories();
+            if (typeof renderFoodResults === 'function') renderFoodResults();
         }
 
         const slider = document.getElementById('packagesSlider');
@@ -363,6 +425,162 @@
             document.getElementById('waResultBtn').href = `https://wa.me/905392728837?text=${encodeURIComponent(msg)}`;
             document.getElementById('calcResult').classList.remove('hidden');
         }
+
+        /* =========================================================
+           دليل السعرات الغذائية — قاعدة بيانات + بحث وفلترة
+           القيم لكل 100 غرام (مطهو ما لم يذكر غير ذلك)
+           ========================================================= */
+        const foodData = [
+            // دواجن
+            { cat: "poultry", ar: "صدر دجاج مشوي بدون جلد", en: "Grilled Chicken Breast (skinless)", tr: "Izgara Tavuk Göğsü (derisiz)", kcal: 165, p: 31, c: 0, f: 3.6 },
+            { cat: "poultry", ar: "فخذ دجاج بالجلد مشوي", en: "Grilled Chicken Thigh (with skin)", tr: "Izgara Tavuk But (derili)", kcal: 250, p: 26, c: 0, f: 16 },
+            { cat: "poultry", ar: "دجاج كامل مشوي", en: "Whole Roasted Chicken", tr: "Bütün Fırın Tavuk", kcal: 215, p: 27, c: 0, f: 11 },
+            { cat: "poultry", ar: "كبدة دجاج مطهوة", en: "Cooked Chicken Liver", tr: "Pişmiş Tavuk Ciğeri", kcal: 167, p: 24.5, c: 0.9, f: 6.5 },
+            { cat: "poultry", ar: "ديك رومي مشوي (صدر)", en: "Grilled Turkey Breast", tr: "Izgara Hindi Göğsü", kcal: 135, p: 30, c: 0, f: 1 },
+
+            // لحوم حمراء
+            { cat: "redmeat", ar: "لحم بقر مفروم مطهو (80%)", en: "Cooked Ground Beef (80% lean)", tr: "Pişmiş Kıyma (%80 yağsız)", kcal: 254, p: 26, c: 0, f: 17 },
+            { cat: "redmeat", ar: "ستيك بقر لين مشوي", en: "Grilled Lean Beef Steak", tr: "Izgara Yağsız Biftek", kcal: 217, p: 26, c: 0, f: 12 },
+            { cat: "redmeat", ar: "لحم غنم (خروف) مشوي", en: "Grilled Lamb", tr: "Izgara Kuzu Eti", kcal: 294, p: 25, c: 0, f: 21 },
+            { cat: "redmeat", ar: "لحم عجل مشوي", en: "Grilled Veal", tr: "Izgara Dana Eti", kcal: 172, p: 27, c: 0, f: 6.8 },
+            { cat: "redmeat", ar: "كبدة بقر مطهوة", en: "Cooked Beef Liver", tr: "Pişmiş Sığır Ciğeri", kcal: 175, p: 26, c: 3.9, f: 4.9 },
+            { cat: "redmeat", ar: "كباب/لحم مشوي متبل", en: "Grilled Seasoned Kebab", tr: "Izgara Baharatlı Kebap", kcal: 250, p: 24, c: 1, f: 16 },
+
+            // أسماك ومأكولات بحرية
+            { cat: "fish", ar: "سلمون مشوي", en: "Grilled Salmon", tr: "Izgara Somon", kcal: 208, p: 20, c: 0, f: 13 },
+            { cat: "fish", ar: "تونة طازجة مشوية", en: "Grilled Fresh Tuna", tr: "Izgara Taze Ton Balığı", kcal: 132, p: 28, c: 0, f: 1.3 },
+            { cat: "fish", ar: "تونة معلبة بالماء", en: "Canned Tuna in Water", tr: "Suda Konserve Ton Balığı", kcal: 116, p: 26, c: 0, f: 1 },
+            { cat: "fish", ar: "بلطي (تلابيا) مشوي", en: "Grilled Tilapia", tr: "Izgara Tilapya", kcal: 128, p: 26, c: 0, f: 2.7 },
+            { cat: "fish", ar: "سردين معلب بالزيت", en: "Canned Sardines in Oil", tr: "Yağlı Konserve Sardalya", kcal: 208, p: 25, c: 0, f: 11 },
+            { cat: "fish", ar: "جمبري (روبيان) مسلوق", en: "Boiled Shrimp", tr: "Haşlanmış Karides", kcal: 99, p: 24, c: 0.2, f: 0.3 },
+            { cat: "fish", ar: "سمك القد (Cod) مشوي", en: "Grilled Cod", tr: "Izgara Morina Balığı", kcal: 105, p: 23, c: 0, f: 0.9 },
+            { cat: "fish", ar: "حبار مطهو", en: "Cooked Squid", tr: "Pişmiş Kalamar", kcal: 92, p: 15.6, c: 3.1, f: 1.4 },
+
+            // ألبان وبيض
+            { cat: "dairy", ar: "حليب كامل الدسم", en: "Whole Milk", tr: "Tam Yağlı Süt", kcal: 61, p: 3.2, c: 4.8, f: 3.3 },
+            { cat: "dairy", ar: "حليب قليل الدسم (2%)", en: "Low-Fat Milk (2%)", tr: "Yarım Yağlı Süt (%2)", kcal: 50, p: 3.3, c: 4.9, f: 2 },
+            { cat: "dairy", ar: "حليب خالي الدسم", en: "Skim Milk", tr: "Yağsız Süt", kcal: 34, p: 3.4, c: 5, f: 0.2 },
+            { cat: "dairy", ar: "لبن زبادي كامل الدسم", en: "Whole Milk Yogurt", tr: "Tam Yağlı Yoğurt", kcal: 61, p: 3.5, c: 4.7, f: 3.3 },
+            { cat: "dairy", ar: "لبن يوناني قليل الدسم", en: "Low-Fat Greek Yogurt", tr: "Az Yağlı Yunan Yoğurdu", kcal: 59, p: 10, c: 3.6, f: 0.4 },
+            { cat: "dairy", ar: "جبنة بيضاء (فيتا)", en: "Feta Cheese", tr: "Beyaz Peynir (Feta)", kcal: 264, p: 14, c: 4, f: 21 },
+            { cat: "dairy", ar: "جبنة قريش", en: "Cottage Cheese", tr: "Lor Peyniri", kcal: 98, p: 11, c: 3.4, f: 4.3 },
+            { cat: "dairy", ar: "جبنة شيدر", en: "Cheddar Cheese", tr: "Kaşar/Cheddar Peyniri", kcal: 402, p: 25, c: 1.3, f: 33 },
+            { cat: "dairy", ar: "زبدة", en: "Butter", tr: "Tereyağı", kcal: 717, p: 0.9, c: 0.1, f: 81 },
+            { cat: "dairy", ar: "بيضة كاملة مسلوقة", en: "Boiled Whole Egg", tr: "Haşlanmış Yumurta", kcal: 155, p: 13, c: 1.1, f: 11 },
+            { cat: "dairy", ar: "بياض بيض فقط", en: "Egg White Only", tr: "Sadece Yumurta Akı", kcal: 52, p: 11, c: 0.7, f: 0.2 },
+
+            // حبوب وبقوليات
+            { cat: "grains", ar: "أرز أبيض مطبوخ", en: "Cooked White Rice", tr: "Pişmiş Beyaz Pirinç", kcal: 130, p: 2.7, c: 28, f: 0.3 },
+            { cat: "grains", ar: "أرز بني مطبوخ", en: "Cooked Brown Rice", tr: "Pişmiş Esmer Pirinç", kcal: 111, p: 2.6, c: 23, f: 0.9 },
+            { cat: "grains", ar: "خبز أبيض", en: "White Bread", tr: "Beyaz Ekmek", kcal: 265, p: 9, c: 49, f: 3.2 },
+            { cat: "grains", ar: "خبز أسمر (قمح كامل)", en: "Whole Wheat Bread", tr: "Tam Buğday Ekmeği", kcal: 247, p: 13, c: 41, f: 3.4 },
+            { cat: "grains", ar: "شوفان جاف", en: "Dry Oats", tr: "Kuru Yulaf", kcal: 389, p: 17, c: 66, f: 7 },
+            { cat: "grains", ar: "مكرونة مطبوخة", en: "Cooked Pasta", tr: "Pişmiş Makarna", kcal: 131, p: 5, c: 25, f: 1.1 },
+            { cat: "grains", ar: "عدس مطبوخ", en: "Cooked Lentils", tr: "Pişmiş Mercimek", kcal: 116, p: 9, c: 20, f: 0.4 },
+            { cat: "grains", ar: "حمص مطبوخ", en: "Cooked Chickpeas", tr: "Pişmiş Nohut", kcal: 164, p: 9, c: 27, f: 2.6 },
+            { cat: "grains", ar: "فول مطبوخ", en: "Cooked Fava Beans", tr: "Pişmiş Bakla", kcal: 110, p: 8, c: 20, f: 0.5 },
+            { cat: "grains", ar: "كينوا مطبوخة", en: "Cooked Quinoa", tr: "Pişmiş Kinoa", kcal: 120, p: 4.4, c: 21, f: 1.9 },
+
+            // خضار
+            { cat: "veg", ar: "بطاطا مسلوقة", en: "Boiled Potato", tr: "Haşlanmış Patates", kcal: 87, p: 1.9, c: 20, f: 0.1 },
+            { cat: "veg", ar: "بطاطا حلوة مشوية", en: "Baked Sweet Potato", tr: "Fırın Tatlı Patates", kcal: 90, p: 2, c: 21, f: 0.1 },
+            { cat: "veg", ar: "بروكلي مسلوق", en: "Boiled Broccoli", tr: "Haşlanmış Brokoli", kcal: 35, p: 2.4, c: 7, f: 0.4 },
+            { cat: "veg", ar: "سبانخ", en: "Spinach", tr: "Ispanak", kcal: 23, p: 2.9, c: 3.6, f: 0.4 },
+            { cat: "veg", ar: "طماطم", en: "Tomato", tr: "Domates", kcal: 18, p: 0.9, c: 3.9, f: 0.2 },
+            { cat: "veg", ar: "خيار", en: "Cucumber", tr: "Salatalık", kcal: 15, p: 0.7, c: 3.6, f: 0.1 },
+            { cat: "veg", ar: "جزر", en: "Carrot", tr: "Havuç", kcal: 41, p: 0.9, c: 10, f: 0.2 },
+
+            // فواكه
+            { cat: "fruit", ar: "موز", en: "Banana", tr: "Muz", kcal: 89, p: 1.1, c: 23, f: 0.3 },
+            { cat: "fruit", ar: "تفاح", en: "Apple", tr: "Elma", kcal: 52, p: 0.3, c: 14, f: 0.2 },
+            { cat: "fruit", ar: "برتقال", en: "Orange", tr: "Portakal", kcal: 47, p: 0.9, c: 12, f: 0.1 },
+            { cat: "fruit", ar: "بطيخ", en: "Watermelon", tr: "Karpuz", kcal: 30, p: 0.6, c: 8, f: 0.2 },
+            { cat: "fruit", ar: "عنب", en: "Grapes", tr: "Üzüm", kcal: 69, p: 0.7, c: 18, f: 0.2 },
+            { cat: "fruit", ar: "تمر مجفف", en: "Dried Dates", tr: "Kuru Hurma", kcal: 282, p: 2.5, c: 75, f: 0.4 },
+
+            // مكسرات ودهون
+            { cat: "nuts", ar: "لوز", en: "Almonds", tr: "Badem", kcal: 579, p: 21, c: 22, f: 50 },
+            { cat: "nuts", ar: "جوز", en: "Walnuts", tr: "Ceviz", kcal: 654, p: 15, c: 14, f: 65 },
+            { cat: "nuts", ar: "فول سوداني", en: "Peanuts", tr: "Yer Fıstığı", kcal: 567, p: 26, c: 16, f: 49 },
+            { cat: "nuts", ar: "كاجو", en: "Cashews", tr: "Kaju Fıstığı", kcal: 553, p: 18, c: 30, f: 44 },
+            { cat: "nuts", ar: "زيت زيتون", en: "Olive Oil", tr: "Zeytinyağı", kcal: 884, p: 0, c: 0, f: 100 },
+        ];
+
+        const foodCategories = ["all", "poultry", "redmeat", "fish", "dairy", "grains", "veg", "fruit", "nuts"];
+        let activeFoodCategory = "all";
+
+        function renderFoodCategories() {
+            const wrap = document.getElementById('foodCategoryTabs');
+            if (!wrap) return;
+            wrap.innerHTML = foodCategories.map(cat => {
+                const label = translations[currentLang][`food_cat_${cat}`];
+                const active = cat === activeFoodCategory;
+                const cls = active
+                    ? "bg-accent text-ink border-accent"
+                    : "bg-surface text-zinc-400 border-line hover:border-accent/50 hover:text-zinc-200";
+                return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-full border text-xs font-bold transition duration-200 ${cls}">${label}</button>`;
+            }).join('');
+
+            wrap.querySelectorAll('.food-cat-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeFoodCategory = btn.getAttribute('data-cat');
+                    renderFoodCategories();
+                    renderFoodResults();
+                });
+            });
+        }
+
+        function renderFoodResults() {
+            const grid = document.getElementById('foodResultsGrid');
+            const empty = document.getElementById('foodEmptyState');
+            if (!grid) return;
+
+            const query = (document.getElementById('foodSearchInput')?.value || "").trim().toLowerCase();
+            const t = translations[currentLang];
+
+            const results = foodData.filter(item => {
+                const matchesCat = activeFoodCategory === "all" || item.cat === activeFoodCategory;
+                const haystack = `${item.ar} ${item.en} ${item.tr}`.toLowerCase();
+                const matchesQuery = query === "" || haystack.includes(query);
+                return matchesCat && matchesQuery;
+            });
+
+            if (results.length === 0) {
+                grid.innerHTML = "";
+                if (empty) empty.classList.remove('hidden');
+                return;
+            }
+            if (empty) empty.classList.add('hidden');
+
+            grid.innerHTML = results.map(item => {
+                const name = item[currentLang] || item.ar;
+                const catLabel = t[`food_cat_${item.cat}`];
+                return `
+                <div class="bg-surface border border-line rounded-2xl p-4 flex flex-col gap-2.5 reveal in">
+                    <div class="flex items-start justify-between gap-2">
+                        <h4 class="font-bold text-xs sm:text-sm leading-snug">${name}</h4>
+                        <span class="shrink-0 text-[9px] sm:text-[10px] text-zinc-500 bg-ink/60 px-2 py-0.5 rounded-full border border-line whitespace-nowrap">${catLabel}</span>
+                    </div>
+                    <div class="flex items-end gap-1.5">
+                        <span class="font-display text-3xl sm:text-4xl text-accent leading-none">${item.kcal}</span>
+                        <span class="text-[10px] sm:text-[11px] text-zinc-500 mb-0.5">kcal · ${t.food_per}</span>
+                    </div>
+                    <div class="flex gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] text-zinc-400 pt-2 border-t border-line">
+                        <span>${t.food_protein} ${item.p}g</span>
+                        <span>${t.food_carbs} ${item.c}g</span>
+                        <span>${t.food_fat} ${item.f}g</span>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function initFoodGuide() {
+            renderFoodCategories();
+            renderFoodResults();
+            const input = document.getElementById('foodSearchInput');
+            if (input) input.addEventListener('input', renderFoodResults);
+        }
+        initFoodGuide();
 
         // scroll reveal
         const revealEls = document.querySelectorAll('.reveal');

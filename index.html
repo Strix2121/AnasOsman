@@ -389,6 +389,29 @@
         </div>
     </section>
 
+    <!-- دليل السعرات الغذائية -->
+    <section class="py-16 sm:py-24 border-t border-line">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-12 reveal">
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="food_badge">أداة مجانية</span>
+                <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="food_title">دليل السعرات الغذائية</h2>
+                <p class="text-zinc-400 text-sm sm:text-base" data-i18n="food_sub">دور عن أي أكلة واعرف سعراتها وبروتينها وكاربها ودهونها لكل 100غ</p>
+            </div>
+
+            <div class="reveal max-w-3xl mx-auto mb-6">
+                <input type="text" id="foodSearchInput" placeholder="دور عن أكلة... (مثلاً: دجاج، سلمون، حليب)" class="w-full bg-surface border border-line rounded-xl px-4 py-3.5 text-sm text-zinc-100 focus:outline-none focus:border-accent placeholder:text-zinc-600">
+            </div>
+
+            <div id="foodCategoryTabs" class="reveal flex overflow-x-auto packages-slider gap-2 mb-8 pb-1"></div>
+
+            <div id="foodResultsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
+
+            <div id="foodEmptyState" class="hidden text-center text-zinc-500 text-sm py-10" data-i18n="food_empty">
+                ما لقينا نتيجة، جرب كلمة تانية
+            </div>
+        </div>
+    </section>
+
     <!-- الأسئلة الشائعة -->
     <section class="py-16 sm:py-24 border-t border-line">
         <div class="max-w-3xl mx-auto px-4">
