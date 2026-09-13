@@ -61,7 +61,9 @@
                 food_cat_fruit: "فواكه",
                 food_cat_nuts: "مكسرات ودهون",
                 food_showing: "عرض {shown} من أصل {total} صنف",
-                food_load_more: "عرض المزيد ⌄",
+                food_load_more: "عرض المزيد",
+                food_legend_note: "(نسبة السعرات من كل مصدر بالشريط)",
+                food_high_protein: "بروتين عالي",
                 features_heading: "لماذا تختار الكابتن أنس عثمان؟",
                 features_sub: "منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة",
                 f1_title: "خطط مخصصة 100%",
@@ -172,7 +174,9 @@
                 food_cat_fruit: "Fruits",
                 food_cat_nuts: "Nuts & Fats",
                 food_showing: "Showing {shown} of {total} items",
-                food_load_more: "Load More ⌄",
+                food_load_more: "Load More",
+                food_legend_note: "(share of calories from each source in the bar)",
+                food_high_protein: "High Protein",
                 features_heading: "Why Choose Coach Anas Osman?",
                 features_sub: "A clear, scientific methodology ensuring efficient results",
                 f1_title: "100% Customized Plans",
@@ -283,7 +287,9 @@
                 food_cat_fruit: "Meyveler",
                 food_cat_nuts: "Kuruyemiş ve Yağlar",
                 food_showing: "{total} öğeden {shown} tanesi gösteriliyor",
-                food_load_more: "Daha Fazla Göster ⌄",
+                food_load_more: "Daha Fazla Göster",
+                food_legend_note: "(çubuktaki her kaynağın kalori payı)",
+                food_high_protein: "Yüksek Protein",
                 features_heading: "Neden Koç Anas Osman?",
                 features_sub: "Hedefinize güvenle ulaşmanızı sağlayan net bilimsel metodoloji",
                 f1_title: "%100 Kişiselleştirilmiş Planlar",
@@ -513,27 +519,25 @@
         ];
 
         const foodCategories = ["all", "poultry", "redmeat", "fish", "dairy", "grains", "veg", "fruit", "nuts"];
-        const foodCategoryIcons = {
-            all: "🍽️", poultry: "🍗", redmeat: "🥩", fish: "🐟",
-            dairy: "🥛", grains: "🌾", veg: "🥦", fruit: "🍎", nuts: "🥜"
-        };
         let activeFoodCategory = "all";
 
         // كم صنف يظهر دفعة وحدة، منشان القسم ما يصير مكدس ومزحوم
-        const FOOD_PAGE_SIZE = 12;
+        const FOOD_PAGE_SIZE = 9;
         let foodVisibleCount = FOOD_PAGE_SIZE;
+
+        // عتبة نعتبر فوقها الصنف "غني بالبروتين" — مفيدة لجمهور بناء العضلات
+        const HIGH_PROTEIN_THRESHOLD = 20;
 
         function renderFoodCategories() {
             const wrap = document.getElementById('foodCategoryTabs');
             if (!wrap) return;
             wrap.innerHTML = foodCategories.map(cat => {
                 const label = translations[currentLang][`food_cat_${cat}`];
-                const icon = foodCategoryIcons[cat];
                 const active = cat === activeFoodCategory;
                 const cls = active
                     ? "bg-accent text-ink border-accent"
                     : "bg-surface text-zinc-400 border-line hover:border-accent/50 hover:text-zinc-200";
-                return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-full border text-xs font-bold transition duration-200 ${cls}"><span class="me-1">${icon}</span>${label}</button>`;
+                return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-full border text-xs font-bold transition duration-200 ${cls}">${label}</button>`;
             }).join('');
 
             wrap.querySelectorAll('.food-cat-btn').forEach(btn => {
@@ -580,20 +584,41 @@
             grid.innerHTML = results.map(item => {
                 const name = item[currentLang] || item.ar;
                 const catLabel = t[`food_cat_${item.cat}`];
+
+                // نسبة السعرات الآتية من كل مصدر (بروتين 4 سعرات/غرام، كارب 4، دهون 9)
+                const proteinKcal = item.p * 4;
+                const carbKcal = item.c * 4;
+                const fatKcal = item.f * 9;
+                const macroTotal = Math.max(proteinKcal + carbKcal + fatKcal, 0.01);
+                const proteinPct = (proteinKcal / macroTotal * 100).toFixed(1);
+                const carbPct = (carbKcal / macroTotal * 100).toFixed(1);
+                const fatPct = (fatKcal / macroTotal * 100).toFixed(1);
+                const isHighProtein = item.p >= HIGH_PROTEIN_THRESHOLD;
+
                 return `
-                <div class="bg-surface border border-line rounded-2xl p-4 flex flex-col gap-2.5 reveal in hover:border-accent/40 hover:-translate-y-0.5 transition duration-200">
-                    <div class="flex items-start justify-between gap-2">
-                        <h4 class="font-bold text-xs sm:text-sm leading-snug">${name}</h4>
-                        <span class="shrink-0 text-[9px] sm:text-[10px] text-zinc-500 bg-ink/60 px-2 py-0.5 rounded-full border border-line whitespace-nowrap">${catLabel}</span>
-                    </div>
-                    <div class="flex items-end gap-1.5">
+                <div class="bg-surface border border-line rounded-2xl p-4 sm:p-5 flex items-stretch gap-3 sm:gap-4 reveal in hover:border-accent/40 transition duration-200">
+                    <div class="shrink-0 w-16 sm:w-20 flex flex-col items-center justify-center text-center border-e border-line pe-3 sm:pe-4">
                         <span class="font-display text-3xl sm:text-4xl text-accent leading-none">${item.kcal}</span>
-                        <span class="text-[10px] sm:text-[11px] text-zinc-500 mb-0.5">kcal · ${t.food_per}</span>
+                        <span class="text-[9px] sm:text-[10px] text-zinc-500 mt-1 leading-tight">kcal<br>${t.food_per}</span>
                     </div>
-                    <div class="flex gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] text-zinc-400 pt-2 border-t border-line">
-                        <span>${t.food_protein} ${item.p}g</span>
-                        <span>${t.food_carbs} ${item.c}g</span>
-                        <span>${t.food_fat} ${item.f}g</span>
+                    <div class="flex-1 min-w-0 flex flex-col justify-center gap-2">
+                        <div class="flex items-start justify-between gap-2">
+                            <h4 class="font-bold text-xs sm:text-sm leading-snug">${name}</h4>
+                            <div class="shrink-0 flex flex-col items-end gap-1">
+                                <span class="text-[9px] sm:text-[10px] text-zinc-500 bg-ink/60 px-2 py-0.5 rounded-full border border-line whitespace-nowrap">${catLabel}</span>
+                                ${isHighProtein ? `<span class="text-[9px] sm:text-[10px] font-bold text-accent border border-accent/40 px-2 py-0.5 rounded-full whitespace-nowrap">${t.food_high_protein}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="h-1.5 rounded-full overflow-hidden flex bg-ink/70" role="img" aria-label="${t.food_protein} ${proteinPct}% · ${t.food_carbs} ${carbPct}% · ${t.food_fat} ${fatPct}%">
+                            <span style="width:${proteinPct}%" class="bg-accent"></span>
+                            <span style="width:${carbPct}%" class="bg-zinc-400"></span>
+                            <span style="width:${fatPct}%" class="bg-zinc-600"></span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] sm:text-[11px] text-zinc-400">
+                            <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>${t.food_protein} ${item.p}g</span>
+                            <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>${t.food_carbs} ${item.c}g</span>
+                            <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-zinc-600"></span>${t.food_fat} ${item.f}g</span>
+                        </div>
                     </div>
                 </div>`;
             }).join('');
@@ -608,7 +633,7 @@
             if (loadMoreBtn) {
                 if (allResults.length > foodVisibleCount) {
                     loadMoreBtn.classList.remove('hidden');
-                    loadMoreBtn.textContent = t.food_load_more;
+                    loadMoreBtn.innerHTML = `${t.food_load_more}<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
                 } else {
                     loadMoreBtn.classList.add('hidden');
                 }
