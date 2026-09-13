@@ -60,10 +60,9 @@
                 food_cat_veg: "خضار",
                 food_cat_fruit: "فواكه",
                 food_cat_nuts: "مكسرات ودهون",
-                food_showing: "عرض {shown} من أصل {total} صنف",
-                food_load_more: "عرض المزيد",
-                food_legend_note: "(نسبة السعرات من كل مصدر بالشريط)",
-                food_high_protein: "بروتين عالي",
+                food_select_category: "اختار النوع",
+                food_select_item: "اختار الصنف",
+                food_choose_prompt: "اختار النوع والصنف فوق لتشوف التفاصيل",
                 features_heading: "لماذا تختار الكابتن أنس عثمان؟",
                 features_sub: "منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة",
                 f1_title: "خطط مخصصة 100%",
@@ -173,10 +172,9 @@
                 food_cat_veg: "Vegetables",
                 food_cat_fruit: "Fruits",
                 food_cat_nuts: "Nuts & Fats",
-                food_showing: "Showing {shown} of {total} items",
-                food_load_more: "Load More",
-                food_legend_note: "(share of calories from each source in the bar)",
-                food_high_protein: "High Protein",
+                food_select_category: "Choose Category",
+                food_select_item: "Choose Food",
+                food_choose_prompt: "Pick a category and food above to see the details",
                 features_heading: "Why Choose Coach Anas Osman?",
                 features_sub: "A clear, scientific methodology ensuring efficient results",
                 f1_title: "100% Customized Plans",
@@ -286,10 +284,9 @@
                 food_cat_veg: "Sebzeler",
                 food_cat_fruit: "Meyveler",
                 food_cat_nuts: "Kuruyemiş ve Yağlar",
-                food_showing: "{total} öğeden {shown} tanesi gösteriliyor",
-                food_load_more: "Daha Fazla Göster",
-                food_legend_note: "(çubuktaki her kaynağın kalori payı)",
-                food_high_protein: "Yüksek Protein",
+                food_select_category: "Kategori Seç",
+                food_select_item: "Besin Seç",
+                food_choose_prompt: "Detayları görmek için yukarıdan kategori ve besin seçin",
                 features_heading: "Neden Koç Anas Osman?",
                 features_sub: "Hedefinize güvenle ulaşmanızı sağlayan net bilimsel metodoloji",
                 f1_title: "%100 Kişiselleştirilmiş Planlar",
@@ -369,13 +366,15 @@
                 }
             });
 
-            // تحديث دليل السعرات الغذائية (placeholder + الفئات + النتائج) عند تبديل اللغة
-            const foodInput = document.getElementById('foodSearchInput');
-            if (foodInput && translations[lang].food_search_ph) {
-                foodInput.placeholder = translations[lang].food_search_ph;
+            // تحديث دليل السعرات الغذائية (القوائم المنسدلة والنتيجة الظاهرة) عند تبديل اللغة
+            if (typeof populateFoodCategorySelect === 'function') populateFoodCategorySelect();
+            if (typeof populateFoodItemSelect === 'function') {
+                const catSel = document.getElementById('foodCategorySelect');
+                populateFoodItemSelect(catSel ? catSel.value : '', selectedFoodIndex);
             }
-            if (typeof renderFoodCategories === 'function') renderFoodCategories();
-            if (typeof renderFoodResults === 'function') renderFoodResults();
+            if (selectedFoodIndex !== null && typeof renderFoodResultCard === 'function') {
+                renderFoodResultCard(foodData[selectedFoodIndex]);
+            }
         }
 
         const slider = document.getElementById('packagesSlider');
@@ -518,149 +517,135 @@
             { cat: "nuts", ar: "زيت زيتون", en: "Olive Oil", tr: "Zeytinyağı", kcal: 884, p: 0, c: 0, f: 100 },
         ];
 
-        const foodCategories = ["all", "poultry", "redmeat", "fish", "dairy", "grains", "veg", "fruit", "nuts"];
-        let activeFoodCategory = "all";
+        const foodCategories = ["poultry", "redmeat", "fish", "dairy", "grains", "veg", "fruit", "nuts"];
 
-        // كم صنف يظهر دفعة وحدة، منشان القسم ما يصير مكدس ومزحوم
-        const FOOD_PAGE_SIZE = 9;
-        let foodVisibleCount = FOOD_PAGE_SIZE;
+        // ألوان توزيع الماكروز بالدائرة البيانية: أحمر = بروتين، أصفر = كارب، أبيض = دهون
+        const MACRO_COLORS = { protein: "#FF4429", carbs: "#FFC93C", fat: "#F4F4F5" };
 
-        // عتبة نعتبر فوقها الصنف "غني بالبروتين" — مفيدة لجمهور بناء العضلات
-        const HIGH_PROTEIN_THRESHOLD = 20;
+        let selectedFoodIndex = null; // رقم الصنف المختار حالياً بالـ foodData، منشان نحافظ عليه لما تتبدل اللغة
 
-        function renderFoodCategories() {
-            const wrap = document.getElementById('foodCategoryTabs');
-            if (!wrap) return;
-            wrap.innerHTML = foodCategories.map(cat => {
-                const label = translations[currentLang][`food_cat_${cat}`];
-                const active = cat === activeFoodCategory;
-                const cls = active
-                    ? "bg-accent text-ink border-accent"
-                    : "bg-surface text-zinc-400 border-line hover:border-accent/50 hover:text-zinc-200";
-                return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-full border text-xs font-bold transition duration-200 ${cls}">${label}</button>`;
-            }).join('');
-
-            wrap.querySelectorAll('.food-cat-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (btn.getAttribute('data-cat') === activeFoodCategory) return;
-                    activeFoodCategory = btn.getAttribute('data-cat');
-                    foodVisibleCount = FOOD_PAGE_SIZE; // رجّع العداد لأول صفحة كل ما تبدل التصنيف
-                    renderFoodCategories();
-                    renderFoodResults();
-                });
-            });
-        }
-
-        function getFilteredFoodData() {
-            const query = (document.getElementById('foodSearchInput')?.value || "").trim().toLowerCase();
-            return foodData.filter(item => {
-                const matchesCat = activeFoodCategory === "all" || item.cat === activeFoodCategory;
-                const haystack = `${item.ar} ${item.en} ${item.tr}`.toLowerCase();
-                const matchesQuery = query === "" || haystack.includes(query);
-                return matchesCat && matchesQuery;
-            });
-        }
-
-        function renderFoodResults() {
-            const grid = document.getElementById('foodResultsGrid');
-            const empty = document.getElementById('foodEmptyState');
-            const countEl = document.getElementById('foodResultsCount');
-            const loadMoreBtn = document.getElementById('foodLoadMoreBtn');
-            if (!grid) return;
-
+        function populateFoodCategorySelect() {
+            const sel = document.getElementById('foodCategorySelect');
+            if (!sel) return;
             const t = translations[currentLang];
-            const allResults = getFilteredFoodData();
-            const results = allResults.slice(0, foodVisibleCount);
+            const prevValue = sel.value;
+            sel.innerHTML = `<option value="" disabled ${!prevValue ? 'selected' : ''}>${t.food_select_category}</option>` +
+                foodCategories.map(cat => `<option value="${cat}" ${cat === prevValue ? 'selected' : ''}>${t[`food_cat_${cat}`]}</option>`).join('');
+        }
 
-            if (allResults.length === 0) {
-                grid.innerHTML = "";
-                if (empty) empty.classList.remove('hidden');
-                if (countEl) countEl.classList.add('hidden');
-                if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+        function populateFoodItemSelect(category, selectedIndex) {
+            const sel = document.getElementById('foodItemSelect');
+            if (!sel) return;
+            const t = translations[currentLang];
+
+            if (!category) {
+                sel.innerHTML = `<option value="" disabled selected>${t.food_select_item}</option>`;
+                sel.disabled = true;
                 return;
             }
-            if (empty) empty.classList.add('hidden');
 
-            grid.innerHTML = results.map(item => {
-                const name = item[currentLang] || item.ar;
-                const catLabel = t[`food_cat_${item.cat}`];
+            sel.disabled = false;
+            const items = [];
+            foodData.forEach((food, idx) => { if (food.cat === category) items.push({ ...food, idx }); });
 
-                // نسبة السعرات الآتية من كل مصدر (بروتين 4 سعرات/غرام، كارب 4، دهون 9)
-                const proteinKcal = item.p * 4;
-                const carbKcal = item.c * 4;
-                const fatKcal = item.f * 9;
-                const macroTotal = Math.max(proteinKcal + carbKcal + fatKcal, 0.01);
-                const proteinPct = (proteinKcal / macroTotal * 100).toFixed(1);
-                const carbPct = (carbKcal / macroTotal * 100).toFixed(1);
-                const fatPct = (fatKcal / macroTotal * 100).toFixed(1);
-                const isHighProtein = item.p >= HIGH_PROTEIN_THRESHOLD;
+            const hasSelection = items.some(f => f.idx === selectedIndex);
+            sel.innerHTML = `<option value="" disabled ${!hasSelection ? 'selected' : ''}>${t.food_select_item}</option>` +
+                items.map(f => `<option value="${f.idx}" ${f.idx === selectedIndex ? 'selected' : ''}>${f[currentLang] || f.ar}</option>`).join('');
+        }
 
-                return `
-                <div class="bg-surface border border-line rounded-2xl p-4 sm:p-5 flex items-stretch gap-3 sm:gap-4 reveal in hover:border-accent/40 transition duration-200">
-                    <div class="shrink-0 w-16 sm:w-20 flex flex-col items-center justify-center text-center border-e border-line pe-3 sm:pe-4">
+        function buildMacroDonut(proteinPct, carbPct, fatPct) {
+            const r = 40, circumference = 2 * Math.PI * r;
+            const pLen = circumference * proteinPct / 100;
+            const cLen = circumference * carbPct / 100;
+            const fLen = circumference * fatPct / 100;
+            const seg = (len, offset, color) =>
+                `<circle cx="50" cy="50" r="${r}" fill="none" stroke="${color}" stroke-width="12"
+                    stroke-dasharray="${len} ${circumference - len}" stroke-dashoffset="${offset}"></circle>`;
+            return `
+            <svg viewBox="0 0 100 100" class="-rotate-90 w-full h-full">
+                <circle cx="50" cy="50" r="${r}" fill="none" stroke="#2A2D33" stroke-width="12"></circle>
+                ${seg(pLen, 0, MACRO_COLORS.protein)}
+                ${seg(cLen, -pLen, MACRO_COLORS.carbs)}
+                ${seg(fLen, -(pLen + cLen), MACRO_COLORS.fat)}
+            </svg>`;
+        }
+
+        function renderFoodResultCard(item) {
+            const card = document.getElementById('foodResultCard');
+            const prompt = document.getElementById('foodPromptState');
+            if (!card) return;
+
+            const t = translations[currentLang];
+            const name = item[currentLang] || item.ar;
+            const catLabel = t[`food_cat_${item.cat}`];
+
+            const proteinKcal = item.p * 4, carbKcal = item.c * 4, fatKcal = item.f * 9;
+            const macroTotal = Math.max(proteinKcal + carbKcal + fatKcal, 0.01);
+            const proteinPct = Math.round(proteinKcal / macroTotal * 100);
+            const carbPct = Math.round(carbKcal / macroTotal * 100);
+            const fatPct = Math.max(0, 100 - proteinPct - carbPct);
+
+            card.innerHTML = `
+                <span class="text-xs text-zinc-500">${catLabel}</span>
+                <h3 class="font-black text-lg sm:text-xl mb-1">${name}</h3>
+                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-3">
+                    ${buildMacroDonut(proteinPct, carbPct, fatPct)}
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
                         <span class="font-display text-3xl sm:text-4xl text-accent leading-none">${item.kcal}</span>
-                        <span class="text-[9px] sm:text-[10px] text-zinc-500 mt-1 leading-tight">kcal<br>${t.food_per}</span>
+                        <span class="text-[10px] text-zinc-500 mt-1">kcal · ${t.food_per}</span>
                     </div>
-                    <div class="flex-1 min-w-0 flex flex-col justify-center gap-2">
-                        <div class="flex items-start justify-between gap-2">
-                            <h4 class="font-bold text-xs sm:text-sm leading-snug">${name}</h4>
-                            <div class="shrink-0 flex flex-col items-end gap-1">
-                                <span class="text-[9px] sm:text-[10px] text-zinc-500 bg-ink/60 px-2 py-0.5 rounded-full border border-line whitespace-nowrap">${catLabel}</span>
-                                ${isHighProtein ? `<span class="text-[9px] sm:text-[10px] font-bold text-accent border border-accent/40 px-2 py-0.5 rounded-full whitespace-nowrap">${t.food_high_protein}</span>` : ''}
-                            </div>
-                        </div>
-                        <div class="h-1.5 rounded-full overflow-hidden flex bg-ink/70" role="img" aria-label="${t.food_protein} ${proteinPct}% · ${t.food_carbs} ${carbPct}% · ${t.food_fat} ${fatPct}%">
-                            <span style="width:${proteinPct}%" class="bg-accent"></span>
-                            <span style="width:${carbPct}%" class="bg-zinc-400"></span>
-                            <span style="width:${fatPct}%" class="bg-zinc-600"></span>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] sm:text-[11px] text-zinc-400">
-                            <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>${t.food_protein} ${item.p}g</span>
-                            <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>${t.food_carbs} ${item.c}g</span>
-                            <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-zinc-600"></span>${t.food_fat} ${item.f}g</span>
-                        </div>
+                </div>
+                <div class="w-full flex flex-col gap-2.5 mt-1 text-xs sm:text-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="flex items-center gap-2 text-zinc-300"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${MACRO_COLORS.protein}"></span>${t.food_protein}</span>
+                        <span class="text-zinc-400">${item.p}g · ${proteinPct}%</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="flex items-center gap-2 text-zinc-300"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${MACRO_COLORS.carbs}"></span>${t.food_carbs}</span>
+                        <span class="text-zinc-400">${item.c}g · ${carbPct}%</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="flex items-center gap-2 text-zinc-300"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${MACRO_COLORS.fat}"></span>${t.food_fat}</span>
+                        <span class="text-zinc-400">${item.f}g · ${fatPct}%</span>
                     </div>
                 </div>`;
-            }).join('');
 
-            if (countEl) {
-                countEl.classList.remove('hidden');
-                countEl.textContent = t.food_showing
-                    .replace('{shown}', results.length)
-                    .replace('{total}', allResults.length);
-            }
+            card.classList.remove('hidden');
+            if (prompt) prompt.classList.add('hidden');
+        }
 
-            if (loadMoreBtn) {
-                if (allResults.length > foodVisibleCount) {
-                    loadMoreBtn.classList.remove('hidden');
-                    loadMoreBtn.innerHTML = `${t.food_load_more}<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
-                } else {
-                    loadMoreBtn.classList.add('hidden');
-                }
-            }
+        function hideFoodResult() {
+            selectedFoodIndex = null;
+            const card = document.getElementById('foodResultCard');
+            const prompt = document.getElementById('foodPromptState');
+            if (card) card.classList.add('hidden');
+            if (prompt) prompt.classList.remove('hidden');
         }
 
         function initFoodGuide() {
-            renderFoodCategories();
-            renderFoodResults();
+            populateFoodCategorySelect();
+            populateFoodItemSelect('', null);
 
-            const input = document.getElementById('foodSearchInput');
-            if (input) {
-                input.addEventListener('input', () => {
-                    foodVisibleCount = FOOD_PAGE_SIZE; // رجّع العداد لأول صفحة كل ما يبحث المستخدم
-                    renderFoodResults();
+            const categorySelect = document.getElementById('foodCategorySelect');
+            const itemSelect = document.getElementById('foodItemSelect');
+
+            if (categorySelect) {
+                categorySelect.addEventListener('change', () => {
+                    populateFoodItemSelect(categorySelect.value, null);
+                    hideFoodResult();
                 });
             }
 
-            const loadMoreBtn = document.getElementById('foodLoadMoreBtn');
-            if (loadMoreBtn) {
-                loadMoreBtn.addEventListener('click', () => {
-                    foodVisibleCount += FOOD_PAGE_SIZE;
-                    renderFoodResults();
+            if (itemSelect) {
+                itemSelect.addEventListener('change', () => {
+                    if (itemSelect.value === "") { hideFoodResult(); return; }
+                    selectedFoodIndex = parseInt(itemSelect.value, 10);
+                    renderFoodResultCard(foodData[selectedFoodIndex]);
                 });
             }
         }
         initFoodGuide();
+
 
         // scroll reveal
         const revealEls = document.querySelectorAll('.reveal');
