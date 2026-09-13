@@ -44,9 +44,9 @@
                 res_wa: "أرسل نتيجتي للكابتن أنس وابدأ خطتك 🟢",
                 food_badge: "أداة مجانية",
                 food_title: "دليل السعرات الغذائية",
-                food_sub: "دور عن أي أكلة واعرف سعراتها وبروتينها وكاربها ودهونها لكل 100غ",
-                food_search_ph: "دور عن أكلة... (مثلاً: دجاج، سلمون، حليب)",
-                food_empty: "ما لقينا نتيجة، جرب كلمة تانية",
+                food_sub: "ابحث عن أي عنصر غذائي لمعرفة السعرات، البروتين، الكربوهيدرات والدهون لكل 100غ",
+                food_search_ph: "ابحث عن أكلة... (مثلاً: دجاج، سلمون، حليب، أرز)",
+                food_empty: "ما لقينا نتيجة مطابقة، جرب كلمة تانية",
                 food_per: "لكل 100غ",
                 food_protein: "بروتين",
                 food_carbs: "كارب",
@@ -315,7 +315,7 @@
                 p4_title: "3 Aylık Yoğun Paket",
                 p4_desc: "Uzun vadeli strateji ve en iyi fiyatla köklü bir fiziksel değişim için.",
                 p4_li1: "Kapsamlı Paketin tüm özellikleri",
-                p4_li2: "Destek ve yanıtta mutlak öncelik",
+                p4_li2: "Destek ve yanıtta mutlak öncelق",
                 p4_li3: "Uzun vadeli taahhüt için özel indirim",
                 p4_btn: "Meydan Okumaya Başla",
                 faq_heading: "Sıkça Sorulan Sorular",
@@ -326,7 +326,7 @@
                 faq2_a: "Kayıt olur olmaz doğrudan WhatsApp üzerinden iletişim kurulur, programlarınızı alır ve raporlarınızı kolayca gönderirsiniz.",
                 faq3_q: "Diyet normal yemeklerden mahrum bırakır mı?",
                 faq3_a: "Asla, karmaşık kısıtlamalar olmadan sürdürülebilir esnek bir diyet yaklaşımı (Flexible Diet) uyguluyoruz.",
-                cta_title: "Yarına ertelemeyin, kararınızı bugün verin!",
+                cta_title: "Yarına ertelemeyin, kararınızı bugün verین!",
                 cta_desc: "Şimdi bizimle iletişime geçin ve vücut gelişim planınıza adım adım başlayalım.",
                 cta_btn: "Koç Anas ile İletişime Geç",
                 footer_text: "© 2026 Anas Osman. Tüm hakları saklıdır."
@@ -357,7 +357,6 @@
                 }
             });
 
-            // تحديث دليل السعرات الغذائية (placeholder + الفئات + النتائج) عند تبديل اللغة
             const foodInput = document.getElementById('foodSearchInput');
             if (foodInput && translations[lang].food_search_ph) {
                 foodInput.placeholder = translations[lang].food_search_ph;
@@ -427,8 +426,7 @@
         }
 
         /* =========================================================
-           دليل السعرات الغذائية — قاعدة بيانات + بحث وفلترة
-           القيم لكل 100 غرام (مطهو ما لم يذكر غير ذلك)
+           دليل السعرات الغذائية (تم التعديل لتنظيم العرض ومنع التكدس)
            ========================================================= */
         const foodData = [
             // دواجن
@@ -516,7 +514,7 @@
                 const label = translations[currentLang][`food_cat_${cat}`];
                 const active = cat === activeFoodCategory;
                 const cls = active
-                    ? "bg-accent text-ink border-accent"
+                    ? "bg-accent text-ink border-accent shadow-md"
                     : "bg-surface text-zinc-400 border-line hover:border-accent/50 hover:text-zinc-200";
                 return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-full border text-xs font-bold transition duration-200 ${cls}">${label}</button>`;
             }).join('');
@@ -552,23 +550,26 @@
             }
             if (empty) empty.classList.add('hidden');
 
-            grid.innerHTML = results.map(item => {
+            // إذا لم يتم إدخال بحث وكانت الفئة "الكل"، نعرض فقط أول 8 عناصر مرتبة لكي لا تملأ الصفحة بشكل عشوائي، وعند البحث تظهر النتائج المطلوبة بسلاسة
+            const displayList = (query === "" && activeFoodCategory === "all") ? results.slice(0, 8) : results;
+
+            grid.innerHTML = displayList.map(item => {
                 const name = item[currentLang] || item.ar;
                 const catLabel = t[`food_cat_${item.cat}`];
                 return `
-                <div class="bg-surface border border-line rounded-2xl p-4 flex flex-col gap-2.5 reveal in">
+                <div class="bg-surface border border-line rounded-2xl p-4 flex flex-col justify-between gap-3 transition-all duration-300 hover:border-accent/40 shadow-md">
                     <div class="flex items-start justify-between gap-2">
                         <h4 class="font-bold text-xs sm:text-sm leading-snug">${name}</h4>
-                        <span class="shrink-0 text-[9px] sm:text-[10px] text-zinc-500 bg-ink/60 px-2 py-0.5 rounded-full border border-line whitespace-nowrap">${catLabel}</span>
+                        <span class="shrink-0 text-[9px] sm:text-[10px] text-zinc-400 bg-ink/70 px-2.5 py-1 rounded-full border border-line whitespace-nowrap">${catLabel}</span>
                     </div>
-                    <div class="flex items-end gap-1.5">
+                    <div class="flex items-end gap-1.5 pt-1">
                         <span class="font-display text-3xl sm:text-4xl text-accent leading-none">${item.kcal}</span>
-                        <span class="text-[10px] sm:text-[11px] text-zinc-500 mb-0.5">kcal · ${t.food_per}</span>
+                        <span class="text-[10px] sm:text-[11px] text-zinc-400 mb-0.5">kcal · ${t.food_per}</span>
                     </div>
-                    <div class="flex gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] text-zinc-400 pt-2 border-t border-line">
-                        <span>${t.food_protein} ${item.p}g</span>
-                        <span>${t.food_carbs} ${item.c}g</span>
-                        <span>${t.food_fat} ${item.f}g</span>
+                    <div class="flex items-center justify-between gap-2 text-[10px] sm:text-[11px] text-zinc-300 pt-2 border-t border-line">
+                        <span class="bg-ink/50 px-2 py-0.5 rounded border border-line/50">${t.food_protein}: <strong class="text-accent">${item.p}g</strong></span>
+                        <span class="bg-ink/50 px-2 py-0.5 rounded border border-line/50">${t.food_carbs}: <strong class="text-zinc-100">${item.c}g</strong></span>
+                        <span class="bg-ink/50 px-2 py-0.5 rounded border border-line/50">${t.food_fat}: <strong class="text-zinc-100">${item.f}g</strong></span>
                     </div>
                 </div>`;
             }).join('');
