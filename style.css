@@ -13,6 +13,15 @@ body {
     letter-spacing: 0.04em;
 }
 
+/* خط أكثر حدة ورياضية للعناوين والأزرار الرئيسية (Changa)
+   بينطبق تلقائياً على أي عنصر يستخدم font-black أو font-extrabold
+   بدون الحاجة لتعديل كل وسم بالـ HTML يدوياً */
+h1, h2, h3,
+.font-black, .font-extrabold {
+    font-family: 'Changa', 'Tajawal', sans-serif;
+    letter-spacing: 0.01em;
+}
+
 .packages-slider::-webkit-scrollbar { display: none; }
 .packages-slider { -ms-overflow-style: none; scrollbar-width: none; }
 
