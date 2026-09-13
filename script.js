@@ -60,6 +60,8 @@
                 food_cat_veg: "خضار",
                 food_cat_fruit: "فواكه",
                 food_cat_nuts: "مكسرات ودهون",
+                food_showing: "عرض {shown} من أصل {total} صنف",
+                food_load_more: "عرض المزيد ⌄",
                 features_heading: "لماذا تختار الكابتن أنس عثمان؟",
                 features_sub: "منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة",
                 f1_title: "خطط مخصصة 100%",
@@ -169,6 +171,8 @@
                 food_cat_veg: "Vegetables",
                 food_cat_fruit: "Fruits",
                 food_cat_nuts: "Nuts & Fats",
+                food_showing: "Showing {shown} of {total} items",
+                food_load_more: "Load More ⌄",
                 features_heading: "Why Choose Coach Anas Osman?",
                 features_sub: "A clear, scientific methodology ensuring efficient results",
                 f1_title: "100% Customized Plans",
@@ -278,6 +282,8 @@
                 food_cat_veg: "Sebzeler",
                 food_cat_fruit: "Meyveler",
                 food_cat_nuts: "Kuruyemiş ve Yağlar",
+                food_showing: "{total} öğeden {shown} tanesi gösteriliyor",
+                food_load_more: "Daha Fazla Göster ⌄",
                 features_heading: "Neden Koç Anas Osman?",
                 features_sub: "Hedefinize güvenle ulaşmanızı sağlayan net bilimsel metodoloji",
                 f1_title: "%100 Kişiselleştirilmiş Planlar",
@@ -507,47 +513,66 @@
         ];
 
         const foodCategories = ["all", "poultry", "redmeat", "fish", "dairy", "grains", "veg", "fruit", "nuts"];
+        const foodCategoryIcons = {
+            all: "🍽️", poultry: "🍗", redmeat: "🥩", fish: "🐟",
+            dairy: "🥛", grains: "🌾", veg: "🥦", fruit: "🍎", nuts: "🥜"
+        };
         let activeFoodCategory = "all";
+
+        // كم صنف يظهر دفعة وحدة، منشان القسم ما يصير مكدس ومزحوم
+        const FOOD_PAGE_SIZE = 12;
+        let foodVisibleCount = FOOD_PAGE_SIZE;
 
         function renderFoodCategories() {
             const wrap = document.getElementById('foodCategoryTabs');
             if (!wrap) return;
             wrap.innerHTML = foodCategories.map(cat => {
                 const label = translations[currentLang][`food_cat_${cat}`];
+                const icon = foodCategoryIcons[cat];
                 const active = cat === activeFoodCategory;
                 const cls = active
                     ? "bg-accent text-ink border-accent"
                     : "bg-surface text-zinc-400 border-line hover:border-accent/50 hover:text-zinc-200";
-                return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-full border text-xs font-bold transition duration-200 ${cls}">${label}</button>`;
+                return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-full border text-xs font-bold transition duration-200 ${cls}"><span class="me-1">${icon}</span>${label}</button>`;
             }).join('');
 
             wrap.querySelectorAll('.food-cat-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
+                    if (btn.getAttribute('data-cat') === activeFoodCategory) return;
                     activeFoodCategory = btn.getAttribute('data-cat');
+                    foodVisibleCount = FOOD_PAGE_SIZE; // رجّع العداد لأول صفحة كل ما تبدل التصنيف
                     renderFoodCategories();
                     renderFoodResults();
                 });
             });
         }
 
-        function renderFoodResults() {
-            const grid = document.getElementById('foodResultsGrid');
-            const empty = document.getElementById('foodEmptyState');
-            if (!grid) return;
-
+        function getFilteredFoodData() {
             const query = (document.getElementById('foodSearchInput')?.value || "").trim().toLowerCase();
-            const t = translations[currentLang];
-
-            const results = foodData.filter(item => {
+            return foodData.filter(item => {
                 const matchesCat = activeFoodCategory === "all" || item.cat === activeFoodCategory;
                 const haystack = `${item.ar} ${item.en} ${item.tr}`.toLowerCase();
                 const matchesQuery = query === "" || haystack.includes(query);
                 return matchesCat && matchesQuery;
             });
+        }
 
-            if (results.length === 0) {
+        function renderFoodResults() {
+            const grid = document.getElementById('foodResultsGrid');
+            const empty = document.getElementById('foodEmptyState');
+            const countEl = document.getElementById('foodResultsCount');
+            const loadMoreBtn = document.getElementById('foodLoadMoreBtn');
+            if (!grid) return;
+
+            const t = translations[currentLang];
+            const allResults = getFilteredFoodData();
+            const results = allResults.slice(0, foodVisibleCount);
+
+            if (allResults.length === 0) {
                 grid.innerHTML = "";
                 if (empty) empty.classList.remove('hidden');
+                if (countEl) countEl.classList.add('hidden');
+                if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
                 return;
             }
             if (empty) empty.classList.add('hidden');
@@ -556,7 +581,7 @@
                 const name = item[currentLang] || item.ar;
                 const catLabel = t[`food_cat_${item.cat}`];
                 return `
-                <div class="bg-surface border border-line rounded-2xl p-4 flex flex-col gap-2.5 reveal in">
+                <div class="bg-surface border border-line rounded-2xl p-4 flex flex-col gap-2.5 reveal in hover:border-accent/40 hover:-translate-y-0.5 transition duration-200">
                     <div class="flex items-start justify-between gap-2">
                         <h4 class="font-bold text-xs sm:text-sm leading-snug">${name}</h4>
                         <span class="shrink-0 text-[9px] sm:text-[10px] text-zinc-500 bg-ink/60 px-2 py-0.5 rounded-full border border-line whitespace-nowrap">${catLabel}</span>
@@ -572,13 +597,43 @@
                     </div>
                 </div>`;
             }).join('');
+
+            if (countEl) {
+                countEl.classList.remove('hidden');
+                countEl.textContent = t.food_showing
+                    .replace('{shown}', results.length)
+                    .replace('{total}', allResults.length);
+            }
+
+            if (loadMoreBtn) {
+                if (allResults.length > foodVisibleCount) {
+                    loadMoreBtn.classList.remove('hidden');
+                    loadMoreBtn.textContent = t.food_load_more;
+                } else {
+                    loadMoreBtn.classList.add('hidden');
+                }
+            }
         }
 
         function initFoodGuide() {
             renderFoodCategories();
             renderFoodResults();
+
             const input = document.getElementById('foodSearchInput');
-            if (input) input.addEventListener('input', renderFoodResults);
+            if (input) {
+                input.addEventListener('input', () => {
+                    foodVisibleCount = FOOD_PAGE_SIZE; // رجّع العداد لأول صفحة كل ما يبحث المستخدم
+                    renderFoodResults();
+                });
+            }
+
+            const loadMoreBtn = document.getElementById('foodLoadMoreBtn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    foodVisibleCount += FOOD_PAGE_SIZE;
+                    renderFoodResults();
+                });
+            }
         }
         initFoodGuide();
 

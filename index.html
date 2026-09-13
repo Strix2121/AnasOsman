@@ -402,12 +402,18 @@
                 <input type="text" id="foodSearchInput" placeholder="دور عن أكلة... (مثلاً: دجاج، سلمون، حليب)" class="w-full bg-surface border border-line rounded-xl px-4 py-3.5 text-sm text-zinc-100 focus:outline-none focus:border-accent placeholder:text-zinc-600">
             </div>
 
-            <div id="foodCategoryTabs" class="reveal flex overflow-x-auto packages-slider gap-2 mb-8 pb-1"></div>
+            <div id="foodCategoryTabs" class="reveal flex overflow-x-auto packages-slider gap-2 mb-5 pb-1"></div>
+
+            <div id="foodResultsCount" class="reveal text-xs text-zinc-500 mb-4"></div>
 
             <div id="foodResultsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
 
             <div id="foodEmptyState" class="hidden text-center text-zinc-500 text-sm py-10" data-i18n="food_empty">
                 ما لقينا نتيجة، جرب كلمة تانية
+            </div>
+
+            <div class="text-center mt-8">
+                <button type="button" id="foodLoadMoreBtn" class="hidden bg-surface hover:bg-surface2 border border-line hover:border-accent/50 text-zinc-200 font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition duration-300"></button>
             </div>
         </div>
     </section>
