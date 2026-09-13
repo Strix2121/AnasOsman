@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل السعرات الغذائية الشامل | الكابتن أنس عثمان</title>
-    <meta name="description" content="أداة بحث متقدمة لمعرفة السعرات الحرارية، البروتين، الكارب، والدهون لمختلف الأطعمة لكل 100غ — بإشراف الكابتن أنس عثمان.">
-    <link rel="canonical" href="https://anasosman.online/food-calculator.html">
+    <title>الكابتن أنس عثمان | مدرب شخصي أونلاين - مدير نادي Grand Fitness في مرسين</title>
+    <meta name="description" content="تدريب شخصي أونلاين 1 على 1 لأي مكان بالعالم، بإشراف الكابتن أنس عثمان، مدير نادي غراند فيتنس في مرسين وخبرة تمتد لأكثر من 20 عاماً. برامج تمرين وتغذية مخصصة بالكامل لهدفك — احجز الآن عبر واتساب.">
+    <meta name="keywords" content="مدرب شخصي أونلاين, تدريب شخصي عن بعد, كمال أجسام, حاسبة سعرات TDEE, أنس عثمان, مدرب شخصي مرسين, Grand Fitness Mersin, online personal trainer">
+    <meta name="author" content="Anas Osman">
+    <link rel="canonical" href="https://anasosman.online/">
     <meta name="theme-color" content="#0A0B0D">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anasosman.online/">
+    <meta property="og:title" content="الكابتن أنس عثمان | مدرب شخصي أونلاين">
+    <meta property="og:description" content="تدريب شخصي أونلاين لأي مكان بالعالم، بإشراف الكابتن أنس عثمان مدير نادي غراند فيتنس في مرسين. احجز تدريبك الآن عبر واتساب.">
+    <meta property="og:image" content="https://anasosman.online/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="الكابتن أنس عثمان | مدرب شخصي أونلاين">
+    <meta name="twitter:description" content="تدريب شخصي أونلاين لأي مكان بالعالم، بإشراف الكابتن أنس عثمان مدير نادي غراند فيتنس في مرسين.">
+    <meta name="twitter:image" content="https://anasosman.online/og-image.png">
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,6 +45,7 @@
                         surface2: '#1E2126',
                         line: '#2A2D33',
                         accent: '#FF4429',
+                        accentDim: '#FF442922',
                         whatsapp: '#25D366',
                         whatsappDark: '#1EBE5D',
                     },
@@ -30,289 +57,422 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Changa:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-ink text-zinc-100 antialiased selection:bg-accent selection:text-ink min-h-screen flex flex-col justify-between">
+<body class="bg-ink text-zinc-100 antialiased selection:bg-accent selection:text-ink overflow-x-hidden relative">
 
-    <!-- زر واتساب العائم -->
+    <div class="grain"></div>
+
     <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاستفسار%20عن%20الاشتراك" target="_blank" class="fixed bottom-5 left-5 z-50 bg-whatsapp hover:bg-whatsappDark text-zinc-950 p-3.5 sm:p-4 rounded-full shadow-2xl transition duration-300 flex items-center justify-center hover:scale-110">
+        <span class="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-40"></span>
         <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current relative" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
         </svg>
     </a>
 
-    <!-- الهيدر -->
     <header class="sticky top-0 z-40 bg-ink/90 backdrop-blur-md border-b border-line">
         <div class="max-w-6xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
-            <a href="index.html" class="font-display text-2xl sm:text-3xl tracking-widest uppercase leading-none">
+            <div class="font-display text-2xl sm:text-3xl tracking-widest uppercase leading-none">
                 ANAS <span class="text-accent">OSMAN</span>
-            </a>
-            <div class="flex items-center gap-3">
-                <div class="flex items-center gap-1 bg-surface border border-line p-1 rounded-xl text-xs font-bold">
-                    <button onclick="setLanguage('ar')" id="btn-ar" class="px-2.5 py-1.5 rounded-lg transition duration-300 bg-accent text-ink">العربية</button>
-                    <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100">English</button>
-                    <button onclick="setLanguage('tr')" id="btn-tr" class="px-2.5 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100">Türkçe</button>
-                </div>
-                <a href="index.html" class="bg-surface hover:bg-surface2 text-zinc-300 font-bold px-4 py-2 rounded-xl border border-line text-xs transition duration-300 hidden sm:inline-block" data-i18n="back_home">الرئيسية</a>
             </div>
+
+            <div class="flex items-center gap-1 bg-surface border border-line p-1 rounded-xl text-xs font-bold">
+                <button onclick="setLanguage('ar')" id="btn-ar" class="px-2.5 sm:px-3 py-1.5 rounded-lg transition duration-300 bg-accent text-ink">العربية</button>
+                <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 sm:px-3 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100">English</button>
+                <button onclick="setLanguage('tr')" id="btn-tr" class="px-2.5 sm:px-3 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100">Türkçe</button>
+            </div>
+
+            <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاستفسار%20عن%20الاشتراك" target="_blank" class="hidden sm:flex bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-bold px-5 py-2.5 rounded-xl transition duration-300 text-sm items-center gap-2 shadow-lg shadow-whatsapp/10">
+                <span data-i18n="nav_start">ابدأ الآن</span>
+            </a>
         </div>
     </header>
 
-    <!-- المحتوى الرئيسي -->
-    <main class="py-10 sm:py-16 flex-grow">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-8 sm:mb-12">
-                <span class="inline-flex bg-surface border border-line text-accent px-4 py-1.5 rounded-full text-xs font-bold mb-3 tracking-wide" data-i18n="food_badge">أداة احترافية مجانية</span>
-                <h1 class="text-3xl sm:text-5xl font-black mb-3" data-i18n="food_title">دليل السعرات الغذائية</h1>
-                <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto" data-i18n="food_sub">ابحث عن أي طعام وتعرف على السعرات، البروتين، الكربوهيدرات، والدهون بدقة لكل 100 غرام.</p>
+    <!-- HERO -->
+    <section class="relative overflow-hidden hero-bg cut-bottom pb-16 sm:pb-24">
+        <div class="pointer-events-none absolute -top-6 sm:-top-10 inset-x-0 flex justify-center select-none">
+            <span class="ghost-num font-black text-[160px] sm:text-[280px] tracking-tighter">GO</span>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto px-4 pt-14 pb-4 sm:pt-24 text-center">
+            <div class="lane-tick text-accent inline-flex bg-surface/80 border border-line text-accent px-4 py-1.5 rounded-full text-xs font-bold mb-5 sm:mb-7 tracking-wide" data-i18n="hero_badge">
+                تدريب شخصي أونلاين 1 على 1
             </div>
-
-            <!-- صندوق البحث -->
-            <div class="max-w-2xl mx-auto mb-6">
-                <div class="relative">
-                    <input type="text" id="foodSearchInput" placeholder="ابحث عن أكلة... (مثلاً: دجاج، سلمون، أرز، شوفان)" class="w-full bg-surface border border-line rounded-2xl px-5 py-4 text-sm sm:text-base text-zinc-100 focus:outline-none focus:border-accent placeholder:text-zinc-600 shadow-xl">
-                </div>
-            </div>
-
-            <!-- فئات الأطعمة -->
-            <div id="foodCategoryTabs" class="flex overflow-x-auto gap-2 mb-8 pb-2 justify-start sm:justify-center max-w-4xl mx-auto"></div>
-
-            <!-- شبكة عرض النتائج (مع تقييد الارتفاع وتمرير أنيق لعدم ملء الشاشة) -->
-            <div class="max-w-5xl mx-auto">
-                <div id="foodResultsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4"></div>
-            </div>
-
-            <!-- حالة عدم وجود نتائج -->
-            <div id="foodEmptyState" class="hidden text-center text-zinc-500 text-sm py-16" data-i18n="food_empty">
-                لم يتم العثور على نتائج مطابقة، جرب كلمة بحث أخرى.
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.15] sm:leading-[1.1] mb-5 sm:mb-6" data-i18n="hero_title">
+                اصنع نسختك الأفضل وابنِ جسماً <span class="text-accent">قوياً وعضلات صلبة</span>
+            </h1>
+            <p class="text-zinc-400 text-base sm:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2" data-i18n="hero_desc">
+                برامج تدريبية وتغذية مخصصة بالكامل لأهدافك، مصممة خصيصاً لتتناسب مع جدولك اليومي ونمط حياتك دون تعقيد.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20التدريب%20الشخصي" target="_blank" class="bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-extrabold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition duration-300 shadow-xl shadow-whatsapp/25 flex items-center justify-center gap-3">
+                    <span data-i18n="hero_cta">احجز تدريبك الآن عبر واتساب</span>
+                </a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- التذييل -->
-    <footer class="border-t border-line py-6 text-center text-zinc-600 text-xs sm:text-sm bg-inkAlt">
+    <!-- قسم من أنا -->
+    <section class="py-14 sm:py-20 -mt-6 sm:-mt-10 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 reveal">
+            <div class="bg-surface border border-line p-5 sm:p-12 rounded-3xl relative overflow-hidden">
+                <div class="pointer-events-none absolute -end-6 -bottom-10 select-none ghost-num font-black text-[160px] sm:text-[220px]">20</div>
+
+                <div class="relative text-center">
+                    <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="about_badge">خبرة واحترافية</span>
+                    <h2 class="text-2xl sm:text-3xl font-black mb-4 sm:mb-6" data-i18n="about_title">الكابتن أنس عثمان</h2>
+
+                    <p class="text-zinc-300 text-xs sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-2xl mx-auto" data-i18n="about_desc">
+                        مدير نادي غراند فيتنس في مرسين بخبرة تمتد لأكثر من 20 عاماً في مجال التدريب وإدارة المنشآت الرياضية. مدرب معتمد وحاصل على شهادات عالمية متخصصة في بناء العضلات، التغذية الرياضية، وتطوير الأداء البدني.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-2 sm:gap-6 pt-6 border-t border-line">
+                        <div class="bg-ink/50 p-3 sm:p-5 rounded-2xl border border-line flex flex-col justify-center">
+                            <div class="font-display text-3xl sm:text-5xl text-accent leading-none mb-1.5">20+</div>
+                            <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_1">سنوات خبرة طويلة</div>
+                        </div>
+                        <div class="bg-ink/50 p-3 sm:p-5 rounded-2xl border border-line flex flex-col justify-center">
+                            <div class="text-sm sm:text-2xl font-black text-accent mb-1.5 pt-0.5 sm:pt-1 leading-tight">Grand Fitness</div>
+                            <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_2">مدير النادي في مرسين</div>
+                        </div>
+                        <div class="bg-ink/50 p-3 sm:p-5 rounded-2xl border border-line flex flex-col justify-center">
+                            <div class="font-display text-3xl sm:text-5xl text-accent leading-none mb-1.5">100%</div>
+                            <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_3">شهادات واعتمادات دولية</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم لماذا تختارنا -->
+    <section class="border-t border-line bg-inkAlt py-16 sm:py-24">
         <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex">01</span>
+                <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="features_heading">لماذا تختار الكابتن أنس عثمان؟</h2>
+                <p class="text-zinc-400 text-sm sm:text-base" data-i18n="features_sub">منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="card-tick absolute top-0 start-5"></div>
+                    <div>
+                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">🎯</div>
+                        <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f1_title">خطط مخصصة 100%</h3>
+                    </div>
+                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f1_desc">لا توجد برامج جاهزة؛ كل خطوة تُبنى بناءً على وزنك، طولك، وهدفك الشخصي.</p>
+                </div>
+                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="card-tick absolute top-0 start-5"></div>
+                    <div>
+                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">🥗</div>
+                        <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f2_title">مرونة في التغذية</h3>
+                    </div>
+                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f2_desc">استمتع بأكل تحبه مع حساب السعرات والميكروز بدقة، وبدون حرمان قاسي.</p>
+                </div>
+                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="card-tick absolute top-0 start-5"></div>
+                    <div>
+                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">📈</div>
+                        <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f3_title">متابعة مستمرة</h3>
+                    </div>
+                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f3_desc">تعديلات دورية على الجداول بناءً على استجابة جسمك وتقاريرك الأسبوعية.</p>
+                </div>
+                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="card-tick absolute top-0 start-5"></div>
+                    <div>
+                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">⏱️</div>
+                        <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f4_title">توفير الوقت والجهد</h3>
+                    </div>
+                    <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f4_desc">تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الباقات -->
+    <section class="py-16 sm:py-24 border-t border-line">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10 sm:mb-16 reveal">
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex">02</span>
+                <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="packages_heading">الباقات والخدمات</h2>
+                <p class="text-zinc-400 text-sm sm:text-base" data-i18n="packages_sub">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
+            </div>
+
+            <div id="packagesSlider" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible packages-slider pb-4 sm:pb-0 px-4 sm:px-0 snap-x snap-mandatory">
+
+                <!-- باقة 1 -->
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative">
+                    <div class="font-display text-line text-4xl absolute top-4 end-5 -z-0" style="color:#2A2D33">01</div>
+                    <div class="relative">
+                        <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p1_badge">تغذية فقط</span>
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p1_title">باقة النظام الغذائي</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p1_desc">مخصصة لمن يمتلكون جدول تمرين ويحتاجون لتنظيم السعرات والأكل.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p1_li1">خطة غذائية محسوبة بدقة</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p1_li2">قائمة بدائل الأطعمة المفضلة</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p1_li3">تعديلات أسبوعية مستمرة</span></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20النظام%20الغذائي" target="_blank" class="relative w-full bg-surface2 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-center block border border-line text-sm" data-i18n="p1_btn">
+                        اختر التغذية
+                    </a>
+                </div>
+
+                <!-- باقة 2 -->
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative">
+                    <div class="font-display text-4xl absolute top-4 end-5 -z-0" style="color:#2A2D33">02</div>
+                    <div class="relative">
+                        <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p2_badge">تمرين فقط</span>
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p2_title">باقة الجدول التدريبي</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p2_desc">مصممة لمن يتابعون نظامهم الغذائي ويحتاجون لجدول تمرين احترافي.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p2_li1">جدول تمرين (جيم أو منزل)</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p2_li2">تحديد الأوزان والتكرارات بدقة</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p2_li3">تطوير الأداء وكسر الثبات</span></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20الجدول%20التدريبي" target="_blank" class="relative w-full bg-surface2 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-center block border border-line text-sm" data-i18n="p2_btn">
+                        اختر التمرين
+                    </a>
+                </div>
+
+                <!-- باقة 3 (VIP) -->
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border-2 border-accent p-6 rounded-3xl flex flex-col justify-between relative shadow-xl shadow-accent/10 snap-center shrink-0 overflow-hidden">
+                    <div class="ribbon" data-i18n="p3_badge">الأكثر طلباً</div>
+                    <div class="relative mt-4">
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p3_title">الباقة الشاملة (VIP)</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p3_desc">متابعة متكاملة تضمن لك تحولاً حقيقياً وشاملاً في بنيتك الجسمية.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p3_li1">تمرين + تغذية مخصصة 100%</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p3_li2">متابعة وتعديلات أسبوعية</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p3_li3">دعم مباشر ومستمر عبر واتساب</span></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20الباقة%20الشاملة%20VIP" target="_blank" class="relative w-full bg-accent hover:brightness-110 text-ink font-bold py-3 rounded-xl transition duration-300 text-center block shadow-lg shadow-accent/20 text-sm" data-i18n="p3_btn">
+                        احجز الباقة الشاملة
+                    </a>
+                </div>
+
+                <!-- باقة 4 -->
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative">
+                    <div class="font-display text-4xl absolute top-4 end-5 -z-0" style="color:#2A2D33">04</div>
+                    <div class="relative">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider" data-i18n="p4_badge">تحدي التحول</span>
+                        <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p4_title">باقة 3 أشهر مكثفة</h3>
+                        <p class="text-zinc-400 text-xs mb-6" data-i18n="p4_desc">لتحقيق تغيير جذري وعميق في الجسم بأفضل سعر وتخطيط طويل المدى.</p>
+                        <ul class="space-y-2.5 text-xs text-zinc-300 mb-6">
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p4_li1">كل مميزات الباقة الشاملة</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p4_li2">أولوية مطلقة في الرد والدعم</span></li>
+                            <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p4_li3">تخفيض خاص للالتزام الطويل</span></li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20باقة%20التحول%20لمدة%203%20أشهر" target="_blank" class="relative w-full bg-surface2 hover:bg-zinc-700 text-zinc-100 font-bold py-3 rounded-xl transition duration-300 text-center block border border-line text-sm" data-i18n="p4_btn">
+                        ابدأ تحدي التحول
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- مؤشر النقاط التفاعلي -->
+            <div class="flex sm:hidden justify-center items-center gap-2 mt-6" id="sliderDots">
+                <span class="w-5 h-2 rounded-full bg-accent transition-all duration-300 dot" data-index="0"></span>
+                <span class="w-2 h-2 rounded-full bg-line transition-all duration-300 dot" data-index="1"></span>
+                <span class="w-2 h-2 rounded-full bg-line transition-all duration-300 dot" data-index="2"></span>
+                <span class="w-2 h-2 rounded-full bg-line transition-all duration-300 dot" data-index="3"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم كتاب الكابتن -->
+    <section class="py-14 sm:py-20 border-t border-line">
+        <div class="max-w-4xl mx-auto px-4 reveal">
+            <div class="bg-surface border border-line rounded-3xl p-5 sm:p-10 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-6 sm:gap-10 items-center relative overflow-hidden">
+                <div class="pointer-events-none absolute -end-10 -top-10 w-56 h-56 rounded-full bg-accent/10 blur-3xl"></div>
+
+                <div class="relative mx-auto sm:mx-0">
+                    <div class="absolute inset-0 translate-x-2 translate-y-2 rounded-2xl bg-accent/25 blur-md"></div>
+                    <img src="nawamis-aljasad-cover.png" alt="غلاف كتاب نواميس الجسد" class="relative w-40 sm:w-full rounded-2xl border border-line shadow-2xl">
+                </div>
+
+                <div class="relative text-center sm:text-start">
+                    <span class="lane-tick justify-center sm:justify-start text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="book_badge">كتاب الكابتن</span>
+                    <h2 class="text-2xl sm:text-3xl font-black mb-2 leading-tight" data-i18n="book_title">نواميس الجسد</h2>
+                    <p class="text-accent font-bold text-sm sm:text-base mb-3" data-i18n="book_subtitle">المرجع الشامل لبناء العضلات وأصول التغذية وقيادة الذات</p>
+                    <p class="text-zinc-400 text-xs sm:text-sm mb-1" data-i18n="book_author">المدرب: أنس عثمان الجميلي</p>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 max-w-md mx-auto sm:mx-0" data-i18n="book_desc">
+                        خلاصة سنوات من الخبرة العملية في التدريب، بين دفتي كتاب واحد يشرح أسس بناء العضلات، قواعد التغذية الصحيحة، وكيفية قيادة ذاتك نحو هدفك.
+                    </p>
+                    <a href="https://play.google.com/store/books/details/%D8%A3%D9%86%D8%B3_%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A7%D9%84%D8%AC%D9%85%D9%8A%D9%84%D9%8A_%D9%86%D9%88%D8%A7%D9%85%D9%8A%D8%B3_%D8%A7%D9%84%D8%AC%D8%B3%D8%AF_%D8%A7%D9%84%D9%85%D8%B1%D8%AC%D8%B9_%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84_%D9%84%D8%A8%D9%86%D8%A7%D8%A1?id=8Zb3EQAAQBAJ" target="_blank" class="inline-flex items-center gap-2 bg-accent hover:brightness-110 text-ink font-extrabold px-6 py-3 rounded-xl transition duration-300 text-sm shadow-lg shadow-accent/20" data-i18n="book_btn">
+                        احصل على الكتاب الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- حاسبة السعرات الحرارية -->
+    <section class="border-t border-line bg-inkAlt py-16 sm:py-24 relative overflow-hidden track-grid">
+        <div class="max-w-2xl mx-auto px-4 relative">
+            <div class="text-center mb-10 sm:mb-12 reveal">
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="calc_badge">أداة مجانية</span>
+                <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="calc_title">حاسبة السعرات الحرارية (TDEE)</h2>
+                <p class="text-zinc-400 text-xs sm:text-sm" data-i18n="calc_sub">احسب سعراتك اليومية واعرف كم تحتاج لتخسيس الوزن أو بناء العضلات</p>
+            </div>
+
+            <div class="reveal bg-surface border border-line p-5 sm:p-8 rounded-3xl shadow-xl">
+                <form id="calorieForm" onsubmit="calculateCalories(event)" class="space-y-4 sm:space-y-5">
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex flex-col">
+                            <label class="block text-xs font-bold text-zinc-300 mb-2 h-4 flex items-center" data-i18n="calc_gender">الجنس</label>
+                            <select id="gender" class="w-full bg-ink border border-line rounded-xl px-3 py-3 text-sm text-zinc-100 focus:outline-none focus:border-accent">
+                                <option value="male" data-i18n="calc_male">ذكر</option>
+                                <option value="female" data-i18n="calc_female">أنثى</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="block text-xs font-bold text-zinc-300 mb-2 h-4 flex items-center" data-i18n="calc_age">العمر (سنوات)</label>
+                            <input type="number" id="age" required placeholder="25" class="w-full bg-ink border border-line rounded-xl px-3 py-3 text-sm text-zinc-100 focus:outline-none focus:border-accent">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex flex-col">
+                            <label class="block text-xs font-bold text-zinc-300 mb-2 h-4 flex items-center" data-i18n="calc_weight">الوزن (كغ)</label>
+                            <input type="number" id="weight" required placeholder="75" class="w-full bg-ink border border-line rounded-xl px-3 py-3 text-sm text-zinc-100 focus:outline-none focus:border-accent">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="block text-xs font-bold text-zinc-300 mb-2 h-4 flex items-center" data-i18n="calc_height">الطول (سم)</label>
+                            <input type="number" id="height" required placeholder="175" class="w-full bg-ink border border-line rounded-xl px-3 py-3 text-sm text-zinc-100 focus:outline-none focus:border-accent">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-zinc-300 mb-2" data-i18n="calc_activity">مستوى النشاط البدني</label>
+                        <select id="activity" class="w-full bg-ink border border-line rounded-xl px-4 py-3 text-sm text-zinc-100 focus:outline-none focus:border-accent">
+                            <option value="1.2" data-i18n="act_1">قليل الحركة (لا توجد تمارين تقريباً)</option>
+                            <option value="1.375" data-i18n="act_2">خفيف الحركة (تمرين خفيف 1-3 أيام بالأسبوع)</option>
+                            <option value="1.55" data-i18n="act_3">متوسط الحركة (تمرين متوسط 3-5 أيام بالأسبوع)</option>
+                            <option value="1.725" data-i18n="act_4">نشيط جداً (تمرين مكثف 6-7 أيام بالأسبوع)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-accent hover:brightness-110 text-ink font-extrabold py-3.5 rounded-xl transition duration-300 text-sm shadow-lg shadow-accent/20 cursor-pointer" data-i18n="calc_btn">
+                        احسب سعراتي الآن
+                    </button>
+                </form>
+
+                <div id="calcResult" class="hidden mt-8 pt-6 border-t border-line text-center">
+                    <h3 class="font-bold text-base sm:text-lg mb-4 text-accent" data-i18n="res_title">نتيجتك التقديرية اليومية:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                        <div class="bg-ink/70 p-3 rounded-xl border border-line">
+                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_maintain">سعرات الثبات</div>
+                            <div id="resMaintain" class="font-display text-xl sm:text-2xl text-zinc-100 tracking-wide">0</div>
+                        </div>
+                        <div class="bg-ink/70 p-3 rounded-xl border border-line">
+                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_cut">التنشيف (خسارة وزن)</div>
+                            <div id="resCut" class="font-display text-xl sm:text-2xl text-accent tracking-wide">0</div>
+                        </div>
+                        <div class="bg-ink/70 p-3 rounded-xl border border-line">
+                            <div class="text-xs text-zinc-400 mb-1" data-i18n="res_bulk">الضخامة (بناء عضلات)</div>
+                            <div id="resBulk" class="font-display text-xl sm:text-2xl text-accent tracking-wide">0</div>
+                        </div>
+                    </div>
+                    <a id="waResultBtn" href="#" target="_blank" class="w-full bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-bold py-3 rounded-xl transition duration-300 text-xs sm:text-sm block text-center" data-i18n="res_wa">
+                        أرسل نتيجتي للكابتن أنس وابدأ خطتك 🟢
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- دليل السعرات الغذائية -->
+    <section class="py-16 sm:py-24 border-t border-line">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-12 reveal">
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="food_badge">أداة مجانية</span>
+                <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="food_title">دليل السعرات الغذائية</h2>
+                <p class="text-zinc-400 text-sm sm:text-base" data-i18n="food_sub">دور عن أي أكلة واعرف سعراتها وبروتينها وكاربها ودهونها لكل 100غ</p>
+            </div>
+
+            <div class="reveal max-w-3xl mx-auto mb-6">
+                <input type="text" id="foodSearchInput" placeholder="دور عن أكلة... (مثلاً: دجاج، سلمون، حليب)" class="w-full bg-surface border border-line rounded-xl px-4 py-3.5 text-sm text-zinc-100 focus:outline-none focus:border-accent placeholder:text-zinc-600">
+            </div>
+
+            <div id="foodCategoryTabs" class="reveal flex overflow-x-auto packages-slider gap-2 mb-8 pb-1"></div>
+
+            <div id="foodResultsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
+
+            <div id="foodEmptyState" class="hidden text-center text-zinc-500 text-sm py-10" data-i18n="food_empty">
+                ما لقينا نتيجة، جرب كلمة تانية
+            </div>
+        </div>
+    </section>
+
+    <!-- الأسئلة الشائعة -->
+    <section class="py-16 sm:py-24 border-t border-line">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex">03</span>
+                <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="faq_heading">الأسئلة الشائعة</h2>
+                <p class="text-zinc-400 text-sm sm:text-base" data-i18n="faq_sub">كل ما تحتاج معرفته قبل البدء</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="reveal bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
+                    <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="faq1_q">هل البرامج تناسب المبتدئين؟</h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq1_a">نعم، يتم تصميم الجدول بناءً على مستواك الحالي تماماً، سواء كنت مبتدئاً تبدأ خطواتك الأولى أو محترفاً تبحث عن كسر الثبات.</p>
+                </div>
+                <div class="reveal bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
+                    <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="faq2_q">كيف يتم التواصل واستلام الجداول؟</h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq2_a">يتم التواصل بشكل مباشر بالكامل عبر محادثة الواتساب فور إتمام الاشتراك، حيث تستلم جداولك وتتابع تقاريرك بكل سهولة.</p>
+                </div>
+                <div class="reveal bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
+                    <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="faq3_q">هل النظام الغذائي يحرمنا من الأكل المعتاد؟</h3>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq3_a">أبداً، نعتمد على نظام مرن (Flexible Diet) يناسب يومك ويهدف للاستمرارية بدون قيود معقدة أو حرمان قاسي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden cut-top pt-16 sm:pt-24 pb-16 sm:pb-24 border-t border-line bg-inkAlt text-center track-grid">
+        <div class="max-w-3xl mx-auto px-4 reveal">
+            <h2 class="text-2xl sm:text-4xl font-black mb-4" data-i18n="cta_title">لا تنتظر غداً، القرار يبدأ اليوم!</h2>
+            <p class="text-zinc-400 text-sm sm:text-base mb-8 max-w-xl mx-auto" data-i18n="cta_desc">تواصل معنا مباشرة الآن ودعنا نبدأ خطة تطوير جسمك خطوة بخطوة.</p>
+            <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أريد%20البدء%20معك%20الآن" target="_blank" class="inline-flex bg-accent hover:brightness-110 text-ink font-extrabold text-base sm:text-lg px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition duration-300 shadow-xl shadow-accent/25 items-center gap-3">
+                <span data-i18n="cta_btn">تواصل مع الكابتن أنس الآن</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="border-t border-line py-8 text-center text-zinc-600 text-xs sm:text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <a href="https://www.instagram.com/anas_osman87" target="_blank" rel="noopener" aria-label="Instagram" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-line text-zinc-500 hover:text-accent hover:border-accent transition duration-300">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1.1-.4-2.3-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.3 2.3-.4 1.3-.1 1.7-.1 4.9-.1zM12 0C8.7 0 8.3 0 7 .1c-1.3.1-2.2.3-3 .6-.8.3-1.5.7-2.2 1.4C1.1 2.8.7 3.5.4 4.3c-.3.8-.5 1.7-.6 3C-.2 8.6-.2 9-.2 12.3s0 3.7.1 5c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.2C21.2 1.1 20.5.7 19.7.4c-.8-.3-1.7-.5-3-.6C15.4 0 15 0 12 0z"/>
+                        <path d="M12 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                        <circle cx="18.4" cy="5.6" r="1.4"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@anasosman7" target="_blank" rel="noopener" aria-label="TikTok" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-line text-zinc-500 hover:text-accent hover:border-accent transition duration-300">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M16.6 5.82c-1-.87-1.6-2.13-1.6-3.5h-3.1v13.3a3.02 3.02 0 1 1-2.13-2.88V9.7a6.13 6.13 0 1 0 5.23 6.07V9.28a7.14 7.14 0 0 0 4.1 1.3V7.5c-.9 0-1.75-.28-2.5-.78z"/>
+                    </svg>
+                </a>
+                <a href="https://youtube.com/@anasosman364" target="_blank" rel="noopener" aria-label="YouTube" class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-line text-zinc-500 hover:text-accent hover:border-accent transition duration-300">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5V8.5L15.8 12l-6.2 3.5z"/>
+                    </svg>
+                </a>
+            </div>
             <p data-i18n="footer_text">© 2026 Anas Osman. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <!-- سكود الجافاسكريبت الخاص بالأداة المستقلة -->
-    <script>
-        const translations = {
-            ar: {
-                back_home: "الرئيسية",
-                food_badge: "أداة احترافية مجانية",
-                food_title: "دليل السعرات الغذائية",
-                food_sub: "ابحث عن أي طعام وتعرف على السعرات، البروتين، الكربوهيدرات، والدهون بدقة لكل 100 غرام.",
-                food_search_ph: "ابحث عن أكلة... (مثلاً: دجاج، سلمون، أرز، شوفان)",
-                food_empty: "لم يتم العثور على نتائج مطابقة، جرب كلمة بحث أخرى.",
-                food_per: "لكل 100غ",
-                food_protein: "بروتين",
-                food_carbs: "كارب",
-                food_fat: "دهون",
-                food_cat_all: "الكل",
-                food_cat_poultry: "دواجن",
-                food_cat_redmeat: "لحوم حمراء",
-                food_cat_fish: "أسماك وبحرية",
-                food_cat_dairy: "ألبان وبيض",
-                food_cat_grains: "حبوب وبقوليات",
-                food_cat_veg: "خضار",
-                food_cat_fruit: "فواكه",
-                food_cat_nuts: "مكسرات ودهون",
-                footer_text: "© 2026 Anas Osman. جميع الحقوق محفوظة."
-            },
-            en: {
-                back_home: "Home",
-                food_badge: "Free Pro Tool",
-                food_title: "Food Calorie Guide",
-                food_sub: "Search any food and get exact calories, protein, carbs, and fat per 100g.",
-                food_search_ph: "Search a food... (e.g. chicken, salmon, rice)",
-                food_empty: "No results found, try another search term.",
-                food_per: "per 100g",
-                food_protein: "Protein",
-                food_carbs: "Carbs",
-                food_fat: "Fat",
-                food_cat_all: "All",
-                food_cat_poultry: "Poultry",
-                food_cat_redmeat: "Red Meat",
-                food_cat_fish: "Fish & Seafood",
-                food_cat_dairy: "Dairy & Eggs",
-                food_cat_grains: "Grains & Legumes",
-                food_cat_veg: "Vegetables",
-                food_cat_fruit: "Fruits",
-                food_cat_nuts: "Nuts & Fats",
-                footer_text: "© 2026 Anas Osman. All rights reserved."
-            },
-            tr: {
-                back_home: "Ana Sayfa",
-                food_badge: "Ücretsiz Profesyonel Araç",
-                food_title: "Besin Kalori Rehberi",
-                food_sub: "Herhangi bir gıdayı arayın ve 100g başına kalori, protein, karbonhidrat ve yağ değerlerini öğrenin.",
-                food_search_ph: "Besin ara... (örn. tavuk, somon, pirinç)",
-                food_empty: "Sonuç bulunamadı, başka bir kelime deneyin.",
-                food_per: "100g başına",
-                food_protein: "Protein",
-                food_carbs: "Karbonhidrat",
-                food_fat: "Yağ",
-                food_cat_all: "Tümü",
-                food_cat_poultry: "Kümes Hayvanları",
-                food_cat_redmeat: "Kırmızı Et",
-                food_cat_fish: "Balık ve Deniz Ürünleri",
-                food_cat_dairy: "Süt Ürünleri ve Yumurta",
-                food_cat_grains: "Tahıllar ve Baklagiller",
-                food_cat_veg: "Sebzeler",
-                food_cat_fruit: "Meyveler",
-                food_cat_nuts: "Kuruyemiş ve Yağlar",
-                footer_text: "© 2026 Anas Osman. Tüm hakları saklıdır."
-            }
-        };
-
-        let currentLang = 'ar';
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            const root = document.getElementById('htmlRoot');
-            root.setAttribute('lang', lang);
-            root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-
-            const foodInput = document.getElementById('foodSearchInput');
-            if (foodInput && translations[lang].food_search_ph) {
-                foodInput.placeholder = translations[lang].food_search_ph;
-            }
-
-            ['ar', 'en', 'tr'].forEach(l => {
-                const btn = document.getElementById(`btn-${l}`);
-                if (btn) {
-                    if (l === lang) {
-                        btn.className = "px-2.5 py-1.5 rounded-lg transition duration-300 bg-accent text-ink";
-                    } else {
-                        btn.className = "px-2.5 py-1.5 rounded-lg transition duration-300 text-zinc-400 hover:text-zinc-100";
-                    }
-                }
-            });
-
-            renderFoodCategories();
-            renderFoodResults();
-        }
-
-        const foodData = [
-            { cat: "poultry", ar: "صدر دجاج مشوي بدون جلد", en: "Grilled Chicken Breast (skinless)", tr: "Izgara Tavuk Göğsü (derisiz)", kcal: 165, p: 31, c: 0, f: 3.6 },
-            { cat: "poultry", ar: "فخذ دجاج بالجلد مشوي", en: "Grilled Chicken Thigh (with skin)", tr: "Izgara Tavuk But (derili)", kcal: 250, p: 26, c: 0, f: 16 },
-            { cat: "poultry", ar: "دجاج كامل مشوي", en: "Whole Roasted Chicken", tr: "Bütün Fırın Tavuk", kcal: 215, p: 27, c: 0, f: 11 },
-            { cat: "poultry", ar: "كبدة دجاج مطهوة", en: "Cooked Chicken Liver", tr: "Pişmiş Tavuk Ciğeri", kcal: 167, p: 24.5, c: 0.9, f: 6.5 },
-            { cat: "poultry", ar: "ديك رومي مشوي (صدر)", en: "Grilled Turkey Breast", tr: "Izgara Hindi Göğsü", kcal: 135, p: 30, c: 0, f: 1 },
-            { cat: "redmeat", ar: "لحم بقر مفروم مطهو (80%)", en: "Cooked Ground Beef (80% lean)", tr: "Pişmiş Kıyma (%80 yağsız)", kcal: 254, p: 26, c: 0, f: 17 },
-            { cat: "redmeat", ar: "ستيك بقر لين مشوي", en: "Grilled Lean Beef Steak", tr: "Izgara Yağsız Biftek", kcal: 217, p: 26, c: 0, f: 12 },
-            { cat: "redmeat", ar: "لحم غنم (خروف) مشوي", en: "Grilled Lamb", tr: "Izgara Kuzu Eti", kcal: 294, p: 25, c: 0, f: 21 },
-            { cat: "redmeat", ar: "لحم عجل مشوي", en: "Grilled Veal", tr: "Izgara Dana Eti", kcal: 172, p: 27, c: 0, f: 6.8 },
-            { cat: "redmeat", ar: "كبدة بقر مطهوة", en: "Cooked Beef Liver", tr: "Pişmiş Sığır Ciğeri", kcal: 175, p: 26, c: 3.9, f: 4.9 },
-            { cat: "fish", ar: "سلمون مشوي", en: "Grilled Salmon", tr: "Izgara Somon", kcal: 208, p: 20, c: 0, f: 13 },
-            { cat: "fish", ar: "تونة طازجة مشوية", en: "Grilled Fresh Tuna", tr: "Izgara Taze Ton Balığı", kcal: 132, p: 28, c: 0, f: 1.3 },
-            { cat: "fish", ar: "تونة معلبة بالماء", en: "Canned Tuna in Water", tr: "Suda Konserve Ton Balığı", kcal: 116, p: 26, c: 0, f: 1 },
-            { cat: "fish", ar: "بلطي (تلابيا) مشوي", en: "Grilled Tilapia", tr: "Izgara Tilapya", kcal: 128, p: 26, c: 0, f: 2.7 },
-            { cat: "fish", ar: "جمبري (روبيان) مسلوق", en: "Boiled Shrimp", tr: "Haşlanmış Karides", kcal: 99, p: 24, c: 0.2, f: 0.3 },
-            { cat: "dairy", ar: "حليب كامل الدسم", en: "Whole Milk", tr: "Tam Yağlı Süt", kcal: 61, p: 3.2, c: 4.8, f: 3.3 },
-            { cat: "dairy", ar: "لبن يوناني قليل الدسم", en: "Low-Fat Greek Yogurt", tr: "Az Yağlı Yunan Yoğurdu", kcal: 59, p: 10, c: 3.6, f: 0.4 },
-            { cat: "dairy", ar: "جبنة قريش", en: "Cottage Cheese", tr: "Lor Peyniri", kcal: 98, p: 11, c: 3.4, f: 4.3 },
-            { cat: "dairy", ar: "بيضة كاملة مسلوقة", en: "Boiled Whole Egg", tr: "Haşlanmış Yumurta", kcal: 155, p: 13, c: 1.1, f: 11 },
-            { cat: "dairy", ar: "بياض بيض فقط", en: "Egg White Only", tr: "Sadece Yumurta Akı", kcal: 52, p: 11, c: 0.7, f: 0.2 },
-            { cat: "grains", ar: "أرز أبيض مطبوخ", en: "Cooked White Rice", tr: "Pişmiş Beyaz Pirinç", kcal: 130, p: 2.7, c: 28, f: 0.3 },
-            { cat: "grains", ar: "أرز بني مطبوخ", en: "Cooked Brown Rice", tr: "Pişmiş Esmer Pirinç", kcal: 111, p: 2.6, c: 23, f: 0.9 },
-            { cat: "grains", ar: "شوفان جاف", en: "Dry Oats", tr: "Kuru Yulaf", kcal: 389, p: 17, c: 66, f: 7 },
-            { cat: "grains", ar: "مكرونة مطبوخة", en: "Cooked Pasta", tr: "Pişmiş Makarna", kcal: 131, p: 5, c: 25, f: 1.1 },
-            { cat: "grains", ar: "عدس مطبوخ", en: "Cooked Lentils", tr: "Pişmiş Mercimek", kcal: 116, p: 9, c: 20, f: 0.4 },
-            { cat: "grains", ar: "حمص مطبوخ", en: "Cooked Chickpeas", tr: "Pişmiş Nohut", kcal: 164, p: 9, c: 27, f: 2.6 },
-            { cat: "veg", ar: "بطاطا مسلوقة", en: "Boiled Potato", tr: "Haşlanmış Patates", kcal: 87, p: 1.9, c: 20, f: 0.1 },
-            { cat: "veg", ar: "بطاطا حلوة مشوية", en: "Baked Sweet Potato", tr: "Fırın Tatlı Patates", kcal: 90, p: 2, c: 21, f: 0.1 },
-            { cat: "veg", ar: "بروكلي مسلوق", en: "Boiled Broccoli", tr: "Haşlanmış Brokoli", kcal: 35, p: 2.4, c: 7, f: 0.4 },
-            { cat: "fruit", ar: "موز", en: "Banana", tr: "Muz", kcal: 89, p: 1.1, c: 23, f: 0.3 },
-            { cat: "fruit", ar: "تفاح", en: "Apple", tr: "Elma", kcal: 52, p: 0.3, c: 14, f: 0.2 },
-            { cat: "fruit", ar: "تمر مجفف", en: "Dried Dates", tr: "Kuru Hurma", kcal: 282, p: 2.5, c: 75, f: 0.4 },
-            { cat: "nuts", ar: "لوز", en: "Almonds", tr: "Badem", kcal: 579, p: 21, c: 22, f: 50 },
-            { cat: "nuts", ar: "جوز", en: "Walnuts", tr: "Ceviz", kcal: 654, p: 15, c: 14, f: 65 },
-            { cat: "nuts", ar: "زيت زيتون", en: "Olive Oil", tr: "Zeytinyağı", kcal: 884, p: 0, c: 0, f: 100 }
-        ];
-
-        const foodCategories = ["all", "poultry", "redmeat", "fish", "dairy", "grains", "veg", "fruit", "nuts"];
-        let activeFoodCategory = "all";
-
-        function renderFoodCategories() {
-            const wrap = document.getElementById('foodCategoryTabs');
-            if (!wrap) return;
-            wrap.innerHTML = foodCategories.map(cat => {
-                const label = translations[currentLang][`food_cat_${cat}`];
-                const active = cat === activeFoodCategory;
-                const cls = active
-                    ? "bg-accent text-ink border-accent font-extrabold"
-                    : "bg-surface text-zinc-400 border-line hover:border-accent/50 hover:text-zinc-200 font-medium";
-                return `<button type="button" data-cat="${cat}" class="food-cat-btn shrink-0 whitespace-nowrap px-4 py-2 rounded-xl border text-xs transition duration-200 ${cls}">${label}</button>`;
-            }).join('');
-
-            wrap.querySelectorAll('.food-cat-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    activeFoodCategory = btn.getAttribute('data-cat');
-                    renderFoodCategories();
-                    renderFoodResults();
-                });
-            });
-        }
-
-        function renderFoodResults() {
-            const grid = document.getElementById('foodResultsGrid');
-            const empty = document.getElementById('foodEmptyState');
-            if (!grid) return;
-
-            const query = (document.getElementById('foodSearchInput')?.value || "").trim().toLowerCase();
-            const t = translations[currentLang];
-
-            const results = foodData.filter(item => {
-                const matchesCat = activeFoodCategory === "all" || item.cat === activeFoodCategory;
-                const haystack = `${item.ar} ${item.en} ${item.tr}`.toLowerCase();
-                const matchesQuery = query === "" || haystack.includes(query);
-                return matchesCat && matchesQuery;
-            });
-
-            if (results.length === 0) {
-                grid.innerHTML = "";
-                if (empty) empty.classList.remove('hidden');
-                return;
-            }
-            if (empty) empty.classList.add('hidden');
-
-            grid.innerHTML = results.map(item => {
-                const name = item[currentLang] || item.ar;
-                const catLabel = t[`food_cat_${item.cat}`];
-                return `
-                <div class="bg-surface border border-line rounded-2xl p-4 flex flex-col justify-between gap-3 shadow-md hover:border-accent/40 transition duration-300">
-                    <div class="flex items-start justify-between gap-2">
-                        <h4 class="font-bold text-sm text-zinc-100 leading-snug">${name}</h4>
-                        <span class="shrink-0 text-[10px] text-zinc-400 bg-ink px-2.5 py-1 rounded-lg border border-line whitespace-nowrap">${catLabel}</span>
-                    </div>
-                    <div class="flex items-end justify-between pt-2 border-t border-line/60">
-                        <div class="flex items-baseline gap-1">
-                            <span class="font-display text-3xl text-accent leading-none">${item.kcal}</span>
-                            <span class="text-[11px] text-zinc-400">kcal <span class="text-zinc-600">(${t.food_per})</span></span>
-                        </div>
-                        <div class="flex gap-2 text-[11px] text-zinc-300 bg-ink/70 px-2.5 py-1 rounded-lg border border-line">
-                            <span title="Protein"><b class="text-accent">P:</b> ${item.p}g</span>
-                            <span title="Carbs"><b class="text-accent">C:</b> ${item.c}g</span>
-                            <span title="Fat"><b class="text-accent">F:</b> ${item.f}g</span>
-                        </div>
-                    </div>
-                </div>`;
-            }).join('');
-        }
-
-        document.getElementById('foodSearchInput').addEventListener('input', renderFoodResults);
-        renderFoodCategories();
-        renderFoodResults();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
