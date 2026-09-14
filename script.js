@@ -7,7 +7,7 @@
             ar: {
                 nav_start: "ابدأ الآن",
                 hero_badge: "تدريب شخصي أونلاين 1 على 1",
-                hero_title: 'اصنع نسختك الأفضل وابنِ جسماً <span class="text-accent">قوياً وعضلات صلبة</span>',
+                hero_title: 'اصنع نسختك الأفضل وابنِ جسماً <span class="gradient-text">قوياً وعضلات صلبة</span>',
                 hero_desc: "برامج تدريبية وتغذية مخصصة بالكامل لأهدافك، مصممة خصيصاً لتتناسب مع جدولك اليومي ونمط حياتك دون تعقيد.",
                 hero_cta: "احجز تدريبك الآن عبر واتساب",
                 about_badge: "خبرة واحترافية",
@@ -60,6 +60,9 @@
                 food_cat_veg: "خضار",
                 food_cat_fruit: "فواكه",
                 food_cat_nuts: "مكسرات ودهون",
+                sec_features: "المميزات",
+                sec_packages: "الباقات",
+                sec_faq: "الدعم والاستفسارات",
                 food_select_category: "اختار النوع",
                 food_select_item: "اختار الصنف",
                 food_choose_prompt: "اختار النوع والصنف فوق لتشوف التفاصيل",
@@ -119,7 +122,7 @@
             en: {
                 nav_start: "Start Now",
                 hero_badge: "1-on-1 Online Personal Training",
-                hero_title: 'Build Your Best Version & <span class="text-accent">Solid Muscle Mass</span>',
+                hero_title: 'Build Your Best Version & <span class="gradient-text">Solid Muscle Mass</span>',
                 hero_desc: "Fully customized workout and nutrition programs tailored entirely to your goals, lifestyle, and daily schedule.",
                 hero_cta: "Book Your Training via WhatsApp",
                 about_badge: "Experience & Professionalism",
@@ -172,6 +175,9 @@
                 food_cat_veg: "Vegetables",
                 food_cat_fruit: "Fruits",
                 food_cat_nuts: "Nuts & Fats",
+                sec_features: "Features",
+                sec_packages: "Packages",
+                sec_faq: "Support & FAQ",
                 food_select_category: "Choose Category",
                 food_select_item: "Choose Food",
                 food_choose_prompt: "Pick a category and food above to see the details",
@@ -231,7 +237,7 @@
             tr: {
                 nav_start: "Şimdi Başla",
                 hero_badge: "1'e 1 Çevrimiçi Kişisel Koçluk",
-                hero_title: 'En İyi Versiyonunuzu Yaratın ve <span class="text-accent">Güçlü Kaslar İnşa Edin</span>',
+                hero_title: 'En İyi Versiyonunuzu Yaratın ve <span class="gradient-text">Güçlü Kaslar İnşa Edin</span>',
                 hero_desc: "Hedeflerinize, günlük rutininize ve yaşam tarzınıza tamamen uygun, kişiselleştirilmiş antrenman ve beslenme programları.",
                 hero_cta: "WhatsApp Üzerinden Hemen Başvur",
                 about_badge: "Deneyim ve Profesyonellik",
@@ -284,6 +290,9 @@
                 food_cat_veg: "Sebzeler",
                 food_cat_fruit: "Meyveler",
                 food_cat_nuts: "Kuruyemiş ve Yağlar",
+                sec_features: "Özellikler",
+                sec_packages: "Paketler",
+                sec_faq: "Destek ve SSS",
                 food_select_category: "Kategori Seç",
                 food_select_item: "Besin Seç",
                 food_choose_prompt: "Detayları görmek için yukarıdan kategori ve besin seçin",
@@ -588,7 +597,7 @@
             card.innerHTML = `
                 <span class="text-xs text-zinc-500">${catLabel}</span>
                 <h3 class="font-black text-lg sm:text-xl mb-1">${name}</h3>
-                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-3">
+                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-3 donut-glow">
                     ${buildMacroDonut(proteinPct, carbPct, fatPct)}
                     <div class="absolute inset-0 flex flex-col items-center justify-center">
                         <span class="font-display text-3xl sm:text-4xl text-accent leading-none">${item.kcal}</span>
@@ -661,4 +670,52 @@
             revealEls.forEach(el => io.observe(el));
         } else {
             revealEls.forEach(el => el.classList.add('in'));
+        }
+
+        // عداد أرقام متحرك (count-up) للإحصائيات عند ظهورها بالشاشة
+        const countEls = document.querySelectorAll('[data-count-to]');
+        function animateCount(el) {
+            const target = parseFloat(el.getAttribute('data-count-to')) || 0;
+            const suffix = el.getAttribute('data-count-suffix') || '';
+            const duration = 1400;
+            const start = performance.now();
+            function tick(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                const value = Math.round(target * eased);
+                el.textContent = value + suffix;
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+        if ('IntersectionObserver' in window && countEls.length) {
+            const countIo = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCount(entry.target);
+                        countIo.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            countEls.forEach(el => countIo.observe(el));
+        } else {
+            countEls.forEach(el => {
+                const target = el.getAttribute('data-count-to');
+                const suffix = el.getAttribute('data-count-suffix') || '';
+                el.textContent = target + suffix;
+            });
+        }
+
+        // شريط تقدّم التمرير أعلى الصفحة
+        const scrollProgressBar = document.getElementById('scrollProgress');
+        if (scrollProgressBar) {
+            const updateScrollProgress = () => {
+                const doc = document.documentElement;
+                const scrollTop = doc.scrollTop || document.body.scrollTop;
+                const scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
+                const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+                scrollProgressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+            };
+            window.addEventListener('scroll', updateScrollProgress, { passive: true });
+            updateScrollProgress();
         }

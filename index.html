@@ -62,6 +62,7 @@
 </head>
 <body class="bg-ink text-zinc-100 antialiased selection:bg-accent selection:text-ink overflow-x-hidden relative">
 
+    <div id="scrollProgress" class="scroll-progress"></div>
     <div class="grain"></div>
 
     <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاستفسار%20عن%20الاشتراك" target="_blank" class="fixed bottom-5 left-5 z-50 bg-whatsapp hover:bg-whatsappDark text-zinc-950 p-3.5 sm:p-4 rounded-full shadow-2xl transition duration-300 flex items-center justify-center hover:scale-110">
@@ -74,7 +75,7 @@
     <header class="sticky top-0 z-40 bg-ink/90 backdrop-blur-md border-b border-line">
         <div class="max-w-6xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
             <div class="font-display text-2xl sm:text-3xl tracking-widest uppercase leading-none">
-                ANAS <span class="text-accent">OSMAN</span>
+                ANAS <span class="gradient-text">OSMAN</span>
             </div>
 
             <div class="flex items-center gap-1 bg-surface border border-line p-1 rounded-xl text-xs font-bold">
@@ -91,6 +92,9 @@
 
     <!-- HERO -->
     <section class="relative overflow-hidden hero-bg cut-bottom pb-16 sm:pb-24">
+        <div class="orb orb-float w-64 h-64 sm:w-96 sm:h-96 bg-accent/25 -top-10 -end-16"></div>
+        <div class="orb orb-float-delay w-48 h-48 sm:w-72 sm:h-72 bg-[#FFC93C]/10 bottom-0 -start-10"></div>
+
         <div class="pointer-events-none absolute -top-6 sm:-top-10 inset-x-0 flex justify-center select-none">
             <span class="ghost-num font-black text-[160px] sm:text-[280px] tracking-tighter">GO</span>
         </div>
@@ -100,16 +104,20 @@
                 تدريب شخصي أونلاين 1 على 1
             </div>
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.15] sm:leading-[1.1] mb-5 sm:mb-6" data-i18n="hero_title">
-                اصنع نسختك الأفضل وابنِ جسماً <span class="text-accent">قوياً وعضلات صلبة</span>
+                اصنع نسختك الأفضل وابنِ جسماً <span class="gradient-text">قوياً وعضلات صلبة</span>
             </h1>
             <p class="text-zinc-400 text-base sm:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2" data-i18n="hero_desc">
                 برامج تدريبية وتغذية مخصصة بالكامل لأهدافك، مصممة خصيصاً لتتناسب مع جدولك اليومي ونمط حياتك دون تعقيد.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
-                <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20التدريب%20الشخصي" target="_blank" class="bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-extrabold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition duration-300 shadow-xl shadow-whatsapp/25 flex items-center justify-center gap-3">
+                <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20التدريب%20الشخصي" target="_blank" class="btn-tactile btn-shine bg-whatsapp hover:bg-whatsappDark text-zinc-950 font-extrabold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition duration-300 shadow-xl shadow-whatsapp/25 flex items-center justify-center gap-3">
                     <span data-i18n="hero_cta">احجز تدريبك الآن عبر واتساب</span>
                 </a>
             </div>
+        </div>
+
+        <div class="scroll-cue absolute bottom-6 sm:bottom-10 inset-x-0 flex justify-center text-accent/70">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
     </section>
 
@@ -129,7 +137,7 @@
 
                     <div class="grid grid-cols-3 gap-2 sm:gap-6 pt-6 border-t border-line">
                         <div class="bg-ink/50 p-3 sm:p-5 rounded-2xl border border-line flex flex-col justify-center">
-                            <div class="font-display text-3xl sm:text-5xl text-accent leading-none mb-1.5">20+</div>
+                            <div class="font-display text-3xl sm:text-5xl text-accent leading-none mb-1.5" data-count-to="20" data-count-suffix="+">0+</div>
                             <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_1">سنوات خبرة طويلة</div>
                         </div>
                         <div class="bg-ink/50 p-3 sm:p-5 rounded-2xl border border-line flex flex-col justify-center">
@@ -137,7 +145,7 @@
                             <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_2">مدير النادي في مرسين</div>
                         </div>
                         <div class="bg-ink/50 p-3 sm:p-5 rounded-2xl border border-line flex flex-col justify-center">
-                            <div class="font-display text-3xl sm:text-5xl text-accent leading-none mb-1.5">100%</div>
+                            <div class="font-display text-3xl sm:text-5xl text-accent leading-none mb-1.5" data-count-to="100" data-count-suffix="%">0%</div>
                             <div class="text-zinc-400 text-[10px] sm:text-xs font-medium leading-tight" data-i18n="stat_3">شهادات واعتمادات دولية</div>
                         </div>
                     </div>
@@ -150,40 +158,40 @@
     <section class="border-t border-line bg-inkAlt py-16 sm:py-24">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-16 reveal">
-                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex">01</span>
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex gap-2"><span class="font-display">01</span><span data-i18n="sec_features">المميزات</span></span>
                 <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="features_heading">لماذا تختار الكابتن أنس عثمان؟</h2>
                 <p class="text-zinc-400 text-sm sm:text-base" data-i18n="features_sub">منهجية علمية واضحة تضمن لك الوصول لهدفك بكفاءة</p>
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="reveal hover-lift bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
                     <div class="card-tick absolute top-0 start-5"></div>
                     <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">🎯</div>
+                        <div class="icon-pop w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">🎯</div>
                         <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f1_title">خطط مخصصة 100%</h3>
                     </div>
                     <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f1_desc">لا توجد برامج جاهزة؛ كل خطوة تُبنى بناءً على وزنك، طولك، وهدفك الشخصي.</p>
                 </div>
-                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="reveal hover-lift bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
                     <div class="card-tick absolute top-0 start-5"></div>
                     <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">🥗</div>
+                        <div class="icon-pop w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">🥗</div>
                         <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f2_title">مرونة في التغذية</h3>
                     </div>
                     <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f2_desc">استمتع بأكل تحبه مع حساب السعرات والميكروز بدقة، وبدون حرمان قاسي.</p>
                 </div>
-                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="reveal hover-lift bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
                     <div class="card-tick absolute top-0 start-5"></div>
                     <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">📈</div>
+                        <div class="icon-pop w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">📈</div>
                         <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f3_title">متابعة مستمرة</h3>
                     </div>
                     <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f3_desc">تعديلات دورية على الجداول بناءً على استجابة جسمك وتقاريرك الأسبوعية.</p>
                 </div>
-                <div class="reveal bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                <div class="reveal hover-lift bg-surface border border-line p-3.5 sm:p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
                     <div class="card-tick absolute top-0 start-5"></div>
                     <div>
-                        <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">⏱️</div>
+                        <div class="icon-pop w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-accent/60 text-accent flex items-center justify-center font-bold text-base sm:text-xl mb-2.5 sm:mb-4 mt-2">⏱️</div>
                         <h3 class="font-bold text-xs sm:text-lg mb-1 sm:mb-2" data-i18n="f4_title">توفير الوقت والجهد</h3>
                     </div>
                     <p class="text-zinc-400 text-[11px] sm:text-sm leading-relaxed" data-i18n="f4_desc">تمارين ذكية ومدروسة تعطيك أقصى نتيجة ممكنة في أقل وقت.</p>
@@ -196,7 +204,7 @@
     <section class="py-16 sm:py-24 border-t border-line">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 sm:mb-16 reveal">
-                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex">02</span>
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex gap-2"><span class="font-display">02</span><span data-i18n="sec_packages">الباقات</span></span>
                 <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="packages_heading">الباقات والخدمات</h2>
                 <p class="text-zinc-400 text-sm sm:text-base" data-i18n="packages_sub">اختر البرنامج الذي يناسب طموحك وابدأ الرحلة اليوم</p>
             </div>
@@ -204,7 +212,7 @@
             <div id="packagesSlider" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible packages-slider pb-4 sm:pb-0 px-4 sm:px-0 snap-x snap-mandatory">
 
                 <!-- باقة 1 -->
-                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative">
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative hover-lift">
                     <div class="font-display text-line text-4xl absolute top-4 end-5 -z-0" style="color:#2A2D33">01</div>
                     <div class="relative">
                         <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p1_badge">تغذية فقط</span>
@@ -222,7 +230,7 @@
                 </div>
 
                 <!-- باقة 2 -->
-                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative">
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative hover-lift">
                     <div class="font-display text-4xl absolute top-4 end-5 -z-0" style="color:#2A2D33">02</div>
                     <div class="relative">
                         <span class="text-zinc-500 text-xs font-bold uppercase tracking-wider" data-i18n="p2_badge">تمرين فقط</span>
@@ -240,7 +248,7 @@
                 </div>
 
                 <!-- باقة 3 (VIP) -->
-                <div class="min-w-[82%] sm:min-w-0 bg-surface border-2 border-accent p-6 rounded-3xl flex flex-col justify-between relative shadow-xl shadow-accent/10 snap-center shrink-0 overflow-hidden">
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border-2 border-accent p-6 rounded-3xl flex flex-col justify-between relative shadow-xl shadow-accent/10 snap-center shrink-0 overflow-hidden vip-pulse vip-border hover-lift">
                     <div class="ribbon" data-i18n="p3_badge">الأكثر طلباً</div>
                     <div class="relative mt-4">
                         <h3 class="text-xl font-black mt-2 mb-3" data-i18n="p3_title">الباقة الشاملة (VIP)</h3>
@@ -251,13 +259,13 @@
                             <li class="flex items-center gap-2"><span class="text-accent">✓</span> <span data-i18n="p3_li3">دعم مباشر ومستمر عبر واتساب</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20الباقة%20الشاملة%20VIP" target="_blank" class="relative w-full bg-accent hover:brightness-110 text-ink font-bold py-3 rounded-xl transition duration-300 text-center block shadow-lg shadow-accent/20 text-sm" data-i18n="p3_btn">
+                    <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أرغب%20بالاشتراك%20في%20الباقة%20الشاملة%20VIP" target="_blank" class="relative w-full btn-gradient btn-tactile btn-shine text-ink font-bold py-3 rounded-xl transition duration-300 text-center block shadow-lg shadow-accent/20 text-sm" data-i18n="p3_btn">
                         احجز الباقة الشاملة
                     </a>
                 </div>
 
                 <!-- باقة 4 -->
-                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative">
+                <div class="min-w-[82%] sm:min-w-0 bg-surface border border-line p-6 rounded-3xl flex flex-col justify-between snap-center shrink-0 relative hover-lift">
                     <div class="font-display text-4xl absolute top-4 end-5 -z-0" style="color:#2A2D33">04</div>
                     <div class="relative">
                         <span class="text-accent text-xs font-bold uppercase tracking-wider" data-i18n="p4_badge">تحدي التحول</span>
@@ -289,7 +297,7 @@
     <!-- قسم كتاب الكابتن -->
     <section class="py-14 sm:py-20 border-t border-line">
         <div class="max-w-4xl mx-auto px-4 reveal">
-            <div class="bg-surface border border-line rounded-3xl p-5 sm:p-10 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-6 sm:gap-10 items-center relative overflow-hidden">
+            <div class="bg-surface border border-line rounded-3xl p-5 sm:p-10 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-6 sm:gap-10 items-center relative overflow-hidden hover-lift">
                 <div class="pointer-events-none absolute -end-10 -top-10 w-56 h-56 rounded-full bg-accent/10 blur-3xl"></div>
 
                 <div class="relative mx-auto sm:mx-0">
@@ -298,14 +306,14 @@
                 </div>
 
                 <div class="relative text-center sm:text-start">
-                    <span class="lane-tick justify-center sm:justify-start text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="book_badge">كتاب الكابتن</span>
+                    <span class="lane-tick justify-center sm:justify-start text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex gap-2"><span class="font-display">03</span><span data-i18n="book_badge">كتاب الكابتن</span></span>
                     <h2 class="text-2xl sm:text-3xl font-black mb-2 leading-tight" data-i18n="book_title">نواميس الجسد</h2>
                     <p class="text-accent font-bold text-sm sm:text-base mb-3" data-i18n="book_subtitle">المرجع الشامل لبناء العضلات وأصول التغذية وقيادة الذات</p>
                     <p class="text-zinc-400 text-xs sm:text-sm mb-1" data-i18n="book_author">المدرب: أنس عثمان الجميلي</p>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 max-w-md mx-auto sm:mx-0" data-i18n="book_desc">
                         خلاصة سنوات من الخبرة العملية في التدريب، بين دفتي كتاب واحد يشرح أسس بناء العضلات، قواعد التغذية الصحيحة، وكيفية قيادة ذاتك نحو هدفك.
                     </p>
-                    <a href="https://play.google.com/store/books/details/%D8%A3%D9%86%D8%B3_%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A7%D9%84%D8%AC%D9%85%D9%8A%D9%84%D9%8A_%D9%86%D9%88%D8%A7%D9%85%D9%8A%D8%B3_%D8%A7%D9%84%D8%AC%D8%B3%D8%AF_%D8%A7%D9%84%D9%85%D8%B1%D8%AC%D8%B9_%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84_%D9%84%D8%A8%D9%86%D8%A7%D8%A1?id=8Zb3EQAAQBAJ" target="_blank" class="inline-flex items-center gap-2 bg-accent hover:brightness-110 text-ink font-extrabold px-6 py-3 rounded-xl transition duration-300 text-sm shadow-lg shadow-accent/20" data-i18n="book_btn">
+                    <a href="https://play.google.com/store/books/details/%D8%A3%D9%86%D8%B3_%D8%B9%D8%AB%D9%85%D8%A7%D9%86_%D8%A7%D9%84%D8%AC%D9%85%D9%8A%D9%84%D9%8A_%D9%86%D9%88%D8%A7%D9%85%D9%8A%D8%B3_%D8%A7%D9%84%D8%AC%D8%B3%D8%AF_%D8%A7%D9%84%D9%85%D8%B1%D8%AC%D8%B9_%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84_%D9%84%D8%A8%D9%86%D8%A7%D8%A1?id=8Zb3EQAAQBAJ" target="_blank" class="inline-flex items-center gap-2 btn-gradient btn-tactile btn-shine text-ink font-extrabold px-6 py-3 rounded-xl transition duration-300 text-sm shadow-lg shadow-accent/20" data-i18n="book_btn">
                         احصل على الكتاب الآن
                     </a>
                 </div>
@@ -317,7 +325,7 @@
     <section id="calorie-calculator" class="border-t border-line bg-inkAlt py-16 sm:py-24 relative overflow-hidden track-grid">
         <div class="max-w-2xl mx-auto px-4 relative">
             <div class="text-center mb-10 sm:mb-12 reveal">
-                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="calc_badge">أداة مجانية</span>
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex gap-2"><span class="font-display">04</span><span data-i18n="calc_badge">أداة مجانية</span></span>
                 <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="calc_title">حاسبة السعرات الحرارية (TDEE)</h2>
                 <p class="text-zinc-400 text-xs sm:text-sm" data-i18n="calc_sub">احسب سعراتك اليومية واعرف كم تحتاج لتخسيس الوزن أو بناء العضلات</p>
             </div>
@@ -360,7 +368,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="w-full bg-accent hover:brightness-110 text-ink font-extrabold py-3.5 rounded-xl transition duration-300 text-sm shadow-lg shadow-accent/20 cursor-pointer" data-i18n="calc_btn">
+                    <button type="submit" class="w-full btn-gradient btn-tactile btn-shine text-ink font-extrabold py-3.5 rounded-xl transition duration-300 text-sm shadow-lg shadow-accent/20 cursor-pointer" data-i18n="calc_btn">
                         احسب سعراتي الآن
                     </button>
                 </form>
@@ -393,7 +401,7 @@
     <section id="food-guide" class="py-16 sm:py-24 border-t border-line">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-8 sm:mb-12 reveal">
-                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex" data-i18n="food_badge">أداة مجانية</span>
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex gap-2"><span class="font-display">05</span><span data-i18n="food_badge">أداة مجانية</span></span>
                 <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="food_title">دليل السعرات الغذائية</h2>
                 <p class="text-zinc-400 text-sm sm:text-base" data-i18n="food_sub">دور عن أي أكلة واعرف سعراتها وبروتينها وكاربها ودهونها لكل 100غ</p>
             </div>
@@ -419,7 +427,7 @@
                 اختار النوع والصنف فوق لتشوف التفاصيل
             </div>
 
-            <div id="foodResultCard" class="hidden reveal in max-w-sm mx-auto bg-surface border border-line rounded-2xl p-6 sm:p-8 flex flex-col items-center gap-1 text-center"></div>
+            <div id="foodResultCard" class="hidden reveal in max-w-sm mx-auto bg-surface border border-line rounded-2xl p-6 sm:p-8 flex flex-col items-center gap-1 text-center hover-lift"></div>
         </div>
     </section>
 
@@ -427,21 +435,21 @@
     <section class="py-16 sm:py-24 border-t border-line">
         <div class="max-w-3xl mx-auto px-4">
             <div class="text-center mb-12 sm:mb-16 reveal">
-                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex">03</span>
+                <span class="lane-tick justify-center text-accent text-xs font-bold uppercase tracking-wider mb-3 inline-flex gap-2"><span class="font-display">06</span><span data-i18n="sec_faq">الدعم والاستفسارات</span></span>
                 <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="faq_heading">الأسئلة الشائعة</h2>
                 <p class="text-zinc-400 text-sm sm:text-base" data-i18n="faq_sub">كل ما تحتاج معرفته قبل البدء</p>
             </div>
 
             <div class="space-y-4">
-                <div class="reveal bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
+                <div class="reveal hover-lift bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
                     <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="faq1_q">هل البرامج تناسب المبتدئين؟</h3>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq1_a">نعم، يتم تصميم الجدول بناءً على مستواك الحالي تماماً، سواء كنت مبتدئاً تبدأ خطواتك الأولى أو محترفاً تبحث عن كسر الثبات.</p>
                 </div>
-                <div class="reveal bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
+                <div class="reveal hover-lift bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
                     <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="faq2_q">كيف يتم التواصل واستلام الجداول؟</h3>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq2_a">يتم التواصل بشكل مباشر بالكامل عبر محادثة الواتساب فور إتمام الاشتراك، حيث تستلم جداولك وتتابع تقاريرك بكل سهولة.</p>
                 </div>
-                <div class="reveal bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
+                <div class="reveal hover-lift bg-surface border border-line border-s-4 border-s-accent p-5 sm:p-6 rounded-2xl">
                     <h3 class="font-bold text-base sm:text-lg mb-2" data-i18n="faq3_q">هل النظام الغذائي يحرمنا من الأكل المعتاد؟</h3>
                     <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq3_a">أبداً، نعتمد على نظام مرن (Flexible Diet) يناسب يومك ويهدف للاستمرارية بدون قيود معقدة أو حرمان قاسي.</p>
                 </div>
@@ -453,7 +461,7 @@
         <div class="max-w-3xl mx-auto px-4 reveal">
             <h2 class="text-2xl sm:text-4xl font-black mb-4" data-i18n="cta_title">لا تنتظر غداً، القرار يبدأ اليوم!</h2>
             <p class="text-zinc-400 text-sm sm:text-base mb-8 max-w-xl mx-auto" data-i18n="cta_desc">تواصل معنا مباشرة الآن ودعنا نبدأ خطة تطوير جسمك خطوة بخطوة.</p>
-            <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أريد%20البدء%20معك%20الآن" target="_blank" class="inline-flex bg-accent hover:brightness-110 text-ink font-extrabold text-base sm:text-lg px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition duration-300 shadow-xl shadow-accent/25 items-center gap-3">
+            <a href="https://wa.me/905392728837?text=مرحباً%20كابتن%20أنس،%20أريد%20البدء%20معك%20الآن" target="_blank" class="inline-flex btn-gradient btn-tactile btn-shine text-ink font-extrabold text-base sm:text-lg px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition duration-300 shadow-xl shadow-accent/25 items-center gap-3">
                 <span data-i18n="cta_btn">تواصل مع الكابتن أنس الآن</span>
             </a>
         </div>
