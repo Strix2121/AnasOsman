@@ -1,7 +1,3 @@
-/* =============================================================
-   Anas Osman — Elite Coach
-   ملف الجافاسكريبت (JS) — الترجمة، الحاسبة، السلايدر، والتأثيرات
-   ============================================================= */
 
         const translations = {
             ar: {
@@ -375,7 +371,6 @@
                 }
             });
 
-            // تحديث دليل السعرات الغذائية (القوائم المنسدلة والنتيجة الظاهرة) عند تبديل اللغة
             if (typeof populateFoodCategorySelect === 'function') populateFoodCategorySelect();
             if (typeof populateFoodItemSelect === 'function') {
                 const catSel = document.getElementById('foodCategorySelect');
@@ -446,19 +441,13 @@
             document.getElementById('calcResult').classList.remove('hidden');
         }
 
-        /* =========================================================
-           دليل السعرات الغذائية — قاعدة بيانات + بحث وفلترة
-           القيم لكل 100 غرام (مطهو ما لم يذكر غير ذلك)
-           ========================================================= */
         const foodData = [
-            // دواجن
             { cat: "poultry", ar: "صدر دجاج مشوي بدون جلد", en: "Grilled Chicken Breast (skinless)", tr: "Izgara Tavuk Göğsü (derisiz)", kcal: 165, p: 31, c: 0, f: 3.6 },
             { cat: "poultry", ar: "فخذ دجاج بالجلد مشوي", en: "Grilled Chicken Thigh (with skin)", tr: "Izgara Tavuk But (derili)", kcal: 250, p: 26, c: 0, f: 16 },
             { cat: "poultry", ar: "دجاج كامل مشوي", en: "Whole Roasted Chicken", tr: "Bütün Fırın Tavuk", kcal: 215, p: 27, c: 0, f: 11 },
             { cat: "poultry", ar: "كبدة دجاج مطهوة", en: "Cooked Chicken Liver", tr: "Pişmiş Tavuk Ciğeri", kcal: 167, p: 24.5, c: 0.9, f: 6.5 },
             { cat: "poultry", ar: "ديك رومي مشوي (صدر)", en: "Grilled Turkey Breast", tr: "Izgara Hindi Göğsü", kcal: 135, p: 30, c: 0, f: 1 },
 
-            // لحوم حمراء
             { cat: "redmeat", ar: "لحم بقر مفروم مطهو (80%)", en: "Cooked Ground Beef (80% lean)", tr: "Pişmiş Kıyma (%80 yağsız)", kcal: 254, p: 26, c: 0, f: 17 },
             { cat: "redmeat", ar: "ستيك بقر لين مشوي", en: "Grilled Lean Beef Steak", tr: "Izgara Yağsız Biftek", kcal: 217, p: 26, c: 0, f: 12 },
             { cat: "redmeat", ar: "لحم غنم (خروف) مشوي", en: "Grilled Lamb", tr: "Izgara Kuzu Eti", kcal: 294, p: 25, c: 0, f: 21 },
@@ -466,7 +455,6 @@
             { cat: "redmeat", ar: "كبدة بقر مطهوة", en: "Cooked Beef Liver", tr: "Pişmiş Sığır Ciğeri", kcal: 175, p: 26, c: 3.9, f: 4.9 },
             { cat: "redmeat", ar: "كباب/لحم مشوي متبل", en: "Grilled Seasoned Kebab", tr: "Izgara Baharatlı Kebap", kcal: 250, p: 24, c: 1, f: 16 },
 
-            // أسماك ومأكولات بحرية
             { cat: "fish", ar: "سلمون مشوي", en: "Grilled Salmon", tr: "Izgara Somon", kcal: 208, p: 20, c: 0, f: 13 },
             { cat: "fish", ar: "تونة طازجة مشوية", en: "Grilled Fresh Tuna", tr: "Izgara Taze Ton Balığı", kcal: 132, p: 28, c: 0, f: 1.3 },
             { cat: "fish", ar: "تونة معلبة بالماء", en: "Canned Tuna in Water", tr: "Suda Konserve Ton Balığı", kcal: 116, p: 26, c: 0, f: 1 },
@@ -476,7 +464,6 @@
             { cat: "fish", ar: "سمك القد (Cod) مشوي", en: "Grilled Cod", tr: "Izgara Morina Balığı", kcal: 105, p: 23, c: 0, f: 0.9 },
             { cat: "fish", ar: "حبار مطهو", en: "Cooked Squid", tr: "Pişmiş Kalamar", kcal: 92, p: 15.6, c: 3.1, f: 1.4 },
 
-            // ألبان وبيض
             { cat: "dairy", ar: "حليب كامل الدسم", en: "Whole Milk", tr: "Tam Yağlı Süt", kcal: 61, p: 3.2, c: 4.8, f: 3.3 },
             { cat: "dairy", ar: "حليب قليل الدسم (2%)", en: "Low-Fat Milk (2%)", tr: "Yarım Yağlı Süt (%2)", kcal: 50, p: 3.3, c: 4.9, f: 2 },
             { cat: "dairy", ar: "حليب خالي الدسم", en: "Skim Milk", tr: "Yağsız Süt", kcal: 34, p: 3.4, c: 5, f: 0.2 },
@@ -489,7 +476,6 @@
             { cat: "dairy", ar: "بيضة كاملة مسلوقة", en: "Boiled Whole Egg", tr: "Haşlanmış Yumurta", kcal: 155, p: 13, c: 1.1, f: 11 },
             { cat: "dairy", ar: "بياض بيض فقط", en: "Egg White Only", tr: "Sadece Yumurta Akı", kcal: 52, p: 11, c: 0.7, f: 0.2 },
 
-            // حبوب وبقوليات
             { cat: "grains", ar: "أرز أبيض مطبوخ", en: "Cooked White Rice", tr: "Pişmiş Beyaz Pirinç", kcal: 130, p: 2.7, c: 28, f: 0.3 },
             { cat: "grains", ar: "أرز بني مطبوخ", en: "Cooked Brown Rice", tr: "Pişmiş Esmer Pirinç", kcal: 111, p: 2.6, c: 23, f: 0.9 },
             { cat: "grains", ar: "خبز أبيض", en: "White Bread", tr: "Beyaz Ekmek", kcal: 265, p: 9, c: 49, f: 3.2 },
@@ -501,7 +487,6 @@
             { cat: "grains", ar: "فول مطبوخ", en: "Cooked Fava Beans", tr: "Pişmiş Bakla", kcal: 110, p: 8, c: 20, f: 0.5 },
             { cat: "grains", ar: "كينوا مطبوخة", en: "Cooked Quinoa", tr: "Pişmiş Kinoa", kcal: 120, p: 4.4, c: 21, f: 1.9 },
 
-            // خضار
             { cat: "veg", ar: "بطاطا مسلوقة", en: "Boiled Potato", tr: "Haşlanmış Patates", kcal: 87, p: 1.9, c: 20, f: 0.1 },
             { cat: "veg", ar: "بطاطا حلوة مشوية", en: "Baked Sweet Potato", tr: "Fırın Tatlı Patates", kcal: 90, p: 2, c: 21, f: 0.1 },
             { cat: "veg", ar: "بروكلي مسلوق", en: "Boiled Broccoli", tr: "Haşlanmış Brokoli", kcal: 35, p: 2.4, c: 7, f: 0.4 },
@@ -510,7 +495,6 @@
             { cat: "veg", ar: "خيار", en: "Cucumber", tr: "Salatalık", kcal: 15, p: 0.7, c: 3.6, f: 0.1 },
             { cat: "veg", ar: "جزر", en: "Carrot", tr: "Havuç", kcal: 41, p: 0.9, c: 10, f: 0.2 },
 
-            // فواكه
             { cat: "fruit", ar: "موز", en: "Banana", tr: "Muz", kcal: 89, p: 1.1, c: 23, f: 0.3 },
             { cat: "fruit", ar: "تفاح", en: "Apple", tr: "Elma", kcal: 52, p: 0.3, c: 14, f: 0.2 },
             { cat: "fruit", ar: "برتقال", en: "Orange", tr: "Portakal", kcal: 47, p: 0.9, c: 12, f: 0.1 },
@@ -518,7 +502,6 @@
             { cat: "fruit", ar: "عنب", en: "Grapes", tr: "Üzüm", kcal: 69, p: 0.7, c: 18, f: 0.2 },
             { cat: "fruit", ar: "تمر مجفف", en: "Dried Dates", tr: "Kuru Hurma", kcal: 282, p: 2.5, c: 75, f: 0.4 },
 
-            // مكسرات ودهون
             { cat: "nuts", ar: "لوز", en: "Almonds", tr: "Badem", kcal: 579, p: 21, c: 22, f: 50 },
             { cat: "nuts", ar: "جوز", en: "Walnuts", tr: "Ceviz", kcal: 654, p: 15, c: 14, f: 65 },
             { cat: "nuts", ar: "فول سوداني", en: "Peanuts", tr: "Yer Fıstığı", kcal: 567, p: 26, c: 16, f: 49 },
@@ -528,10 +511,9 @@
 
         const foodCategories = ["poultry", "redmeat", "fish", "dairy", "grains", "veg", "fruit", "nuts"];
 
-        // ألوان توزيع الماكروز بالدائرة البيانية: أحمر = بروتين، أصفر = كارب، أبيض = دهون
         const MACRO_COLORS = { protein: "#FF4429", carbs: "#FFC93C", fat: "#F4F4F5" };
 
-        let selectedFoodIndex = null; // رقم الصنف المختار حالياً بالـ foodData، منشان نحافظ عليه لما تتبدل اللغة
+        let selectedFoodIndex = null;
 
         function populateFoodCategorySelect() {
             const sel = document.getElementById('foodCategorySelect');
@@ -655,8 +637,6 @@
         }
         initFoodGuide();
 
-
-        // scroll reveal
         const revealEls = document.querySelectorAll('.reveal');
         if ('IntersectionObserver' in window && revealEls.length) {
             const io = new IntersectionObserver((entries) => {
@@ -672,7 +652,6 @@
             revealEls.forEach(el => el.classList.add('in'));
         }
 
-        // عداد أرقام متحرك (count-up) للإحصائيات عند ظهورها بالشاشة
         const countEls = document.querySelectorAll('[data-count-to]');
         function animateCount(el) {
             const target = parseFloat(el.getAttribute('data-count-to')) || 0;
@@ -706,7 +685,6 @@
             });
         }
 
-        // شريط تقدّم التمرير أعلى الصفحة
         const scrollProgressBar = document.getElementById('scrollProgress');
         if (scrollProgressBar) {
             const updateScrollProgress = () => {
